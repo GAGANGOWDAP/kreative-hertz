@@ -46,6 +46,86 @@ import {
   KnowledgeArticle
 } from '@/lib/site-data'
 
+export const dynamicParams = false
+
+export async function generateStaticParams() {
+  const params: { slug: string[] }[] = []
+
+  // 1. Standalone pages handled by [...slug]
+  const standalonePages = [
+    'about',
+    'services',
+    'products',
+    'blog',
+    'wealth-architect',
+    'life-strategist',
+    'strategy',
+    'community',
+    'learn',
+    'earn',
+    'knowledge-hub',
+    'book-session',
+    'contact',
+    'faq',
+    'privacy',
+    'terms',
+    'disclaimer'
+  ]
+  standalonePages.forEach((page) => {
+    params.push({ slug: [page] })
+  })
+
+  // 2. Service categories: /services/:category
+  const serviceCategories = ['insurance', 'investments', 'loans', 'real-estate']
+  serviceCategories.forEach((cat) => {
+    params.push({ slug: ['services', cat] })
+  })
+
+  // 3. Service detail pages: /services/:id and /wealth-architect/:id
+  servicesData.forEach((s) => {
+    params.push({ slug: ['services', s.id] })
+    params.push({ slug: ['wealth-architect', s.id] })
+  })
+
+  // 4. Articles: /blog/:slug and /knowledge-hub/:slug
+  articles.forEach((a) => {
+    params.push({ slug: ['blog', a.slug] })
+    params.push({ slug: ['knowledge-hub', a.slug] })
+  })
+
+  // 5. Dedicated About subpages: /about/:sub
+  const aboutSubpages = [
+    'story',
+    'our-story',
+    'founder',
+    'leadership',
+    'philosophy',
+    'our-philosophy',
+    'approach',
+    'our-approach',
+    'community'
+  ]
+  aboutSubpages.forEach((sub) => {
+    params.push({ slug: ['about', sub] })
+  })
+
+  // 6. Dedicated Product subpages: /products/:sub
+  const productSubpages = [
+    'wealth-architect',
+    'life-strategist',
+    'financial-awareness',
+    'college-programmes',
+    'college-programs',
+    'corporate-programmes',
+    'corporate-programs'
+  ]
+  productSubpages.forEach((sub) => {
+    params.push({ slug: ['products', sub] })
+  })
+
+  return params
+}
+
 export default async function Subpage({ params }: { params: Promise<{ slug: string[] }> }) {
   const { slug } = await params
   const primarySlug = slug[0]

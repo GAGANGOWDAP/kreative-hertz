@@ -16,8 +16,12 @@ const inter = Inter({
   display: 'swap',
 })
 
+const isGithubPages = process.env.GITHUB_PAGES === 'true' || process.env.GITHUB_ACTIONS === 'true'
+const basePath = isGithubPages ? '/kreative-hertz' : ''
+const siteUrl = isGithubPages ? 'https://gagangowdap.github.io/kreative-hertz' : 'https://kreativehertz.in'
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://kreativehertz.in'),
+  metadataBase: new URL(siteUrl),
   title: {
     default: 'Kreative Hertz | Wealth Architect & Life Strategist | Complexity 2 Simplicity',
     template: '%s | Kreative Hertz'
@@ -43,18 +47,18 @@ export const metadata: Metadata = {
   creator: 'Kreative Hertz',
   publisher: 'Kreative Hertz',
   icons: {
-    icon: '/logo-icon.png',
-    apple: '/logo-icon.png',
-    shortcut: '/logo-icon.png'
+    icon: `${basePath}/logo-icon.png`,
+    apple: `${basePath}/logo-icon.png`,
+    shortcut: `${basePath}/logo-icon.png`
   },
   openGraph: {
     title: 'Kreative Hertz | Wealth Architect & Life Strategist',
     description: 'Transforming financial complexity into actionable simplicity through ethical protection and disciplined wealth architecture.',
-    url: 'https://kreativehertz.in',
+    url: siteUrl,
     siteName: 'Kreative Hertz',
     images: [
       {
-        url: '/logo-full.png',
+        url: `${siteUrl}/logo-full.png`,
         width: 1024,
         height: 1024,
         alt: 'Kreative Hertz - Complexity 2 Simplicity'
@@ -67,7 +71,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Kreative Hertz | Wealth Architect & Life Strategist',
     description: 'Transforming financial complexity into actionable simplicity through ethical protection and disciplined wealth architecture.',
-    images: ['/logo-full.png']
+    images: [`${siteUrl}/logo-full.png`]
   },
   robots: {
     index: true,

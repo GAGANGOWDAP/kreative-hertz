@@ -1,8 +1,11 @@
 import { MetadataRoute } from 'next'
 import { servicesData, articles } from '@/lib/site-data'
 
+export const dynamic = 'force-static'
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://kreativehertz.in'
+  const isGithubPages = process.env.GITHUB_PAGES === 'true' || process.env.GITHUB_ACTIONS === 'true'
+  const baseUrl = isGithubPages ? 'https://gagangowdap.github.io/kreative-hertz' : 'https://kreativehertz.in'
 
   const staticRoutes = [
     '',
