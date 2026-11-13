@@ -3,6 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { getAssetPath } from '@/lib/assets'
 
 export interface BrandLogoProps {
   onClick?: () => void
@@ -18,7 +19,7 @@ export function BrandLogo({ onClick }: BrandLogoProps) {
     >
       <div className="brand-crest">
         <Image
-          src="/logo-icon.png"
+          src={getAssetPath('/logo-icon.png')}
           alt="Kreative Hertz Crest"
           width={36}
           height={36}

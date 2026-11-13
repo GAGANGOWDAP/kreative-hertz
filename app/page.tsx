@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { getAssetPath } from '@/lib/assets'
 import {
   ArrowRight,
   ShieldCheck,
@@ -112,7 +113,7 @@ export default function HomePage() {
                 <div className="flex items-center gap-4 mb-6">
                   <div className="brand-crest w-14 h-14 flex-shrink-0">
                     <Image
-                      src="/logo-icon.png"
+                      src={getAssetPath('/logo-icon.png')}
                       alt="Kreative Hertz Crest"
                       width={44}
                       height={44}

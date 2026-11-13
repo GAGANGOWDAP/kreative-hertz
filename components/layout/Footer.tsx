@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Phone, Mail, MapPin, MessageCircle, ShieldCheck } from 'lucide-react'
+import { getAssetPath } from '@/lib/assets'
 import { companyDetails } from '@/content/company/company-info'
 import { primaryNavItems } from '@/content/navigation/main-navigation'
 import { footerLegalLinks, regulatoryDisclosures } from '@/content/navigation/footer-navigation'
@@ -25,7 +26,7 @@ export function Footer() {
             >
               <div className="w-10 h-10 rounded-lg bg-[#0A1E17] border border-[#C6A15B]/50 flex items-center justify-center p-1.5 shadow-md group-hover:border-[#C6A15B] transition-colors flex-shrink-0">
                 <Image
-                  src="/logo-icon.png"
+                  src={getAssetPath('/logo-icon.png')}
                   alt="Kreative Hertz Crest"
                   width={30}
                   height={30}

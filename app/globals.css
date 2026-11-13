@@ -323,6 +323,12 @@
   gap: 24px;
 }
 
+@media (max-width: 1279px) {
+  .nav-desktop-menu {
+    display: none !important;
+  }
+}
+
 .nav-anchor-item {
   font-family: var(--font-body);
   font-size: 0.9375rem;

@@ -924,7 +924,7 @@ export function RealEstateSection() {
                 </li>
               </ul>
             </div>
-            <Link href="/services/investment-property" className="btn-secondary text-xs py-2.5 justify-center">
+            <Link href="/services/residential-property" className="btn-secondary text-xs py-2.5 justify-center">
               <span>View Investment Specifications</span>
               <ArrowRight size={14} />
             </Link>

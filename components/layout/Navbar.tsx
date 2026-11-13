@@ -45,10 +45,10 @@ export function Navbar() {
         {/* =========================================================
             DESKTOP NAVIGATION (1280px+)
             EXACTLY 5 ITEMS: Home, About Us, Services, Products, Blog
-            ZERO dropdowns. ZERO mega menus. Clean, dedicated landing navigation.
+            ZERO dropdowns. ZERO mega menus. Hidden on mobile/tablet below 1280px.
            ========================================================= */}
         <nav
-          className="nav-desktop-menu"
+          className="hidden xl:flex nav-desktop-menu"
           aria-label="Main Desktop Navigation"
         >
           {primaryNavItems.map((item) => {
