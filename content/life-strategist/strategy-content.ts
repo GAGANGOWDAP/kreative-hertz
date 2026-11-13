@@ -40,6 +40,62 @@ export const personalFinanceAwareness = [
       'Mastering the impact of 7–10% healthcare and education inflation over decades',
       'Calculating true internal rate of return (XIRR) vs. misleading simple interest claims'
     ]
+  },
+  {
+    pillar: 'Protection',
+    title: 'Protection',
+    tagline: 'Pure Risk Transfer & Family Insulation',
+    subtitle: 'Pure Risk Transfer & Family Insulation',
+    desc: 'Securing catastrophic downside risk before chasing returns—locking in pure term life insurance sized to Human Life Value, and uncapped health insurance with zero room-rent sub-limits.',
+    description: 'Securing catastrophic downside risk before chasing returns—locking in pure term life insurance sized to Human Life Value, and uncapped health insurance with zero room-rent sub-limits.',
+    corePrinciples: [
+      'Human Life Value (HLV) calculation to ensure 15–20x annual income pure term coverage',
+      'Separating insurance from investment—strictly rejecting low-yield endowment and ULIP policies',
+      'Super Top-up health insurance architecture to guard against runaway medical inflation',
+      'Comprehensive critical illness and personal accidental disability risk transfer'
+    ]
+  },
+  {
+    pillar: 'Cash Flow',
+    title: 'Cash Flow & Budgeting',
+    tagline: 'Surplus Engineering & Spending Discipline',
+    subtitle: 'Surplus Engineering & Spending Discipline',
+    desc: 'Creating habitual monthly surpluses by living below means, maintaining 6–12 months of liquid emergency reserves, and enforcing automated zero-friction savings on payday.',
+    description: 'Creating habitual monthly surpluses by living below means, maintaining 6–12 months of liquid emergency reserves, and enforcing automated zero-friction savings on payday.',
+    corePrinciples: [
+      'Maintaining 6 to 12 months of non-negotiable emergency fund in high-liquidity instruments',
+      'Deploying the 50/30/20 cash allocation rule calibrated for Indian urban cost-of-living',
+      'Automating pay-yourself-first savings on the exact date income is credited',
+      'Conducting quarterly audits of recurring subscriptions, lifestyle creep, and expense leakage'
+    ]
+  },
+  {
+    pillar: 'Compounding',
+    title: 'Compounding & Investing',
+    tagline: 'Asset Allocation & Disciplined SIPs',
+    subtitle: 'Asset Allocation & Disciplined SIPs',
+    desc: 'Harnessing the mathematics of long-term wealth creation through disciplined equity mutual fund Step-Up SIPs, goal-linked asset allocation, and multi-decade holding horizons.',
+    description: 'Harnessing the mathematics of long-term wealth creation through disciplined equity mutual fund Step-Up SIPs, goal-linked asset allocation, and multi-decade holding horizons.',
+    corePrinciples: [
+      'Annual 10–15% Step-Up SIPs to exponentially compress retirement milestone horizons',
+      'Goal-based portfolio diversification across large-cap, mid-cap, flexi-cap, and debt funds',
+      'Ignoring daily financial media panic and maintaining unemotional SIP continuity',
+      'Rebalancing asset classes systematically to harvest gains and preserve capital'
+    ]
+  },
+  {
+    pillar: 'Debt Strategy',
+    title: 'Debt & Liability Management',
+    tagline: 'Borrowing Optimization & Freedom Architecture',
+    subtitle: 'Borrowing Optimization & Freedom Architecture',
+    desc: 'Treating borrowing as strategic leverage rather than a lifestyle crutch—benchmarking loans against EBLR, eliminating high-interest consumer credit, and optimizing repayment schedules.',
+    description: 'Treating borrowing as strategic leverage rather than a lifestyle crutch—benchmarking loans against EBLR, eliminating high-interest consumer credit, and optimizing repayment schedules.',
+    corePrinciples: [
+      'Strict elimination of 36–42% APR revolving credit card balances and high-cost personal loans',
+      'Benchmarking home loan interest against RBI repo-linked External Benchmark Lending Rates (EBLR)',
+      'Executing strategic principal prepayment schedules to save tens of lakhs in lifetime interest',
+      'Capping total monthly EMI obligations under 35–40% of net monthly take-home income'
+    ]
   }
 ]
 

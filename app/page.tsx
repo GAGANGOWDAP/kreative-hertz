@@ -27,7 +27,8 @@ import {
   ServicesExplorer,
   VisitorRequirementSelector,
   HowWeWorkSection,
-  InteractiveFaqList
+  InteractiveFaqList,
+  ExecutiveProfile
 } from '@/components/site'
 import { companyDetails, personalFinanceAwareness, articles } from '@/lib/site-data'
 
@@ -100,48 +101,9 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Card (5 Cols) - Real Institutional Identity (No floating widgets or fake dashboards) */}
+            {/* Right Card (5 Cols) - Premium Executive Identity */}
             <div className="lg:col-span-5">
-              <div className="institutional-card p-8 border-[#CAD9D0] bg-[#F7FAF8]">
-                <div className="flex items-center justify-between mb-6 border-b border-[#E2EBE5] pb-4">
-                  <span className="text-xs font-bold text-[#0A5A42] uppercase tracking-wider">
-                    Executive Profile
-                  </span>
-                  <span className="text-xs text-[#4F615A]">Bengaluru, India</span>
-                </div>
-
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="brand-crest w-14 h-14 flex-shrink-0">
-                    <Image
-                      src={getAssetPath('/logo-icon.png')}
-                      alt="Kreative Hertz Crest"
-                      width={44}
-                      height={44}
-                      className="object-contain"
-                    />
-                  </div>
-                  <div>
-                    <h2 className="text-lg font-bold text-[#142C3E]">Karthik R</h2>
-                    <p className="text-xs font-semibold text-[#0A5A42]">Wealth Architect | Life Strategist</p>
-                    <p className="text-xs text-[#4F615A] mt-0.5">Kreative Hertz • Complexity 2 Simplicity</p>
-                  </div>
-                </div>
-
-                <p className="text-xs text-[#4F615A] leading-relaxed mb-6">
-                  Advising families, professionals, and students on financial gap diagnosis, insurance portfolio audits, long-term compounding discipline, and debt optimization.
-                </p>
-
-                <div className="space-y-2 border-t border-[#E2EBE5] pt-4 text-xs text-[#142C3E]">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[#4F615A]">Primary Framework:</span>
-                    <span className="font-semibold">Understand · Analyse · Strategise</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[#4F615A]">Educational Core:</span>
-                    <span className="font-semibold">Mindset · Moral · Awareness</span>
-                  </div>
-                </div>
-              </div>
+              <ExecutiveProfile />
             </div>
           </div>
         </div>

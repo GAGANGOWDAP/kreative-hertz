@@ -30,8 +30,9 @@ import { SectionBadge } from './shared/SectionBadge'
 import { ServiceIcon, getServiceIcon } from './shared/ServiceIcon'
 import { InteractiveFaqList } from './shared/InteractiveFaqList'
 import { FloatingContactWidget } from './shared/FloatingContactWidget'
+import { ExecutiveProfile } from './shared/ExecutiveProfile'
 
-export { SectionBadge, ServiceIcon, getServiceIcon, InteractiveFaqList, FloatingContactWidget }
+export { SectionBadge, ServiceIcon, getServiceIcon, InteractiveFaqList, FloatingContactWidget, ExecutiveProfile }
 
 // =========================================================================
 // SECTION COMPONENTS (Preserved in site.tsx pending Phase 3 feature split)
