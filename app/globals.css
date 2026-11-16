@@ -15,17 +15,28 @@
        - Charcoal: #26332D
        - Pure White: #FFFFFF
        ========================================================= */
-    --color-primary: #1F5138;        /* Forest Green - primary action & brand */
-    --color-primary-hover: #159568;  /* Emerald Green hover */
-    --color-accent: #159568;         /* Emerald Green - focus, active link, interactive */
-    --color-heading: #172B3A;        /* Deep Navy - titles & high-contrast headings */
-    --color-bg-page: #F8F8F2;        /* Warm White - institutional background (55%) */
-    --color-bg-surface: #FFFFFF;     /* Pure White - cards & interactive containers */
-    --color-bg-subtle: #EAF3EC;      /* Soft Mint - subtle structural demarcation */
-    --color-gold: #C6A66B;           /* Champagne Gold - restrained premium insignia (3%) */
-    --color-text-body: #26332D;      /* Charcoal - primary reading body text */
-    --color-text-muted: #4F615A;     /* Secondary / meta text */
-    --color-info: #172B3A;           /* Deep Navy */
+    --color-primary: #1F5138;
+    /* Forest Green - primary action & brand */
+    --color-primary-hover: #159568;
+    /* Emerald Green hover */
+    --color-accent: #159568;
+    /* Emerald Green - focus, active link, interactive */
+    --color-heading: #172B3A;
+    /* Deep Navy - titles & high-contrast headings */
+    --color-bg-page: #F8F8F2;
+    /* Warm White - institutional background (55%) */
+    --color-bg-surface: #FFFFFF;
+    /* Pure White - cards & interactive containers */
+    --color-bg-subtle: #EAF3EC;
+    /* Soft Mint - subtle structural demarcation */
+    --color-gold: #C6A66B;
+    /* Champagne Gold - restrained premium insignia (3%) */
+    --color-text-body: #26332D;
+    /* Charcoal - primary reading body text */
+    --color-text-muted: #4F615A;
+    /* Secondary / meta text */
+    --color-info: #172B3A;
+    /* Deep Navy */
 
     /* Borders */
     --color-border-subtle: #E2EBE5;
@@ -59,16 +70,26 @@
     --font-body: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
     /* Fluid Typography Scale using CSS clamp() */
-    --font-size-hero: clamp(2.25rem, 5vw, 4.25rem);       /* 36px - 68px */
-    --font-size-page-title: clamp(2rem, 3.8vw, 3.25rem);   /* 32px - 52px */
-    --font-size-section: clamp(1.75rem, 2.8vw, 2.5rem);    /* 28px - 40px */
-    --font-size-h3: clamp(1.25rem, 1.8vw, 1.625rem);       /* 20px - 26px */
-    --font-size-card: clamp(1.15rem, 1.5vw, 1.375rem);     /* 18.5px - 22px */
-    --font-size-body: clamp(0.9375rem, 1.1vw, 1.0625rem);  /* 15px - 17px */
-    --font-size-nav: 0.9375rem;                            /* 15px */
-    --font-size-button: 0.9375rem;                         /* 15px */
-    --font-size-caption: 0.8125rem;                        /* 13px */
-    --font-size-small: 0.75rem;                            /* 12px */
+    --font-size-hero: clamp(2.25rem, 5vw, 4.25rem);
+    /* 36px - 68px */
+    --font-size-page-title: clamp(2rem, 3.8vw, 3.25rem);
+    /* 32px - 52px */
+    --font-size-section: clamp(1.75rem, 2.8vw, 2.5rem);
+    /* 28px - 40px */
+    --font-size-h3: clamp(1.25rem, 1.8vw, 1.625rem);
+    /* 20px - 26px */
+    --font-size-card: clamp(1.15rem, 1.5vw, 1.375rem);
+    /* 18.5px - 22px */
+    --font-size-body: clamp(0.9375rem, 1.1vw, 1.0625rem);
+    /* 15px - 17px */
+    --font-size-nav: 0.9375rem;
+    /* 15px */
+    --font-size-button: 0.9375rem;
+    /* 15px */
+    --font-size-caption: 0.8125rem;
+    /* 13px */
+    --font-size-small: 0.75rem;
+    /* 12px */
 
     /* Typography Line Heights */
     --line-height-tight: 1.15;
@@ -110,39 +131,49 @@
   }
 
   /* Headings: Exclusively Styled with Manrope */
-  h1, .h1,
-  h2, .h2,
-  h3, .h3,
-  h4, .h4,
-  h5, .h5,
-  h6, .h6 {
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6 {
     font-family: var(--font-heading);
     color: var(--color-heading);
     text-wrap: balance;
   }
 
-  h1, .h1 {
+  h1,
+  .h1 {
     font-size: var(--font-size-page-title);
     font-weight: 800;
     line-height: var(--line-height-tight);
     letter-spacing: var(--letter-spacing-tight);
   }
 
-  h2, .h2 {
+  h2,
+  .h2 {
     font-size: var(--font-size-section);
     font-weight: 700;
     line-height: var(--line-height-snug);
     letter-spacing: var(--letter-spacing-subtle);
   }
 
-  h3, .h3 {
+  h3,
+  .h3 {
     font-size: var(--font-size-h3);
     font-weight: 700;
     line-height: var(--line-height-heading);
     letter-spacing: var(--letter-spacing-subtle);
   }
 
-  h4, .h4 {
+  h4,
+  .h4 {
     font-size: var(--font-size-card);
     font-weight: 600;
     line-height: var(--line-height-heading);
@@ -153,7 +184,8 @@
     font-family: var(--font-body);
     color: var(--color-text-body);
     line-height: var(--line-height-body);
-    max-width: 72ch; /* Ergonomic 55–75 character reading width */
+    max-width: 72ch;
+    /* Ergonomic 55–75 character reading width */
   }
 
   a {
@@ -161,7 +193,10 @@
     text-decoration: none;
   }
 
-  button, input, select, textarea {
+  button,
+  input,
+  select,
+  textarea {
     font-family: var(--font-body);
   }
 
@@ -232,7 +267,8 @@
 .eyebrow-label {
   display: inline-block;
   font-family: var(--font-heading);
-  font-size: 0.75rem; /* 12px */
+  font-size: 0.75rem;
+  /* 12px */
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -259,7 +295,8 @@
   left: 0;
   right: 0;
   z-index: 50;
-  background-color: rgba(248, 248, 242, 0.96); /* Warm White #F8F8F2 */
+  background-color: rgba(248, 248, 242, 0.96);
+  /* Warm White #F8F8F2 */
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border-subtle);
@@ -335,6 +372,7 @@
 }
 
 @media (max-width: 1279px) {
+
   .nav-desktop-menu,
   nav.nav-desktop-menu {
     display: none !important;
@@ -347,28 +385,34 @@
   .site-header {
     height: 64px;
   }
+
   .nav-bar-inner {
     height: 64px;
     gap: 8px;
     padding-left: 12px;
     padding-right: 12px;
   }
+
   .brand-anchor {
     gap: 8px;
   }
+
   .brand-crest {
     width: 38px;
     height: 38px;
     border-radius: 7px;
   }
+
   .brand-name {
     font-size: 0.9375rem;
     letter-spacing: 0.02em;
   }
+
   .brand-motto {
     font-size: 0.5rem;
     letter-spacing: 0.12em;
   }
+
   .nav-mobile-toggle {
     width: 40px;
     height: 40px;
@@ -381,7 +425,8 @@
   font-family: var(--font-body);
   font-size: 0.9375rem;
   font-weight: 600;
-  color: var(--color-heading); /* Deep Navy #172B3A / Charcoal */
+  color: var(--color-heading);
+  /* Deep Navy #172B3A / Charcoal */
   transition: color 0.15s ease;
   position: relative;
   padding: 10px 0;
@@ -403,7 +448,8 @@
   left: 0;
   right: 0;
   height: 2px;
-  background-color: var(--color-primary); /* Forest Green */
+  background-color: var(--color-primary);
+  /* Forest Green */
   transform: scaleX(0);
   transform-origin: center;
   transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
@@ -412,7 +458,8 @@
 
 .nav-anchor-item:hover,
 .nav-link:hover {
-  color: var(--color-accent); /* Emerald Green #159568 hover */
+  color: var(--color-accent);
+  /* Emerald Green #159568 hover */
 }
 
 .nav-anchor-item:hover::after,
@@ -423,7 +470,8 @@
 
 .nav-anchor-item.active,
 .nav-link.active {
-  color: var(--color-primary); /* Forest Green active */
+  color: var(--color-primary);
+  /* Forest Green active */
   font-weight: 700;
 }
 
@@ -441,7 +489,8 @@
   height: 42px;
   padding: 0 20px;
   border-radius: 6px;
-  background-color: var(--color-primary); /* Forest Green #1F5138 */
+  background-color: var(--color-primary);
+  /* Forest Green #1F5138 */
   color: #FFFFFF;
   font-family: var(--font-body);
   font-size: 0.9375rem;
@@ -455,7 +504,8 @@
 }
 
 .btn-header-cta:hover {
-  background-color: var(--color-primary-hover); /* Emerald Green #159568 */
+  background-color: var(--color-primary-hover);
+  /* Emerald Green #159568 */
   color: #FFFFFF;
   box-shadow: 0 4px 12px rgba(21, 149, 104, 0.3);
 }
@@ -510,7 +560,8 @@
   gap: 10px;
   padding: 12px 24px;
   border-radius: 6px;
-  background-color: var(--color-primary); /* Forest Green #1F5138 */
+  background-color: var(--color-primary);
+  /* Forest Green #1F5138 */
   color: #FFFFFF;
   font-family: var(--font-body);
   font-size: var(--font-size-button);
@@ -524,7 +575,8 @@
 }
 
 .btn-primary:hover {
-  background-color: var(--color-primary-hover); /* Emerald Green #159568 */
+  background-color: var(--color-primary-hover);
+  /* Emerald Green #159568 */
   color: #FFFFFF;
   box-shadow: 0 4px 12px rgba(21, 149, 104, 0.3);
 }
@@ -540,12 +592,15 @@
   gap: 10px;
   padding: 12px 24px;
   border-radius: 6px;
-  background-color: var(--color-bg-page); /* Warm White #F8F8F2 */
-  color: var(--color-primary); /* Forest Green #1F5138 */
+  background-color: var(--color-bg-page);
+  /* Warm White #F8F8F2 */
+  color: var(--color-primary);
+  /* Forest Green #1F5138 */
   font-family: var(--font-body);
   font-size: var(--font-size-button);
   font-weight: 600;
-  border: 1.5px solid var(--color-primary); /* Forest Green #1F5138 */
+  border: 1.5px solid var(--color-primary);
+  /* Forest Green #1F5138 */
   cursor: pointer;
   transition: all 0.2s ease;
   text-decoration: none;
@@ -554,7 +609,8 @@
 
 .btn-secondary:hover {
   border-color: var(--color-primary);
-  background-color: var(--color-primary); /* Forest Green #1F5138 */
+  background-color: var(--color-primary);
+  /* Forest Green #1F5138 */
   color: #FFFFFF;
   box-shadow: 0 4px 12px rgba(31, 81, 56, 0.2);
 }
@@ -612,7 +668,8 @@
 .form-label {
   display: block;
   font-family: var(--font-body);
-  font-size: 0.8125rem; /* 13px */
+  font-size: 0.8125rem;
+  /* 13px */
   font-weight: 600;
   color: var(--color-heading);
   margin-bottom: 6px;
@@ -626,7 +683,8 @@
   border: 1px solid var(--color-border-medium);
   color: var(--color-heading);
   font-family: var(--font-body);
-  font-size: 0.875rem; /* 14px */
+  font-size: 0.875rem;
+  /* 14px */
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -640,7 +698,8 @@
    FOOTER (Serious MNC / Institutional Financial Style)
    ========================================================= */
 .site-footer {
-  background-color: var(--color-heading); /* Deep Navy #142C3E */
+  background-color: var(--color-heading);
+  /* Deep Navy #142C3E */
   color: #FFFFFF;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 64px 0 32px;
@@ -656,7 +715,8 @@
 
 .footer-column-heading {
   font-family: var(--font-heading);
-  font-size: 0.8125rem; /* 13px */
+  font-size: 0.8125rem;
+  /* 13px */
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -677,7 +737,8 @@
 .footer-nav-anchor {
   font-family: var(--font-body);
   color: #B4C4CE;
-  font-size: 0.875rem; /* 14px */
+  font-size: 0.875rem;
+  /* 14px */
   transition: color 0.15s ease, transform 0.15s ease;
   text-decoration: none;
   display: inline-flex;
@@ -741,13 +802,17 @@
 
 .footer-regulatory-box {
   padding: 24px 28px;
-  background-color: #1B374C; /* Distinct, lighter navy container */
-  border: 1px solid rgba(198, 161, 91, 0.3); /* Subtle Champagne Gold accent border */
+  background-color: #1B374C;
+  /* Distinct, lighter navy container */
+  border: 1px solid rgba(198, 161, 91, 0.3);
+  /* Subtle Champagne Gold accent border */
   border-radius: 8px;
   margin-bottom: 36px;
   font-family: var(--font-body);
-  font-size: 0.8125rem; /* 13px */
-  color: #D1DEE5; /* High contrast, comfortable reading */
+  font-size: 0.8125rem;
+  /* 13px */
+  color: #D1DEE5;
+  /* High contrast, comfortable reading */
   line-height: 1.68;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
@@ -759,7 +824,8 @@
   justify-content: space-between;
   align-items: center;
   font-family: var(--font-body);
-  font-size: 0.8125rem; /* 13px */
+  font-size: 0.8125rem;
+  /* 13px */
   color: #8C9EA8;
   flex-wrap: wrap;
   gap: 16px;
@@ -803,7 +869,10 @@
   html {
     scroll-behavior: auto;
   }
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
