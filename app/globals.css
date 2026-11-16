@@ -114,7 +114,7 @@
   html {
     scroll-behavior: smooth;
     color-scheme: light;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   body {
@@ -124,7 +124,7 @@
     font-size: var(--font-size-body);
     line-height: var(--line-height-body);
     letter-spacing: var(--letter-spacing-normal);
-    overflow-x: hidden;
+    overflow-x: clip;
     width: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

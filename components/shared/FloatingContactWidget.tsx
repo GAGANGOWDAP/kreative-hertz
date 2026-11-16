@@ -23,13 +23,13 @@ export function FloatingContactWidget() {
   if (isDismissed) return null
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end">
+    <div className="fixed bottom-3 right-3 sm:bottom-6 sm:right-6 z-40 flex flex-col items-end pb-[env(safe-area-inset-bottom,0px)] pr-[env(safe-area-inset-right,0px)]">
       {/* Expanded Modal Card */}
       {isOpen && (
         <div
           role="dialog"
           aria-label="Direct Advisory Contacts"
-          className="mb-3 w-80 rounded-xl bg-white border border-[#CAD9D0] p-5 shadow-2xl transition-all animate-in fade-in slide-in-from-bottom-2 duration-200"
+          className="mb-3 w-80 max-w-[calc(100vw-2rem)] rounded-xl bg-white border border-[#CAD9D0] p-5 shadow-2xl transition-all animate-in fade-in slide-in-from-bottom-2 duration-200"
         >
           <div className="flex items-center justify-between pb-3 border-b border-[#E2EBE5] mb-3">
             <div>
@@ -111,9 +111,9 @@ export function FloatingContactWidget() {
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Open direct advisory desk"
         aria-expanded={isOpen}
-        className="flex items-center gap-2.5 px-4 py-3 rounded-full bg-[#1F5138] hover:bg-[#159568] text-white shadow-xl transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#1F5138] focus:ring-offset-2 border border-[#C6A66B]/30"
+        className="flex items-center justify-center gap-2 w-10 h-10 sm:w-auto sm:h-auto sm:px-4 sm:py-3 rounded-full bg-[#1F5138] hover:bg-[#159568] text-white shadow-xl transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#1F5138] focus:ring-offset-2 border border-[#C6A66B]/30"
       >
-        <MessageCircle size={18} className="text-[#C6A66B]" />
+        <MessageCircle className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#C6A66B]" />
         <span className="text-xs font-bold tracking-wide font-heading hidden sm:inline">
           Advisory Desk
         </span>

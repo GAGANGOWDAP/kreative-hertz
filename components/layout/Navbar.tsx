@@ -39,7 +39,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className="site-header" ref={navRef}>
+      <header className="site-header sticky top-0 left-0 right-0 z-50 shadow-sm" ref={navRef}>
         <div className="container nav-bar-inner">
           <BrandLogo onClick={() => setMobileMenuOpen(false)} />
 
