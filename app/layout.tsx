@@ -88,7 +88,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   colorScheme: 'light',
-  themeColor: '#0A5A42',
+  themeColor: '#1F5138',
   width: 'device-width',
   initialScale: 1,
   maximumScale: 5
@@ -101,7 +101,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${manrope.variable} ${inter.variable}`}>
-      <body className="antialiased selection:bg-[#E8F3ED] selection:text-[#0A5A42] font-sans">
+      <body className="antialiased selection:bg-[#EAF3EC] selection:text-[#1F5138] font-sans">
         {children}
       </body>
     </html>

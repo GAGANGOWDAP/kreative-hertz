@@ -42,7 +42,7 @@ export const companyDetails: CompanyDetails = {
   phone: '+919876543210',
   displayPhone: '+91 98765 43210',
   phoneFormatted: '+91 98765 43210',
-  email: 'connect@kreativehertz.in',
+  email: 'fulfil@kreativehertz.in',
   address: {
     city: 'Bengaluru',
     state: 'Karnataka',

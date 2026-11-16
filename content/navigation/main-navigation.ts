@@ -33,19 +33,18 @@ export interface MegaMenuGroup {
 
 export const wealthMegaMenuGroups: MegaMenuGroup[] = [
   {
-    title: 'Protection & Insurance',
+    title: 'Protection & Insurance (5 Services)',
     subtitle: 'Risk transfer without investment conflicts',
     services: [
       { title: 'Life Insurance', href: '/services/life-insurance', desc: 'Pure term protection & HLV adequacy', icon: 'Shield' },
       { title: 'Health Insurance', href: '/services/health-insurance', desc: 'Zero sub-limit family medical security', icon: 'Heart' },
       { title: 'Motor Insurance', href: '/services/motor-insurance', desc: 'Zero depreciation & fleet coverage', icon: 'Car' },
       { title: 'Travel Insurance', href: '/services/travel-insurance', desc: 'Schengen & global overseas medical', icon: 'Plane' },
-      { title: 'Family Health Security', href: '/services/family-health-security', desc: 'Multi-gen & senior parent shields', icon: 'Users' },
       { title: 'Business Insurance', href: '/services/business-insurance', desc: 'Fire, liability & Keyman protection', icon: 'Briefcase' }
     ]
   },
   {
-    title: 'Investments & Compounding',
+    title: 'Investments & Compounding (4 Services)',
     subtitle: 'Goal-aligned wealth architecture',
     services: [
       { title: 'Mutual Funds & SIP', href: '/services/mutual-funds', desc: 'Step-up compounding & zero clutter', icon: 'TrendingUp' },
@@ -55,14 +54,15 @@ export const wealthMegaMenuGroups: MegaMenuGroup[] = [
     ]
   },
   {
-    title: 'Financing & Property',
-    subtitle: 'Transparent debt & buyer representation',
+    title: 'Financing & Real Estate (6 Services)',
+    subtitle: 'Transparent debt & objective buyer representation',
     services: [
       { title: 'Home Loans', href: '/services/home-loans', desc: 'Repo rate loans & balance transfer', icon: 'Home' },
       { title: 'Personal Loans', href: '/services/personal-loans', desc: 'High-cost credit card consolidation', icon: 'Wallet' },
       { title: 'Business Loans', href: '/services/business-loans', desc: 'Working capital, CC/OD & MSME debt', icon: 'Building' },
       { title: 'Loan Against Property', href: '/services/loan-against-property', desc: 'Unlocking dormant real estate equity', icon: 'Layers' },
-      { title: 'Residential Property', href: '/services/residential-property', desc: 'Objective RERA buyer advisory', icon: 'Building' }
+      { title: 'Residential Property', href: '/services/residential-property', desc: 'Objective RERA buyer advisory', icon: 'Building' },
+      { title: 'Investment Property', href: '/services/investment-property', desc: 'Commercial yield & pre-leased assets', icon: 'Building' }
     ]
   }
 ]

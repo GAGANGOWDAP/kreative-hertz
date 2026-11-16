@@ -290,65 +290,6 @@ export const insuranceServices: ServiceItem[] = [
     ]
   },
   {
-    id: 'family-health-security',
-    title: 'Family Health Security Architecture',
-    slug: 'family-health-security',
-    tagline: 'Multi-generational health shields for senior parents & children',
-    category: 'Insurance',
-    icon: 'Users',
-    iconType: 'Users',
-    shortDesc: 'Multi-generational health umbrella structuring covering senior citizen parents, dependents, and critical illness lifelines.',
-    fullDesc: 'Structuring healthcare protection for multi-generational families requires balancing floater policies for young parents and children with individual, ring-fenced policies for elderly parents with pre-existing conditions (diabetes, hypertension, cardiac care). We design integrated health security architectures that protect every family member.',
-    highlights: [
-      'Independent ring-fenced policies for elderly senior-citizen parents',
-      'Critical illness lump-sum payout policies protecting breadwinner cash flows',
-      'Maternity, newborn, and vaccination milestone coverage integration',
-      'Tax optimization under Section 80D up to ₹1,00,000 across self and parents'
-    ],
-    whatToConsider: [
-      'Never club 60+ senior parents into young nuclear family floaters',
-      'Check specific waiting periods for senior pre-existing hypertension or diabetes',
-      'Ensure critical illness cover pays out immediately upon clinical diagnosis'
-    ],
-    keyFeatures: ['Families with elderly senior-citizen parents',
-      'Couples planning for maternity and newborn care',
-      'HNI families requiring global hospital coverage'],
-    targetAudience: [
-      'Families with elderly senior-citizen parents',
-      'Couples planning for maternity and newborn care',
-      'HNI families requiring global hospital coverage'
-    ],
-    keyBenefits: [
-      'Ring-fenced senior citizen policies that prevent parent claims from exhausting family floaters',
-      'Critical illness lump-sum payout coverages for breadwinners',
-      'Maternity, newborn, and vaccination milestone protections',
-      'Tax optimization under Section 80D for self, family, and parents'
-    ],
-    whatWeDo: [
-      'Separate senior citizen risk pools from younger family members',
-      'Audit waiting period reductions for senior pre-existing conditions',
-      'Implement critical illness riders offering lump-sum payouts upon diagnosis',
-      'Calculate maximum Section 80D tax deductions (up to ₹1,00,000)'
-    ],
-    commonMistakes: [
-      'Clubbing 65-year-old parents in the same floater with young children, skyrocketing premiums',
-      'Neglecting separate critical illness income replacement plans',
-      'Missing the 80D tax deduction opportunities available for parents health premiums'
-    ],
-    deliverables: [
-      'Multi-Generational Family Health Blueprint',
-      'Senior Citizen Pre-Existing Disease Management Plan',
-      'Critical Illness Income Replacement Matrix'
-    ],
-    gapAnalysisHighlight: 'Clubbing senior parents in a family floater increases the entire family premium by over 120% and subjects young children to the parent claim history and copay restrictions.',
-    faqs: [
-      {
-        q: 'Why should senior parents have separate individual policies rather than a joint family floater?',
-        a: 'In health insurance, the premium for a floater policy is calculated based on the age of the oldest member. Clubbing 60+ parents with a 32-year-old couple drastically raises everyone premium and risks exhausting the shared sum insured during a parent hospitalization.'
-      }
-    ]
-  },
-  {
     id: 'business-insurance',
     title: 'Business & Commercial Liability Risk',
     slug: 'business-insurance',

@@ -93,61 +93,114 @@ export function BookSessionSection({ defaultCategory = 'Financial Gap Analysis' 
     if (!validate()) return
 
     setIsSubmitting(true)
+
+    // Build genuine mailto dispatch to fulfil@kreativehertz.in
+    const mailtoSubject = encodeURIComponent(`Advisory Consultation Request: ${form.name} (${form.sessionType})`)
+    const mailtoBody = encodeURIComponent(
+      `ADVISORY CONSULTATION REQUEST\n` +
+      `===================================\n\n` +
+      `Client Name: ${form.name}\n` +
+      `Email Address: ${form.email}\n` +
+      `Contact Phone: ${form.phone}\n` +
+      `Location / City: ${form.city}\n` +
+      `Consultation Focus: ${form.sessionType}\n` +
+      `Preferred Slot: ${form.preferredTime}\n` +
+      `Context & Notes: ${form.message || 'None provided'}\n\n` +
+      `Submitted through Kreative Hertz Online Advisory Portal.\n` +
+      `Official Recipient: ${companyDetails.email}`
+    )
+    const mailtoUrl = `mailto:${companyDetails.email}?subject=${mailtoSubject}&body=${mailtoBody}`
+
+    try {
+      window.location.href = mailtoUrl
+    } catch (err) {
+      console.warn('Mailto dispatch error:', err)
+    }
+
     setTimeout(() => {
       setIsSubmitting(false)
       setIsSubmitted(true)
-    }, 400)
+    }, 300)
   }
 
   if (isSubmitted) {
+    const mailtoSubject = encodeURIComponent(`Advisory Consultation Request: ${form.name} (${form.sessionType})`)
+    const mailtoBody = encodeURIComponent(
+      `ADVISORY CONSULTATION REQUEST\n` +
+      `===================================\n\n` +
+      `Client Name: ${form.name}\n` +
+      `Email Address: ${form.email}\n` +
+      `Contact Phone: ${form.phone}\n` +
+      `Location / City: ${form.city}\n` +
+      `Consultation Focus: ${form.sessionType}\n` +
+      `Preferred Slot: ${form.preferredTime}\n` +
+      `Context & Notes: ${form.message || 'None provided'}\n\n` +
+      `Submitted through Kreative Hertz Online Advisory Portal.`
+    )
+    const directMailtoUrl = `mailto:${companyDetails.email}?subject=${mailtoSubject}&body=${mailtoBody}`
+
     const whatsappText = encodeURIComponent(
-      `Hello Kreative Hertz,\n\nI have submitted an advisory consultation inquiry on the website:\n- Client Name: ${form.name}\n- Service Requested: ${form.sessionType}\n- Location: ${form.city}\n- Preferred Time Slot: ${form.preferredTime}\n\nKindly confirm availability.`
+      `Hello Karthik (Kreative Hertz),\n\nI have submitted an advisory consultation inquiry:\n- Name: ${form.name}\n- Focus: ${form.sessionType}\n- Location: ${form.city}\n- Preferred Slot: ${form.preferredTime}\n\nKindly confirm available schedule.`
     )
     const directWhatsappUrl = `https://wa.me/919482897253?text=${whatsappText}`
 
     return (
-      <div className="institutional-card p-8 border-[#11A778] text-center">
-        <div className="w-12 h-12 rounded-full bg-[#E8F3ED] border border-[#11A778] flex items-center justify-center mx-auto mb-4 text-[#0A5A42]">
-          <CheckCircle2 size={28} />
+      <div className="institutional-card p-8 border-[#159568] text-center bg-white">
+        <div className="w-14 h-14 rounded-full bg-[#EAF3EC] border border-[#1F5138]/30 flex items-center justify-center mx-auto mb-4 text-[#1F5138]">
+          <CheckCircle2 size={32} />
         </div>
-        <h3 className="text-xl font-bold text-[#142C3E] mb-2">Request Details Formatted</h3>
-        <p className="text-sm text-[#4F615A] max-w-md mx-auto mb-4">
-          Thank you, <strong>{form.name}</strong>. Your consultation details for <strong>{form.sessionType}</strong> are prepared.
+        <h3 className="text-xl font-bold text-[#172B3A] mb-2 font-heading">Consultation Request Compiled</h3>
+        <p className="text-sm text-[#4F615A] max-w-md mx-auto mb-5">
+          Thank you, <strong>{form.name}</strong>. Your consultation inquiry for <strong>{form.sessionType}</strong> is addressed directly to <strong>{companyDetails.email}</strong>.
         </p>
 
-        <div className="p-4 rounded bg-[#E8F3ED] border border-[#CAD9D0] text-xs text-[#0A5A42] max-w-md mx-auto mb-6 text-left">
-          <strong>Direct WhatsApp Routing:</strong> To connect directly with Karthik R for immediate review, click the button below:
+        <div className="p-4 rounded-xl bg-[#EAF3EC] border border-[#CAD9D0] text-xs text-[#172B3A] max-w-md mx-auto mb-6 text-left space-y-1.5">
+          <div className="font-bold text-[#1F5138] flex items-center gap-1.5 uppercase tracking-wider text-[11px]">
+            <span>Inquiry Summary</span>
+          </div>
+          <div className="text-[12px] text-[#26332D]">
+            <div><strong>Client:</strong> {form.name} ({form.phone})</div>
+            <div><strong>Focus Area:</strong> {form.sessionType}</div>
+            <div><strong>Slot:</strong> {form.city} • {form.preferredTime}</div>
+          </div>
         </div>
 
-        <div className="flex flex-wrap gap-3 justify-center">
+        <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
+          <a
+            href={directMailtoUrl}
+            className="btn-primary text-xs py-3 px-5 flex-1 justify-center shadow-sm"
+          >
+            <span>Open Email Client</span>
+          </a>
+
           <a
             href={directWhatsappUrl}
             target="_blank"
             rel="noreferrer"
-            className="btn-primary text-xs py-2.5"
+            className="btn-secondary text-xs py-3 px-5 flex-1 justify-center"
           >
-            <span>Transmit Inquiry via WhatsApp</span>
-            <ArrowRight size={14} />
+            <span>Confirm via WhatsApp</span>
           </a>
-          <button
-            type="button"
-            onClick={() => {
-              setIsSubmitted(false)
-              setForm({
-                name: '',
-                email: '',
-                phone: '',
-                city: '',
-                sessionType: defaultCategory,
-                preferredTime: 'Morning (10:00 AM - 1:00 PM)',
-                message: ''
-              })
-            }}
-            className="btn-secondary text-xs py-2.5"
-          >
-            Submit Another Request
-          </button>
         </div>
+
+        <button
+          type="button"
+          onClick={() => {
+            setIsSubmitted(false)
+            setForm({
+              name: '',
+              email: '',
+              phone: '',
+              city: '',
+              sessionType: defaultCategory,
+              preferredTime: 'Morning (10:00 AM - 1:00 PM)',
+              message: ''
+            })
+          }}
+          className="mt-6 text-xs text-[#4F615A] hover:text-[#1F5138] underline transition-colors block mx-auto"
+        >
+          Submit another inquiry or update details
+        </button>
       </div>
     )
   }
@@ -156,7 +209,7 @@ export function BookSessionSection({ defaultCategory = 'Financial Gap Analysis' 
     <div className="institutional-card p-6 md:p-8">
       <form onSubmit={handleSubmit} noValidate>
         <div className="mb-6">
-          <h3 className="text-xl font-bold text-[#142C3E] mb-1">
+          <h3 className="text-xl font-bold text-[#172B3A] mb-1">
             Request an Advisory Consultation
           </h3>
           <p className="text-xs text-[#4F615A]">
@@ -286,7 +339,7 @@ export function VisitorRequirementSelector() {
       title: 'Protect My Family',
       tagline: 'Risk & Insurance Solutions',
       description: 'Income replacement pure term life cover, comprehensive family health insurance, and critical illness safeguards.',
-      icon: <Shield size={24} className="text-[#0A5A42]" />,
+      icon: <Shield size={24} className="text-[#1F5138]" />,
       actionText: 'Explore Insurance Solutions',
       link: '/wealth-architect',
       highlights: ['Pure Term Life', 'Health & Critical Illness', 'Auto & Travel']
@@ -295,7 +348,7 @@ export function VisitorRequirementSelector() {
       title: 'Plan My Finances',
       tagline: 'Wealth & Investment Strategy',
       description: 'Disciplined compounding through mutual fund SIPs, NPS retirement accounts, and risk-adjusted fixed income.',
-      icon: <TrendingUp size={24} className="text-[#0A5A42]" />,
+      icon: <TrendingUp size={24} className="text-[#1F5138]" />,
       actionText: 'Explore Wealth Planning',
       link: '/wealth-architect',
       highlights: ['Mutual Funds & SIP', 'NPS Pension', 'Bonds & Fixed Income']
@@ -304,7 +357,7 @@ export function VisitorRequirementSelector() {
       title: 'Explore Property',
       tagline: 'Real Estate & Credit Financing',
       description: 'Competitive home loan origination, balance transfer refinancing, and verified residential property investments.',
-      icon: <Home size={24} className="text-[#0A5A42]" />,
+      icon: <Home size={24} className="text-[#1F5138]" />,
       actionText: 'Explore Property & Loans',
       link: '/services/residential-property',
       highlights: ['Home Loans', 'Balance Transfer Hack', 'Residential Plots']
@@ -313,7 +366,7 @@ export function VisitorRequirementSelector() {
       title: 'Develop Myself',
       tagline: 'Life Strategist Curriculum',
       description: 'Personal finance literacy, money psychology, and lifelong disciplined financial habits for students and families.',
-      icon: <Compass size={24} className="text-[#0A5A42]" />,
+      icon: <Compass size={24} className="text-[#1F5138]" />,
       actionText: 'Explore Life Strategy',
       link: '/life-strategist',
       highlights: ['Mindset · Moral · Awareness', 'College Programs', '7 Literacy Pillars']
@@ -336,18 +389,18 @@ export function VisitorRequirementSelector() {
             <Link
               key={idx}
               href={pathway.link}
-              className="institutional-card p-6 flex flex-col justify-between hover:border-[#0A5A42] hover:shadow-md transition-all group"
+              className="institutional-card p-6 flex flex-col justify-between hover:border-[#1F5138] hover:shadow-md transition-all group"
             >
               <div>
-                <div className="w-12 h-12 rounded-lg bg-[#E8F3ED] border border-[#CAD9D0] flex items-center justify-center mb-4 group-hover:bg-[#0A5A42] transition-colors">
+                <div className="w-12 h-12 rounded-lg bg-[#EAF3EC] border border-[#CAD9D0] flex items-center justify-center mb-4 group-hover:bg-[#1F5138] transition-colors">
                   {React.cloneElement(pathway.icon, {
-                    className: 'text-[#0A5A42] group-hover:text-white transition-colors'
+                    className: 'text-[#1F5138] group-hover:text-white transition-colors'
                   })}
                 </div>
-                <span className="text-[10px] font-bold text-[#025E9A] uppercase tracking-wider block mb-1">
+                <span className="text-[10px] font-bold text-[#1F5138] uppercase tracking-wider block mb-1">
                   {pathway.tagline}
                 </span>
-                <h3 className="text-lg font-bold text-[#142C3E] mb-2 group-hover:text-[#0A5A42] transition-colors font-heading">
+                <h3 className="text-lg font-bold text-[#172B3A] mb-2 group-hover:text-[#1F5138] transition-colors font-heading">
                   {pathway.title}
                 </h3>
                 <p className="text-xs text-[#4F615A] leading-relaxed mb-4">
@@ -355,15 +408,15 @@ export function VisitorRequirementSelector() {
                 </p>
                 <div className="space-y-1.5 mb-6">
                   {pathway.highlights.map((h, i) => (
-                    <div key={i} className="text-[11px] text-[#2B2A29] flex items-center gap-1.5">
-                      <span className="text-[#11A778] font-bold">✓</span>
+                    <div key={i} className="text-[11px] text-[#26332D] flex items-center gap-1.5">
+                      <span className="text-[#159568] font-bold">✓</span>
                       <span>{h}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="border-t border-[#E2EBE5] pt-3 flex items-center justify-between text-xs font-semibold text-[#0A5A42]">
+              <div className="border-t border-[#E2EBE5] pt-3 flex items-center justify-between text-xs font-semibold text-[#1F5138]">
                 <span>{pathway.actionText}</span>
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </div>
@@ -405,7 +458,7 @@ export function HowWeWorkSection() {
   ]
 
   return (
-    <section className="section-institutional bg-[#F7FAF8] border-b border-[#E2EBE5]">
+    <section className="section-institutional bg-[#F8F8F2] border-b border-[#E2EBE5]">
       <div className="container">
         <div className="section-title-wrap max-w-3xl">
           <SectionBadge>Advisory Methodology</SectionBadge>
@@ -420,17 +473,17 @@ export function HowWeWorkSection() {
             <div key={idx} className="institutional-card p-6 relative flex flex-col justify-between hover:border-[#CAD9D0] transition-colors">
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="w-10 h-10 rounded-full bg-[#E8F3ED] border border-[#0A5A42]/30 flex items-center justify-center font-mono font-bold text-sm text-[#0A5A42]">
+                  <span className="w-10 h-10 rounded-full bg-[#EAF3EC] border border-[#1F5138]/30 flex items-center justify-center font-mono font-bold text-sm text-[#1F5138]">
                     {item.step}
                   </span>
-                  <span className="text-[10px] font-bold tracking-widest text-[#C6A15B] uppercase font-mono">
+                  <span className="text-[10px] font-bold tracking-widest text-[#C6A66B] uppercase font-mono">
                     PHASE {idx + 1}
                   </span>
                 </div>
-                <h3 className="text-xl font-bold text-[#142C3E] mb-1 font-heading">
+                <h3 className="text-xl font-bold text-[#172B3A] mb-1 font-heading">
                   {item.title}
                 </h3>
-                <div className="text-xs font-semibold text-[#025E9A] mb-3">
+                <div className="text-xs font-semibold text-[#1F5138] mb-3">
                   {item.subtitle}
                 </div>
                 <p className="text-xs text-[#4F615A] leading-relaxed">
@@ -438,8 +491,8 @@ export function HowWeWorkSection() {
                 </p>
               </div>
 
-              <div className="mt-5 pt-3 border-t border-[#E2EBE5] flex items-center gap-1.5 text-[11px] font-semibold text-[#0A5A42]">
-                <CheckCircle2 size={13} className="text-[#11A778]" />
+              <div className="mt-5 pt-3 border-t border-[#E2EBE5] flex items-center gap-1.5 text-[11px] font-semibold text-[#1F5138]">
+                <CheckCircle2 size={13} className="text-[#159568]" />
                 <span>Verified Diagnostic Step</span>
               </div>
             </div>
@@ -464,7 +517,14 @@ export function ServicesExplorer({ initialCategory = 'All Services' }: { initial
   const [searchQuery, setSearchQuery] = useState('')
 
   const filtered = servicesData.filter((service) => {
-    const matchesCategory = activeCategory === 'All Services' || service.category === activeCategory
+    const normActive = activeCategory.toLowerCase()
+    const matchesCategory =
+      activeCategory === 'All Services' ||
+      service.category.toLowerCase() === normActive ||
+      (normActive.includes('invest') && service.category === 'Investments') ||
+      (normActive.includes('loan') && service.category === 'Loans') ||
+      (normActive.includes('insur') && service.category === 'Insurance') ||
+      (normActive.includes('real') && service.category === 'Real Estate')
     const query = searchQuery.toLowerCase().trim()
     const matchesSearch = !query ||
       service.title.toLowerCase().includes(query) ||
@@ -501,7 +561,7 @@ export function ServicesExplorer({ initialCategory = 'All Services' }: { initial
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="absolute inset-y-0 right-0 pr-3 flex items-center text-[#6C7D76] hover:text-[#142C3E]"
+              className="absolute inset-y-0 right-0 pr-3 flex items-center text-[#6C7D76] hover:text-[#172B3A]"
               aria-label="Clear search"
             >
               <X size={14} />
@@ -519,14 +579,14 @@ export function ServicesExplorer({ initialCategory = 'All Services' }: { initial
                 aria-selected={activeCategory === cat.label}
                 className={`px-3.5 py-1.5 text-xs font-semibold rounded-md border transition-colors flex items-center gap-1.5 ${
                   activeCategory === cat.label
-                    ? 'bg-[#0A5A42] text-white border-[#0A5A42]'
-                    : 'bg-white text-[#4F615A] border-[#CAD9D0] hover:border-[#0A5A42] hover:text-[#0A5A42]'
+                    ? 'bg-[#1F5138] text-white border-[#1F5138]'
+                    : 'bg-white text-[#4F615A] border-[#CAD9D0] hover:border-[#1F5138] hover:text-[#1F5138]'
                 }`}
                 onClick={() => setActiveCategory(cat.label)}
               >
                 <span>{cat.label}</span>
                 <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
-                  activeCategory === cat.label ? 'bg-white/20 text-white' : 'bg-[#E8F3ED] text-[#0A5A42]'
+                  activeCategory === cat.label ? 'bg-white/20 text-white' : 'bg-[#EAF3EC] text-[#1F5138]'
                 }`}>
                   {cat.count}
                 </span>
@@ -539,7 +599,7 @@ export function ServicesExplorer({ initialCategory = 'All Services' }: { initial
             {isFiltered && (
               <button
                 onClick={resetFilters}
-                className="text-xs font-semibold text-[#0A5A42] hover:underline"
+                className="text-xs font-semibold text-[#1F5138] hover:underline"
               >
                 Reset
               </button>
@@ -551,10 +611,10 @@ export function ServicesExplorer({ initialCategory = 'All Services' }: { initial
       {/* Empty State */}
       {filtered.length === 0 ? (
         <div className="institutional-card p-10 text-center max-w-md mx-auto my-8">
-          <div className="w-12 h-12 rounded-full bg-[#E8F3ED] flex items-center justify-center mx-auto mb-3 text-[#0A5A42]">
+          <div className="w-12 h-12 rounded-full bg-[#EAF3EC] flex items-center justify-center mx-auto mb-3 text-[#1F5138]">
             <Search size={22} />
           </div>
-          <h3 className="text-base font-bold text-[#142C3E] mb-1">No services found</h3>
+          <h3 className="text-base font-bold text-[#172B3A] mb-1">No services found</h3>
           <p className="text-xs text-[#4F615A] mb-4">
             No financial services matched &ldquo;{searchQuery}&rdquo; within &ldquo;{activeCategory}&rdquo;.
           </p>
@@ -575,13 +635,13 @@ export function ServicesExplorer({ initialCategory = 'All Services' }: { initial
               className="card-service-item flex flex-col justify-between group"
             >
               <div>
-                <div className="icon-box-primary group-hover:bg-[#0A5A42] group-hover:text-white transition-colors">
+                <div className="icon-box-primary group-hover:bg-[#1F5138] group-hover:text-white transition-colors">
                   {getServiceIcon(service.iconType)}
                 </div>
-                <span className="text-[11px] font-bold tracking-wider text-[#025E9A] uppercase block mb-1">
+                <span className="text-[11px] font-bold tracking-wider text-[#1F5138] uppercase block mb-1">
                   {service.category}
                 </span>
-                <h3 className="text-lg font-bold text-[#142C3E] mb-2 leading-snug group-hover:text-[#0A5A42] transition-colors font-heading">
+                <h3 className="text-lg font-bold text-[#172B3A] mb-2 leading-snug group-hover:text-[#1F5138] transition-colors font-heading">
                   {service.title}
                 </h3>
                 <p className="text-xs text-[#4F615A] leading-relaxed mb-4">
@@ -589,7 +649,7 @@ export function ServicesExplorer({ initialCategory = 'All Services' }: { initial
                 </p>
               </div>
 
-              <div className="border-t border-[#E2EBE5] pt-3 flex items-center justify-between text-xs font-semibold text-[#0A5A42]">
+              <div className="border-t border-[#E2EBE5] pt-3 flex items-center justify-between text-xs font-semibold text-[#1F5138]">
                 <span>View Service Specifications</span>
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </div>
@@ -649,7 +709,7 @@ export function KnowledgeHubExplorer({ initialArticles }: { initialArticles: Kno
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="absolute inset-y-0 right-0 pr-3 flex items-center text-[#6C7D76] hover:text-[#142C3E]"
+              className="absolute inset-y-0 right-0 pr-3 flex items-center text-[#6C7D76] hover:text-[#172B3A]"
               aria-label="Clear search"
             >
               <X size={14} />
@@ -666,8 +726,8 @@ export function KnowledgeHubExplorer({ initialArticles }: { initialArticles: Kno
                 aria-selected={activeCategory === cat}
                 className={`px-3.5 py-1.5 text-xs font-semibold rounded-md border transition-colors ${
                   activeCategory === cat
-                    ? 'bg-[#0A5A42] text-white border-[#0A5A42]'
-                    : 'bg-white text-[#4F615A] border-[#CAD9D0] hover:border-[#0A5A42] hover:text-[#0A5A42]'
+                    ? 'bg-[#1F5138] text-white border-[#1F5138]'
+                    : 'bg-white text-[#4F615A] border-[#CAD9D0] hover:border-[#1F5138] hover:text-[#1F5138]'
                 }`}
                 onClick={() => setActiveCategory(cat)}
               >
@@ -681,7 +741,7 @@ export function KnowledgeHubExplorer({ initialArticles }: { initialArticles: Kno
             {(activeCategory !== 'All Articles' || searchQuery) && (
               <button
                 onClick={resetFilters}
-                className="text-xs font-semibold text-[#0A5A42] hover:underline"
+                className="text-xs font-semibold text-[#1F5138] hover:underline"
               >
                 Reset
               </button>
@@ -692,10 +752,10 @@ export function KnowledgeHubExplorer({ initialArticles }: { initialArticles: Kno
 
       {filtered.length === 0 ? (
         <div className="institutional-card p-10 text-center max-w-md mx-auto my-8">
-          <div className="w-12 h-12 rounded-full bg-[#E8F3ED] flex items-center justify-center mx-auto mb-3 text-[#0A5A42]">
+          <div className="w-12 h-12 rounded-full bg-[#EAF3EC] flex items-center justify-center mx-auto mb-3 text-[#1F5138]">
             <Search size={22} />
           </div>
-          <h3 className="text-base font-bold text-[#142C3E] mb-1">No guides found</h3>
+          <h3 className="text-base font-bold text-[#172B3A] mb-1">No guides found</h3>
           <p className="text-xs text-[#4F615A] mb-4">
             No articles matched &ldquo;{searchQuery}&rdquo;.
           </p>
@@ -713,17 +773,17 @@ export function KnowledgeHubExplorer({ initialArticles }: { initialArticles: Kno
             >
               <div>
                 <div className="flex items-center justify-between text-[11px] text-[#4F615A] mb-2">
-                  <span className="font-bold text-[#025E9A] uppercase tracking-wider">{art.category}</span>
+                  <span className="font-bold text-[#1F5138] uppercase tracking-wider">{art.category}</span>
                   <span>{art.read}</span>
                 </div>
-                <h3 className="text-base font-bold text-[#142C3E] mb-2 leading-snug group-hover:text-[#0A5A42] transition-colors font-heading">
+                <h3 className="text-base font-bold text-[#172B3A] mb-2 leading-snug group-hover:text-[#1F5138] transition-colors font-heading">
                   {art.title}
                 </h3>
                 <p className="text-xs text-[#4F615A] leading-relaxed mb-4">
                   {art.excerpt}
                 </p>
               </div>
-              <div className="border-t border-[#E2EBE5] pt-3 flex items-center justify-between text-xs font-semibold text-[#0A5A42]">
+              <div className="border-t border-[#E2EBE5] pt-3 flex items-center justify-between text-xs font-semibold text-[#1F5138]">
                 <span>Read Full Guide</span>
                 <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </div>
@@ -740,7 +800,7 @@ export function FinancialGapAnalysisSection() {
   const [activeArea, setActiveArea] = useState(gapAnalysisAreas[0])
 
   return (
-    <section className="section-institutional bg-[#E8F3ED] scroll-mt-28" id="gap-analysis">
+    <section className="section-institutional bg-[#EAF3EC] scroll-mt-28" id="gap-analysis">
       <div className="container">
         <div className="section-title-wrap max-w-3xl">
           <SectionBadge>Structured Evaluation</SectionBadge>
@@ -761,22 +821,22 @@ export function FinancialGapAnalysisSection() {
                   onClick={() => setActiveArea(area)}
                   className={`w-full text-left p-4 rounded border transition-all flex items-center justify-between ${
                     isSelected
-                      ? 'bg-white border-[#0A5A42] shadow-sm'
-                      : 'bg-white/70 border-[#CAD9D0] hover:bg-white hover:border-[#0A5A42]'
+                      ? 'bg-white border-[#1F5138] shadow-sm'
+                      : 'bg-white/70 border-[#CAD9D0] hover:bg-white hover:border-[#1F5138]'
                   }`}
                 >
                   <div className="flex items-center gap-3">
                     <div className={`w-8 h-8 rounded flex items-center justify-center flex-shrink-0 ${
-                      isSelected ? 'bg-[#0A5A42] text-white' : 'bg-[#E8F3ED] text-[#0A5A42]'
+                      isSelected ? 'bg-[#1F5138] text-white' : 'bg-[#EAF3EC] text-[#1F5138]'
                     }`}>
                       {getServiceIcon(area.icon)}
                     </div>
                     <div>
-                      <div className="text-xs font-bold text-[#142C3E]">{area.title}</div>
-                      <div className="text-[11px] text-[#025E9A]">{area.subtitle}</div>
+                      <div className="text-xs font-bold text-[#172B3A]">{area.title}</div>
+                      <div className="text-[11px] text-[#1F5138]">{area.subtitle}</div>
                     </div>
                   </div>
-                  <ChevronRight size={16} className={isSelected ? 'text-[#0A5A42]' : 'text-[#8C9EA8]'} />
+                  <ChevronRight size={16} className={isSelected ? 'text-[#1F5138]' : 'text-[#8C9EA8]'} />
                 </button>
               )
             })}
@@ -785,24 +845,24 @@ export function FinancialGapAnalysisSection() {
           {/* Details Card */}
           <div className="lg:col-span-7">
             <div className="institutional-card p-6 md:p-8">
-              <div className="text-[11px] font-bold text-[#025E9A] uppercase tracking-wider mb-1">
+              <div className="text-[11px] font-bold text-[#1F5138] uppercase tracking-wider mb-1">
                 {activeArea.subtitle}
               </div>
-              <h3 className="text-xl font-bold text-[#142C3E] mb-3">
+              <h3 className="text-xl font-bold text-[#172B3A] mb-3">
                 {activeArea.title}
               </h3>
               <p className="text-xs text-[#4F615A] leading-relaxed mb-6">
                 {activeArea.description}
               </p>
 
-              <div className="border border-[#CAD9D0] rounded p-4 bg-[#F7FAF8] mb-6">
-                <div className="text-xs font-bold text-[#0A5A42] uppercase tracking-wider mb-3">
+              <div className="border border-[#CAD9D0] rounded p-4 bg-[#F8F8F2] mb-6">
+                <div className="text-xs font-bold text-[#1F5138] uppercase tracking-wider mb-3">
                   Verification Checkpoints
                 </div>
                 <div className="space-y-2.5">
                   {activeArea.checks.map((check, i) => (
-                    <div key={i} className="flex items-start gap-2.5 text-xs text-[#2B2A29]">
-                      <CheckCircle2 size={14} className="text-[#11A778] flex-shrink-0 mt-0.5" />
+                    <div key={i} className="flex items-start gap-2.5 text-xs text-[#26332D]">
+                      <CheckCircle2 size={14} className="text-[#159568] flex-shrink-0 mt-0.5" />
                       <span>{check}</span>
                     </div>
                   ))}
@@ -838,14 +898,14 @@ export function StrategyExplorer() {
       {strategyPillars.map((p) => (
         <div key={p.id} id={p.id} className="institutional-card p-6 flex flex-col justify-between scroll-mt-28">
           <div>
-            <div className="text-xs font-mono font-bold text-[#0A5A42] mb-1">{p.badge}</div>
-            <h3 className="text-xl font-bold text-[#142C3E] mb-1">{p.title}</h3>
-            <div className="text-xs font-semibold text-[#025E9A] mb-3">{p.subtitle}</div>
+            <div className="text-xs font-mono font-bold text-[#1F5138] mb-1">{p.badge}</div>
+            <h3 className="text-xl font-bold text-[#172B3A] mb-1">{p.title}</h3>
+            <div className="text-xs font-semibold text-[#1F5138] mb-3">{p.subtitle}</div>
             <p className="text-xs text-[#4F615A] leading-relaxed mb-4">{p.desc}</p>
-            <ul className="space-y-2 text-xs text-[#2B2A29]">
+            <ul className="space-y-2 text-xs text-[#26332D]">
               {p.points.map((pt, i) => (
                 <li key={i} className="flex items-start gap-2">
-                  <Check size={14} className="text-[#11A778] flex-shrink-0 mt-0.5" />
+                  <Check size={14} className="text-[#159568] flex-shrink-0 mt-0.5" />
                   <span>{pt}</span>
                 </li>
               ))}
@@ -876,21 +936,21 @@ export function RealEstateSection() {
               <div className="icon-box-primary">
                 <Home size={20} />
               </div>
-              <h3 className="text-xl font-bold text-[#142C3E] mb-2">Residential Property</h3>
+              <h3 className="text-xl font-bold text-[#172B3A] mb-2">Residential Property</h3>
               <p className="text-xs text-[#4F615A] leading-relaxed mb-4">
                 Assistance for individuals and families purchasing apartments or independent villas. We review builder delivery history, title documentation, and integrate competitive home loans.
               </p>
-              <ul className="space-y-2 text-xs text-[#2B2A29] mb-6">
+              <ul className="space-y-2 text-xs text-[#26332D] mb-6">
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 size={14} className="text-[#11A778]" />
+                  <CheckCircle2 size={14} className="text-[#159568]" />
                   <span>RERA compliance and builder credibility audit</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 size={14} className="text-[#11A778]" />
+                  <CheckCircle2 size={14} className="text-[#159568]" />
                   <span>Integrated bank rate comparisons and loan sanction support</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 size={14} className="text-[#11A778]" />
+                  <CheckCircle2 size={14} className="text-[#159568]" />
                   <span>Tax deduction optimization under Sections 24 and 80C</span>
                 </li>
               </ul>
@@ -906,21 +966,21 @@ export function RealEstateSection() {
               <div className="icon-box-primary">
                 <Building size={20} />
               </div>
-              <h3 className="text-xl font-bold text-[#142C3E] mb-2">Real Estate Investments & Plots</h3>
+              <h3 className="text-xl font-bold text-[#172B3A] mb-2">Real Estate Investments & Plots</h3>
               <p className="text-xs text-[#4F615A] leading-relaxed mb-4">
                 Analysis of high-growth infrastructure corridors, approved plotted layouts, and pre-leased commercial assets with clear legal titles.
               </p>
-              <ul className="space-y-2 text-xs text-[#2B2A29] mb-6">
+              <ul className="space-y-2 text-xs text-[#26332D] mb-6">
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 size={14} className="text-[#11A778]" />
+                  <CheckCircle2 size={14} className="text-[#159568]" />
                   <span>Layout approvals verification (BMRDA / DTCP / equivalent)</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 size={14} className="text-[#11A778]" />
+                  <CheckCircle2 size={14} className="text-[#159568]" />
                   <span>Rental yield and long-term capital appreciation studies</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <CheckCircle2 size={14} className="text-[#11A778]" />
+                  <CheckCircle2 size={14} className="text-[#159568]" />
                   <span>Clear title verification checklist</span>
                 </li>
               </ul>
@@ -954,14 +1014,14 @@ export function CollegeProgramsSection() {
             <div key={mod.id} className="institutional-card p-6 flex flex-col justify-between">
               <div>
                 <div className="flex items-center justify-between text-xs mb-2">
-                  <span className="font-mono font-bold text-[#0A5A42]">Module 0{idx + 1}</span>
+                  <span className="font-mono font-bold text-[#1F5138]">Module 0{idx + 1}</span>
                   <span className="text-[#4F615A] font-semibold">{mod.hours}</span>
                 </div>
-                <h4 className="text-base font-bold text-[#142C3E] mb-3 leading-snug">{mod.title}</h4>
+                <h4 className="text-base font-bold text-[#172B3A] mb-3 leading-snug">{mod.title}</h4>
                 <ul className="space-y-2 text-xs text-[#4F615A]">
                   {mod.topics.map((t, i) => (
                     <li key={i} className="flex items-start gap-1.5">
-                      <span className="text-[#0A5A42] font-bold">•</span>
+                      <span className="text-[#1F5138] font-bold">•</span>
                       <span>{t}</span>
                     </li>
                   ))}
@@ -985,7 +1045,7 @@ export function CollegeProgramsSection() {
 /* Community Section */
 export function CommunityReferEarnSection() {
   return (
-    <section className="section-institutional bg-[#E8F3ED] scroll-mt-24" id="refer-earn">
+    <section className="section-institutional bg-[#EAF3EC] scroll-mt-24" id="refer-earn">
       <div className="container">
         <div className="section-title-wrap max-w-3xl">
           <SectionBadge>Community Ecosystem</SectionBadge>
@@ -999,13 +1059,13 @@ export function CommunityReferEarnSection() {
           {communityEcosystem.map((item, idx) => (
             <div key={idx} className="institutional-card p-6 flex flex-col justify-between">
               <div>
-                <span className="text-xs font-mono font-bold text-[#0A5A42] uppercase tracking-wider block mb-2">
+                <span className="text-xs font-mono font-bold text-[#1F5138] uppercase tracking-wider block mb-2">
                   {item.role}
                 </span>
-                <h4 className="text-base font-bold text-[#142C3E] mb-2">{item.title}</h4>
+                <h4 className="text-base font-bold text-[#172B3A] mb-2">{item.title}</h4>
                 <p className="text-xs text-[#4F615A] leading-relaxed mb-4">{item.desc}</p>
               </div>
-              <div className="border-t border-[#E2EBE5] pt-3 text-[11px] font-semibold text-[#025E9A]">
+              <div className="border-t border-[#E2EBE5] pt-3 text-[11px] font-semibold text-[#1F5138]">
                 Regulatory-compliant protocol
               </div>
             </div>

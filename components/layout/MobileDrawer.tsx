@@ -50,19 +50,19 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
         role="dialog"
         aria-modal="true"
         aria-label="Navigation Menu"
-        className="xl:hidden fixed inset-x-0 top-[76px] h-[calc(100dvh-76px)] max-h-[calc(100dvh-76px)] bg-white border-t border-[#E2EBE5] overflow-y-auto overscroll-contain z-50 p-6 flex flex-col justify-between shadow-2xl"
+        className="xl:hidden fixed inset-x-0 top-[76px] h-[calc(100dvh-76px)] max-h-[calc(100dvh-76px)] bg-[#F8F8F2] border-t border-[#E2EBE5] overflow-y-auto overscroll-contain z-50 p-6 flex flex-col justify-between shadow-2xl"
         style={{ WebkitOverflowScrolling: 'touch' }}
       >
       {/* Primary 5 Dedicated Landing Page Links (Zero accordions, zero dropdowns) */}
       <nav className="space-y-2">
         <div className="flex items-center justify-between pb-3 border-b border-[#E2EBE5] mb-2">
-          <span className="text-[11px] font-bold text-[#025E9A] uppercase tracking-wider font-heading">
+          <span className="text-[11px] font-bold text-[#1F5138] uppercase tracking-wider font-heading">
             Navigation Menu
           </span>
           <button
             type="button"
             onClick={onClose}
-            className="p-1 rounded text-[#4F615A] hover:text-[#142C3E] active:scale-95"
+            className="p-1 rounded text-[#4F615A] hover:text-[#172B3A] active:scale-95"
             aria-label="Close navigation menu"
           >
             <X size={20} />
@@ -78,12 +78,12 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
               onClick={onClose}
               className={`flex items-center justify-between py-3 px-3.5 rounded-lg text-sm font-semibold transition-colors ${
                 active
-                  ? 'bg-[#E8F3ED] text-[#0A5A42] font-bold'
-                  : 'text-[#142C3E] hover:bg-[#F7FAF8] hover:text-[#0A5A42]'
+                  ? 'bg-[#EAF3EC] text-[#1F5138] font-bold'
+                  : 'text-[#172B3A] hover:bg-[#F8F8F2] hover:text-[#1F5138]'
               }`}
             >
               <span>{item.label}</span>
-              <ArrowRight size={14} className={active ? 'text-[#0A5A42]' : 'text-[#CAD9D0]'} />
+              <ArrowRight size={14} className={active ? 'text-[#1F5138]' : 'text-[#CAD9D0]'} />
             </Link>
           )
         })}
@@ -91,26 +91,26 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
 
       {/* Direct Mobile Quick Contact & Primary Booking Action */}
       <div className="pt-6 pb-2 border-t border-[#E2EBE5] mt-6">
-        <div className="text-[10px] font-bold text-[#025E9A] uppercase tracking-wider mb-2.5">
+        <div className="text-[10px] font-bold text-[#1F5138] uppercase tracking-wider mb-2.5">
           Direct Advisory Desk
         </div>
         <div className="grid grid-cols-2 gap-2 mb-3">
           <a
             href={`tel:${companyDetails.phone}`}
-            className="flex items-center gap-2 p-2.5 rounded-lg border border-[#CAD9D0] bg-[#F7FAF8] text-xs font-semibold text-[#142C3E] hover:border-[#0A5A42] hover:text-[#0A5A42] transition-colors"
+            className="flex items-center gap-2 p-2.5 rounded-lg border border-[#CAD9D0] bg-[#F8F8F2] text-xs font-semibold text-[#172B3A] hover:border-[#1F5138] hover:text-[#1F5138] transition-colors"
             aria-label="Call Kreative Hertz"
           >
-            <Phone size={14} className="text-[#0A5A42] flex-shrink-0" />
+            <Phone size={14} className="text-[#1F5138] flex-shrink-0" />
             <span className="truncate">Call Advisor</span>
           </a>
           <a
             href={companyDetails.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 p-2.5 rounded-lg border border-[#11A778]/40 bg-[#E8F3ED] text-xs font-semibold text-[#0A5A42] hover:border-[#0A5A42] transition-colors"
+            className="flex items-center gap-2 p-2.5 rounded-lg border border-[#159568]/40 bg-[#EAF3EC] text-xs font-semibold text-[#1F5138] hover:border-[#1F5138] transition-colors"
             aria-label="WhatsApp Advisory Desk"
           >
-            <MessageCircle size={14} className="text-[#11A778] flex-shrink-0" />
+            <MessageCircle size={14} className="text-[#159568] flex-shrink-0" />
             <span className="truncate">WhatsApp Desk</span>
           </a>
         </div>

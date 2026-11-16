@@ -21,9 +21,9 @@ export function BrandLogo({ onClick }: BrandLogoProps) {
         <Image
           src={getAssetPath('/logo-icon.png')}
           alt="Kreative Hertz Crest"
-          width={36}
-          height={36}
-          className="object-contain"
+          width={40}
+          height={40}
+          className="w-full h-full object-cover scale-125 transition-transform duration-200 group-hover:scale-130"
           priority
         />
       </div>
