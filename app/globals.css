@@ -422,13 +422,26 @@
   border-radius: 6px;
   color: var(--color-heading);
   cursor: pointer;
-  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.1s ease;
 }
 
-.nav-mobile-toggle:hover {
+@media (hover: hover) and (pointer: fine) {
+  .nav-mobile-toggle:hover {
+    background-color: var(--color-bg-subtle);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+}
+
+.nav-mobile-toggle:active {
   background-color: var(--color-bg-subtle);
   border-color: var(--color-primary);
   color: var(--color-primary);
+  transform: scale(0.95);
 }
 
 /* =========================================================

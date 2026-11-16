@@ -38,12 +38,21 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
   }
 
   return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-label="Navigation Menu"
-      className="xl:hidden fixed inset-x-0 top-[76px] bottom-0 bg-white border-t border-[#E2EBE5] overflow-y-auto z-50 p-6 flex flex-col justify-between animate-in fade-in slide-in-from-top-2 duration-200"
-    >
+    <>
+      {/* Backdrop Scrim (Closes menu on tap outside) */}
+      <div
+        className="xl:hidden fixed inset-0 top-[76px] bg-black/35 backdrop-blur-[2px] z-40 transition-opacity"
+        onClick={onClose}
+        aria-hidden="true"
+      />
+
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation Menu"
+        className="xl:hidden fixed inset-x-0 top-[76px] h-[calc(100dvh-76px)] max-h-[calc(100dvh-76px)] bg-white border-t border-[#E2EBE5] overflow-y-auto overscroll-contain z-50 p-6 flex flex-col justify-between shadow-2xl"
+        style={{ WebkitOverflowScrolling: 'touch' }}
+      >
       {/* Primary 5 Dedicated Landing Page Links (Zero accordions, zero dropdowns) */}
       <nav className="space-y-2">
         <div className="flex items-center justify-between pb-3 border-b border-[#E2EBE5] mb-2">
@@ -51,11 +60,12 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
             Navigation Menu
           </span>
           <button
+            type="button"
             onClick={onClose}
-            className="p-1 rounded text-[#4F615A] hover:text-[#142C3E]"
+            className="p-1 rounded text-[#4F615A] hover:text-[#142C3E] active:scale-95"
             aria-label="Close navigation menu"
           >
-            <X size={18} />
+            <X size={20} />
           </button>
         </div>
 
@@ -115,5 +125,6 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
         </Link>
       </div>
     </div>
+    </>
   )
 }

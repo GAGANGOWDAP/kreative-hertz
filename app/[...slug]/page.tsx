@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
+import { getAssetPath } from '@/lib/assets'
 import {
   ArrowRight,
   ShieldCheck,
@@ -86,6 +87,8 @@ export async function generateStaticParams() {
     params.push({ slug: ['services', s.id] })
     params.push({ slug: ['wealth-architect', s.id] })
   })
+  params.push({ slug: ['services', 'investment-property'] })
+  params.push({ slug: ['wealth-architect', 'investment-property'] })
 
   // 4. Articles: /blog/:slug and /knowledge-hub/:slug
   articles.forEach((a) => {
@@ -138,7 +141,8 @@ export default async function Subpage({ params }: { params: Promise<{ slug: stri
 
   // Dynamic Service Detail: /services/:id or /wealth-architect/:id
   if ((primarySlug === 'services' || primarySlug === 'wealth-architect') && secondarySlug) {
-    const service = servicesData.find((s) => s.id === secondarySlug)
+    const targetId = secondarySlug === 'investment-property' ? 'residential-property' : secondarySlug
+    const service = servicesData.find((s) => s.id === targetId)
     if (!service) {
       notFound()
     }
@@ -344,7 +348,7 @@ function AboutUsView() {
                 <div className="institutional-card p-6 text-center border-[#CAD9D0]">
                   <div className="brand-crest w-16 h-16 mx-auto mb-3">
                     <Image
-                      src="/logo-icon.png"
+                      src={getAssetPath('/logo-icon.png')}
                       alt="Kreative Hertz Crest"
                       width={48}
                       height={48}
