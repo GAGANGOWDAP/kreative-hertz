@@ -1007,15 +1007,21 @@ export function HowWeWorkSection() {
                   key={idx}
                   onMouseEnter={() => setActiveStep(idx)}
                   onMouseLeave={() => setActiveStep(null)}
-                  className="relative flex items-start gap-2 sm:gap-3.5 group"
+                  className="relative flex items-center gap-2 sm:gap-3.5 group"
                 >
-                  {/* Vertical timeline line segment connecting to NEXT milestone only (stops cleanly at 04) */}
-                  {!isLast && (
-                    <div className="absolute left-[16px] sm:left-[21px] top-[42px] sm:top-[56px] -bottom-2.5 sm:-bottom-4 w-[2px] bg-[#1F5138]" />
+                  {/* Continuous Vertical Timeline Line Segment */}
+                  {idx === 0 && (
+                    <div className="absolute left-4 sm:left-[22px] -translate-x-1/2 top-1/2 -bottom-[11px] sm:-bottom-[17px] w-[2px] bg-[#1F5138] z-0 pointer-events-none" />
+                  )}
+                  {idx > 0 && !isLast && (
+                    <div className="absolute left-4 sm:left-[22px] -translate-x-1/2 top-0 -bottom-[11px] sm:-bottom-[17px] w-[2px] bg-[#1F5138] z-0 pointer-events-none" />
+                  )}
+                  {isLast && (
+                    <div className="absolute left-4 sm:left-[22px] -translate-x-1/2 top-0 h-1/2 w-[2px] bg-[#1F5138] z-0 pointer-events-none" />
                   )}
 
                   {/* Numbered Milestone Circle + Connector Pin */}
-                  <div className="flex items-center flex-shrink-0 pt-2 z-10">
+                  <div className="relative flex items-center flex-shrink-0 z-10">
                     <div
                       className={`w-8 h-8 sm:w-11 sm:h-11 rounded-full flex items-center justify-center font-mono font-bold text-xs sm:text-sm border-2 border-white shadow-md transition-all duration-300 cursor-pointer ${isActive
                         ? 'bg-[#159568] text-white ring-3 ring-[#159568]/30 scale-105'
@@ -1035,7 +1041,7 @@ export function HowWeWorkSection() {
 
                   {/* Information Card to the right of the timeline */}
                   <div
-                    className={`flex-1 min-w-0 bg-white rounded-xl sm:rounded-2xl border p-2.5 sm:p-4 shadow-sm transition-all duration-300 relative ${isActive
+                    className={`flex-1 min-w-0 bg-white rounded-xl sm:rounded-2xl border p-2.5 sm:p-4 shadow-sm transition-all duration-300 relative z-10 ${isActive
                       ? 'border-[#159568] shadow-md -translate-y-0.5'
                       : 'border-[#E2EBE5] group-hover:border-[#159568]/40'
                       }`}
