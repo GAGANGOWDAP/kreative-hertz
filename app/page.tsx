@@ -27,8 +27,7 @@ import {
   ServicesExplorer,
   VisitorRequirementSelector,
   HowWeWorkSection,
-  InteractiveFaqList,
-  ExecutiveProfile
+  InteractiveFaqList
 } from '@/components/site'
 import { companyDetails, personalFinanceAwareness, articles } from '@/lib/site-data'
 
@@ -54,56 +53,100 @@ export default function HomePage() {
 
   return (
     <PageShell>
-      {/* 1. HERO SECTION (Clean, Asymmetric Editorial Layout, Zero Neon/Blobs) */}
-      <section className="section-institutional bg-[#FFFFFF] border-b border-[#E2EBE5]">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content (7 Cols) */}
-            <div className="lg:col-span-7">
+      {/* 1. HERO SECTION (Refined Full-Width Composition with Subtle Architecture Background) */}
+      <section className="relative w-full lg:min-h-[calc(100svh-76px)] flex flex-col justify-between border-b border-[#E2EBE5] overflow-hidden bg-[#F8F8F2]">
+        {/* Subtle full-width authentic architectural photograph background */}
+        <div className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0">
+          <Image
+            src={getAssetPath('/hero-architecture.jpg')}
+            alt="Modern glass architecture with subtle greenery"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center filter saturate-[0.85]"
+          />
+          {/* Warm-White Overlay (92% opacity) for understated elegance and maximum text readability */}
+          <div
+            className="absolute inset-0"
+            style={{ backgroundColor: 'rgba(248, 248, 242, 0.92)' }}
+          />
+        </div>
+
+        {/* Hero Content (Relative Z-10) */}
+        <div className="relative z-10 container max-w-6xl mx-auto flex flex-col flex-1 justify-between pt-5 sm:pt-6 lg:pt-7 xl:pt-8 pb-5 sm:pb-6 lg:pb-7 px-4 sm:px-6">
+          {/* Main Hero Content Area (Level 1 & Level 2) */}
+          <div className="max-w-4xl flex flex-col justify-center my-auto py-2 sm:py-3 lg:py-4">
+            {/* Level 1: Introductory label and main heading */}
+            <div className="mb-2 sm:mb-2.5">
               <SectionBadge>Institutional Financial Advisory</SectionBadge>
-              <h1 className="hero-title mb-4">
-                Structured Wealth Architecture. <br />
-                <span className="text-[#1F5138]">Objective Financial Guidance.</span>
-              </h1>
-
-              <p className="text-base text-[#4F615A] leading-relaxed max-w-xl mb-6">
-                From identifying critical gaps in insurance and asset allocation to structuring transparent debt financing and personal financial education — Kreative Hertz converts financial complexity into clear, durable strategies.
-              </p>
-
-              <div className="flex flex-wrap gap-4 items-center mb-8">
-                <Link href="/book-session" className="btn-primary group">
-                  <span>Schedule a Consultation</span>
-                  <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
-                </Link>
-                <Link href="/wealth-architect" className="btn-secondary">
-                  <span>Explore 15 Financial Services</span>
-                </Link>
-                <Link href="/contact" className="text-xs font-semibold text-[#1F5138] hover:text-[#159568] flex items-center gap-1.5 px-3 py-2">
-                  <span>Contact Advisor</span>
-                  <ArrowRight size={13} />
-                </Link>
-              </div>
-
-              {/* Verified Institutional Credibility Notes */}
-              <div className="pt-6 border-t border-[#E2EBE5] grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-[#4F615A]">
-                <div>
-                  <span className="font-bold text-[#172B3A] block mb-0.5">Fiduciary Standard</span>
-                  <span>Don&apos;t Sell First. Educate First.</span>
-                </div>
-                <div>
-                  <span className="font-bold text-[#172B3A] block mb-0.5">Established 2022</span>
-                  <span>Founded by Karthik R in June 2022.</span>
-                </div>
-                <div>
-                  <span className="font-bold text-[#172B3A] block mb-0.5">Dual Discipline</span>
-                  <span>Wealth Architect & Life Strategist.</span>
-                </div>
-              </div>
             </div>
 
-            {/* Right Card (5 Cols) - Premium Executive Identity */}
-            <div className="lg:col-span-5">
-              <ExecutiveProfile />
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[50px] font-extrabold text-[#172B3A] font-heading tracking-tight leading-[1.14] mb-3 sm:mb-4">
+              Structured Wealth Architecture. <br className="hidden sm:inline" />
+              <span className="text-[#1F5138]">Objective Financial Guidance.</span>
+            </h1>
+
+            {/* Level 2: Description and three CTA actions */}
+            <p className="text-sm sm:text-base lg:text-[16px] text-[#4F615A] leading-relaxed max-w-2xl lg:max-w-3xl mb-5 sm:mb-6 lg:mb-7">
+              From identifying critical gaps in insurance and asset allocation to structuring transparent debt financing and personal financial education — Kreative Hertz converts financial complexity into clear, durable strategies.
+            </p>
+
+            <div className="flex flex-wrap gap-3 sm:gap-4 items-center">
+              <Link href="/book-session" className="btn-primary group">
+                <span>Schedule a Consultation</span>
+                <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+              <Link href="/wealth-architect" className="btn-secondary">
+                <span>Explore 15 Financial Services</span>
+              </Link>
+              <Link href="/contact" className="text-xs sm:text-sm font-semibold text-[#1F5138] hover:text-[#159568] flex items-center gap-1.5 px-3 py-2 transition-colors">
+                <span>Contact Advisor</span>
+                <ArrowRight size={14} />
+              </Link>
+            </div>
+          </div>
+
+          {/* Level 3: Three bottom highlights, separated by a subtle horizontal divider */}
+          <div className="pt-4 sm:pt-5 lg:pt-6 border-t border-[#E2EBE5] mt-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#E2EBE5]">
+              {/* Highlight 1 */}
+              <div className="pb-3 md:pb-0 md:pr-6 lg:pr-8">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#159568] flex-shrink-0" />
+                  <span className="font-bold text-sm sm:text-[15px] text-[#172B3A] font-heading">
+                    Fiduciary Standard
+                  </span>
+                </div>
+                <p className="text-xs sm:text-sm text-[#4F615A] leading-relaxed pl-3.5">
+                  Don&apos;t Sell First. Educate First.
+                </p>
+              </div>
+
+              {/* Highlight 2 */}
+              <div className="py-3 md:py-0 md:px-6 lg:px-8">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#159568] flex-shrink-0" />
+                  <span className="font-bold text-sm sm:text-[15px] text-[#172B3A] font-heading">
+                    Established 2022
+                  </span>
+                </div>
+                <p className="text-xs sm:text-sm text-[#4F615A] leading-relaxed pl-3.5">
+                  Founded by Karthik R in June 2022.
+                </p>
+              </div>
+
+              {/* Highlight 3 */}
+              <div className="pt-3 md:pt-0 md:pl-6 lg:pl-8">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#159568] flex-shrink-0" />
+                  <span className="font-bold text-sm sm:text-[15px] text-[#172B3A] font-heading">
+                    Dual Discipline
+                  </span>
+                </div>
+                <p className="text-xs sm:text-sm text-[#4F615A] leading-relaxed pl-3.5">
+                  Wealth Architect &amp; Life Strategist.
+                </p>
+              </div>
             </div>
           </div>
         </div>

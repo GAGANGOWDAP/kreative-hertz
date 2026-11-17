@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { getAssetPath } from '@/lib/assets'
 import { usePathname } from 'next/navigation'
 import {
   Shield, Heart, Car, Plane, Users, Briefcase, TrendingUp,
@@ -1019,6 +1020,24 @@ export function HowWeWorkSection() {
   )
 }
 
+const SERVICE_IMAGES: Record<string, string> = {
+  'life-insurance': '/services/life-insurance.jpg',
+  'health-insurance': '/services/health-insurance.jpg',
+  'motor-insurance': '/services/motor-insurance.jpg',
+  'travel-insurance': '/services/travel-insurance.jpg',
+  'business-insurance': '/services/business-insurance.jpg',
+  'mutual-funds': '/services/mutual-funds.jpg',
+  'financial-planning': '/services/financial-planning.jpg',
+  'retirement-planning': '/services/retirement-planning.jpg',
+  'child-education-fund': '/services/child-education-fund.jpg',
+  'home-loans': '/services/home-loans.jpg',
+  'personal-loans': '/services/personal-loans.jpg',
+  'business-loans': '/services/business-loans.jpg',
+  'loan-against-property': '/services/loan-against-property.jpg',
+  'residential-property': '/services/residential-property.jpg',
+  'investment-property': '/services/investment-property.jpg',
+}
+
 /* Filterable & Searchable 15 Services Directory */
 export function ServicesExplorer({ initialCategory = 'All Services' }: { initialCategory?: string }) {
   const categories = [
@@ -1060,7 +1079,7 @@ export function ServicesExplorer({ initialCategory = 'All Services' }: { initial
   return (
     <div>
       {/* Search and Category Control Bar */}
-      <div className="mb-6 space-y-4">
+      <div className="mb-8 space-y-4">
         {/* Search Input */}
         <div className="relative max-w-md">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-[#6C7D76]">
@@ -1071,13 +1090,13 @@ export function ServicesExplorer({ initialCategory = 'All Services' }: { initial
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search financial services by name, keywords..."
-            className="form-control-input pl-9 pr-8 text-xs py-2.5 w-full bg-white"
+            className="form-control-input pl-9 pr-8 text-xs py-2.5 w-full bg-white border-[#CAD9D0] focus:border-[#0A5A42] rounded-lg transition-colors"
             aria-label="Search financial services"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery('')}
-              className="absolute inset-y-0 right-0 pr-3 flex items-center text-[#6C7D76] hover:text-[#172B3A]"
+              className="absolute inset-y-0 right-0 pr-3 flex items-center text-[#6C7D76] hover:text-[#142C3E]"
               aria-label="Clear search"
             >
               <X size={14} />
@@ -1093,15 +1112,17 @@ export function ServicesExplorer({ initialCategory = 'All Services' }: { initial
                 key={cat.label}
                 role="tab"
                 aria-selected={activeCategory === cat.label}
-                className={`px-3.5 py-1.5 text-xs font-semibold rounded-md border transition-colors flex items-center gap-1.5 ${activeCategory === cat.label
-                  ? 'bg-[#1F5138] text-white border-[#1F5138]'
-                  : 'bg-white text-[#4F615A] border-[#CAD9D0] hover:border-[#1F5138] hover:text-[#1F5138]'
+                className={`px-3.5 py-1.5 text-xs font-semibold rounded-md border transition-all flex items-center gap-1.5 ${activeCategory === cat.label
+                    ? 'bg-[#0A5A42] text-white border-[#0A5A42] shadow-xs'
+                    : 'bg-white text-[#4F615A] border-[#CAD9D0] hover:border-[#0A5A42] hover:text-[#0A5A42]'
                   }`}
                 onClick={() => setActiveCategory(cat.label)}
               >
                 <span>{cat.label}</span>
-                <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${activeCategory === cat.label ? 'bg-white/20 text-white' : 'bg-[#EAF3EC] text-[#1F5138]'
-                  }`}>
+                <span
+                  className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold ${activeCategory === cat.label ? 'bg-white/20 text-white' : 'bg-[#E8F3ED] text-[#0A5A42]'
+                    }`}
+                >
                   {cat.count}
                 </span>
               </button>
@@ -1113,7 +1134,7 @@ export function ServicesExplorer({ initialCategory = 'All Services' }: { initial
             {isFiltered && (
               <button
                 onClick={resetFilters}
-                className="text-xs font-semibold text-[#1F5138] hover:underline"
+                className="text-xs font-semibold text-[#0A5A42] hover:text-[#11A778] hover:underline transition-colors"
               >
                 Reset
               </button>
@@ -1124,11 +1145,11 @@ export function ServicesExplorer({ initialCategory = 'All Services' }: { initial
 
       {/* Empty State */}
       {filtered.length === 0 ? (
-        <div className="institutional-card p-10 text-center max-w-md mx-auto my-8">
-          <div className="w-12 h-12 rounded-full bg-[#EAF3EC] flex items-center justify-center mx-auto mb-3 text-[#1F5138]">
+        <div className="institutional-card p-10 text-center max-w-md mx-auto my-8 bg-white rounded-2xl border border-[#E2EBE5]">
+          <div className="w-12 h-12 rounded-full bg-[#E8F3ED] flex items-center justify-center mx-auto mb-3 text-[#0A5A42]">
             <Search size={22} />
           </div>
-          <h3 className="text-base font-bold text-[#172B3A] mb-1">No services found</h3>
+          <h3 className="text-base font-bold text-[#142C3E] mb-1">No services found</h3>
           <p className="text-xs text-[#4F615A] mb-4">
             No financial services matched &ldquo;{searchQuery}&rdquo; within &ldquo;{activeCategory}&rdquo;.
           </p>
@@ -1140,35 +1161,66 @@ export function ServicesExplorer({ initialCategory = 'All Services' }: { initial
           </button>
         </div>
       ) : (
-        /* Services Grid (Clean 3-column institutional layout) */
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filtered.map((service) => (
-            <Link
-              key={service.id}
-              href={`/services/${service.id}`}
-              className="card-service-item flex flex-col justify-between group"
-            >
-              <div>
-                <div className="icon-box-primary group-hover:bg-[#1F5138] group-hover:text-white transition-colors">
-                  {getServiceIcon(service.iconType)}
+        /* 15 Services Grid - Premium reference design: 3 columns desktop, 2 tablet, 1 mobile */
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {filtered.map((service) => {
+            const imageSrc = SERVICE_IMAGES[service.id] || `/services/${service.id}.jpg`
+            return (
+              <Link
+                key={service.id}
+                href={`/services/${service.id}`}
+                className="group flex flex-col bg-white rounded-2xl border border-[#E2EBE5] shadow-[0_2px_12px_rgba(20,44,62,0.05)] hover:shadow-[0_12px_32px_rgba(20,44,62,0.12)] transition-all duration-300 overflow-hidden hover:-translate-y-1 h-full"
+              >
+                {/* Top 55%: Landscape Photography with subtle organic wave transition */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#E8F3ED]">
+                  <Image
+                    src={getAssetPath(imageSrc)}
+                    alt={service.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                  />
+                  {/* Subtle organic wave divider mimicking the reference */}
+                  <div className="absolute -bottom-[1px] left-0 right-0 h-4 pointer-events-none text-white overflow-hidden">
+                    <svg viewBox="0 0 400 20" preserveAspectRatio="none" className="w-full h-full fill-white">
+                      <path d="M0,20 L0,12 C120,22 220,4 320,15 C360,19 385,12 400,14 L400,20 Z" />
+                    </svg>
+                  </div>
                 </div>
-                <span className="text-[11px] font-bold tracking-wider text-[#1F5138] uppercase block mb-1">
-                  {service.category}
-                </span>
-                <h3 className="text-lg font-bold text-[#172B3A] mb-2 leading-snug group-hover:text-[#1F5138] transition-colors font-heading">
-                  {service.title}
-                </h3>
-                <p className="text-xs text-[#4F615A] leading-relaxed mb-4">
-                  {service.shortDesc}
-                </p>
-              </div>
 
-              <div className="border-t border-[#E2EBE5] pt-3 flex items-center justify-between text-xs font-semibold text-[#1F5138]">
-                <span>View Service Specifications</span>
-                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-          ))}
+                {/* Bottom Card Content: White, structured, clean editorial typography */}
+                <div className="p-5 sm:p-6 flex flex-col flex-1 justify-between bg-white">
+                  <div>
+                    {/* Header: Circular Icon Badge + Service Title */}
+                    <div className="flex items-start gap-3.5 mb-3">
+                      <div className="w-10 h-10 rounded-full bg-[#E8F3ED] text-[#0A5A42] flex items-center justify-center shrink-0 group-hover:bg-[#0A5A42] group-hover:text-white transition-colors duration-300 shadow-xs mt-0.5">
+                        {getServiceIcon(service.iconType)}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-base sm:text-lg font-bold text-[#142C3E] leading-snug group-hover:text-[#0A5A42] transition-colors font-heading line-clamp-2">
+                          {service.title}
+                        </h3>
+                      </div>
+                    </div>
+
+                    {/* Short readable 2-3 line description */}
+                    <p className="text-xs text-[#4F615A] leading-relaxed line-clamp-3">
+                      {service.shortDesc}
+                    </p>
+                  </div>
+
+                  {/* Styled Learn More Link with thin horizontal divider line matching reference */}
+                  <div className="mt-5 pt-3.5 flex items-center gap-2.5">
+                    <span className="text-xs font-semibold text-[#0A5A42] group-hover:text-[#11A778] transition-colors inline-flex items-center gap-1.5 shrink-0">
+                      <span>Learn More</span>
+                      <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform duration-200" />
+                    </span>
+                    <div className="h-[1px] flex-1 bg-[#E2EBE5] group-hover:bg-[#11A778]/30 transition-colors" />
+                  </div>
+                </div>
+              </Link>
+            )
+          })}
         </div>
       )}
     </div>
