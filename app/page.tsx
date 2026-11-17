@@ -63,35 +63,35 @@ export default function HomePage() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center filter saturate-[0.85]"
+            className="object-cover object-center"
           />
-          {/* Warm-White Overlay (92% opacity) for understated elegance and maximum text readability */}
+          {/* Warm-White Overlay (87% opacity) for enhanced architectural visibility while ensuring pristine text contrast */}
           <div
             className="absolute inset-0"
-            style={{ backgroundColor: 'rgba(248, 248, 242, 0.92)' }}
+            style={{ backgroundColor: 'rgba(248, 248, 242, 0.87)' }}
           />
         </div>
 
         {/* Hero Content (Relative Z-10) */}
         <div className="relative z-10 container max-w-6xl mx-auto flex flex-col flex-1 justify-between pt-5 sm:pt-6 lg:pt-7 xl:pt-8 pb-5 sm:pb-6 lg:pb-7 px-4 sm:px-6">
           {/* Main Hero Content Area (Level 1 & Level 2) */}
-          <div className="max-w-4xl flex flex-col justify-center my-auto py-2 sm:py-3 lg:py-4">
+          <div className="max-w-4xl flex flex-col justify-center my-auto py-1 sm:py-2">
             {/* Level 1: Introductory label and main heading */}
-            <div className="mb-2 sm:mb-2.5">
+            <div className="mb-2">
               <SectionBadge>Institutional Financial Advisory</SectionBadge>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[50px] font-extrabold text-[#172B3A] font-heading tracking-tight leading-[1.14] mb-3 sm:mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[44px] xl:text-[50px] font-extrabold text-[#172B3A] font-heading tracking-tight leading-[1.14] mb-2.5 sm:mb-3">
               Structured Wealth Architecture. <br className="hidden sm:inline" />
               <span className="text-[#1F5138]">Objective Financial Guidance.</span>
             </h1>
 
             {/* Level 2: Description and three CTA actions */}
-            <p className="text-sm sm:text-base lg:text-[16px] text-[#4F615A] leading-relaxed max-w-2xl lg:max-w-3xl mb-5 sm:mb-6 lg:mb-7">
+            <p className="text-sm sm:text-base lg:text-[16px] text-[#4F615A] leading-relaxed max-w-2xl lg:max-w-3xl mb-4 sm:mb-5">
               From identifying critical gaps in insurance and asset allocation to structuring transparent debt financing and personal financial education — Kreative Hertz converts financial complexity into clear, durable strategies.
             </p>
 
-            <div className="flex flex-wrap gap-3 sm:gap-4 items-center">
+            <div className="flex flex-wrap gap-3 sm:gap-3.5 items-center">
               <Link href="/book-session" className="btn-primary group">
                 <span>Schedule a Consultation</span>
                 <ArrowRight size={16} className="group-hover:translate-x-0.5 transition-transform" />
@@ -106,44 +106,44 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Level 3: Three bottom highlights, separated by a subtle horizontal divider */}
-          <div className="pt-4 sm:pt-5 lg:pt-6 border-t border-[#E2EBE5] mt-auto">
+          {/* Level 3: Three bottom trust indicators, separated by a subtle horizontal divider */}
+          <div className="pt-4 sm:pt-5 border-t border-[#E2EBE5] mt-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-[#E2EBE5]">
               {/* Highlight 1 */}
               <div className="pb-3 md:pb-0 md:pr-6 lg:pr-8">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#159568] flex-shrink-0" />
+                <div className="flex items-center gap-2.5 mb-1.5">
+                  <span className="w-2 h-2 rounded-full bg-[#159568] flex-shrink-0" />
                   <span className="font-bold text-sm sm:text-[15px] text-[#172B3A] font-heading">
                     Fiduciary Standard
                   </span>
                 </div>
-                <p className="text-xs sm:text-sm text-[#4F615A] leading-relaxed pl-3.5">
+                <p className="text-xs sm:text-[13px] text-[#4F615A] leading-normal pl-[18px]">
                   Don&apos;t Sell First. Educate First.
                 </p>
               </div>
 
               {/* Highlight 2 */}
               <div className="py-3 md:py-0 md:px-6 lg:px-8">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#159568] flex-shrink-0" />
+                <div className="flex items-center gap-2.5 mb-1.5">
+                  <span className="w-2 h-2 rounded-full bg-[#159568] flex-shrink-0" />
                   <span className="font-bold text-sm sm:text-[15px] text-[#172B3A] font-heading">
                     Established 2022
                   </span>
                 </div>
-                <p className="text-xs sm:text-sm text-[#4F615A] leading-relaxed pl-3.5">
+                <p className="text-xs sm:text-[13px] text-[#4F615A] leading-normal pl-[18px]">
                   Founded by Karthik R in June 2022.
                 </p>
               </div>
 
               {/* Highlight 3 */}
               <div className="pt-3 md:pt-0 md:pl-6 lg:pl-8">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#159568] flex-shrink-0" />
+                <div className="flex items-center gap-2.5 mb-1.5">
+                  <span className="w-2 h-2 rounded-full bg-[#159568] flex-shrink-0" />
                   <span className="font-bold text-sm sm:text-[15px] text-[#172B3A] font-heading">
                     Dual Discipline
                   </span>
                 </div>
-                <p className="text-xs sm:text-sm text-[#4F615A] leading-relaxed pl-3.5">
+                <p className="text-xs sm:text-[13px] text-[#4F615A] leading-normal pl-[18px]">
                   Wealth Architect &amp; Life Strategist.
                 </p>
               </div>
