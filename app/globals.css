@@ -251,11 +251,48 @@
   }
 }
 
+@media (min-width: 1024px) and (max-height: 820px) {
+  .section-institutional {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+}
+
 @media (max-width: 1023px) {
   .section-institutional {
     min-height: auto;
-    padding-top: clamp(44px, 6vw, 64px);
-    padding-bottom: clamp(44px, 6vw, 64px);
+    padding-top: clamp(32px, 5vw, 52px);
+    padding-bottom: clamp(32px, 5vw, 52px);
+  }
+}
+
+@media (max-width: 767px) {
+  .section-institutional {
+    min-height: auto;
+    padding-top: clamp(18px, 4vw, 28px);
+    padding-bottom: clamp(18px, 4vw, 28px);
+  }
+  .section-title-wrap {
+    margin-bottom: clamp(12px, 3vw, 20px);
+  }
+}
+
+/* Mobile-only Full-Screen Hero for All Pages (< 768px) */
+@media (max-width: 767px) {
+  /* Ensure the first section (hero) of every page fits 100% of the mobile viewport */
+  main > section:first-of-type {
+    min-height: calc(100vh - 64px);
+    min-height: calc(100svh - 64px);
+    min-height: calc(100dvh - 64px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: clamp(24px, 5vh, 44px);
+    padding-bottom: clamp(24px, 5vh, 44px);
+  }
+
+  main > section:first-of-type.justify-between {
+    justify-content: space-between;
   }
 }
 

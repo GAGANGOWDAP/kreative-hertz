@@ -129,6 +129,25 @@ export async function generateStaticParams() {
   return params
 }
 
+function HeroBackground() {
+  return (
+    <div className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0">
+      <Image
+        src={getAssetPath('/hero-architecture.jpg')}
+        alt="Modern glass architecture with subtle greenery"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+      />
+      <div
+        className="absolute inset-0"
+        style={{ backgroundColor: 'rgba(248, 248, 242, 0.87)' }}
+      />
+    </div>
+  )
+}
+
 export default async function Subpage({ params }: { params: Promise<{ slug: string[] }> }) {
   const { slug } = await params
   const primarySlug = slug[0]
@@ -236,10 +255,11 @@ function AboutUsView() {
   return (
     <PageShell>
       {/* 1. Header & Dedicated Directory Navigation */}
-      <section className="section-institutional bg-[#FFFFFF] border-b border-[#E2EBE5]">
-        <div className="container max-w-5xl">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+        <HeroBackground />
+        <div className="relative z-10 container max-w-5xl">
           <SectionBadge>Corporate Background & Practice</SectionBadge>
-          <h1 className="h1 mb-3 font-heading">About Kreative Hertz</h1>
+          <h1 className="h1 mb-3 font-heading text-[#172B3A]">About Kreative Hertz</h1>
           <p className="text-base text-[#4F615A] leading-relaxed mb-6 max-w-3xl">
             Founded in June 2022 in Bengaluru, Karnataka with a single uncompromising conviction: financial contracts and market instruments are inherently complex, but understanding and acting on them should be straightforward.
           </p>
@@ -787,10 +807,11 @@ function ServicesOverviewLandingView() {
   return (
     <PageShell>
       {/* 1. Hero */}
-      <section className="section-institutional bg-[#FFFFFF] border-b border-[#E2EBE5]">
-        <div className="container max-w-4xl text-center mx-auto">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+        <HeroBackground />
+        <div className="relative z-10 container max-w-4xl text-center mx-auto">
           <SectionBadge>Financial Advisory Services</SectionBadge>
-          <h1 className="h1 mb-3 font-heading">Comprehensive Financial Services</h1>
+          <h1 className="h1 mb-3 font-heading text-[#172B3A]">Comprehensive Financial Services</h1>
           <p className="text-xs font-mono font-bold text-[#1F5138] uppercase tracking-wider mb-4">
             Understand · Analyse · Strategise
           </p>
@@ -945,8 +966,9 @@ function ServicesCategoryView({ categorySlug }: { categorySlug: string }) {
 
   return (
     <PageShell>
-      <section className="section-institutional bg-[#FFFFFF] border-b border-[#E2EBE5]">
-        <div className="container max-w-4xl">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+        <HeroBackground />
+        <div className="relative z-10 container max-w-4xl">
           <div className="flex items-center gap-2 text-xs text-[#4F615A] mb-3">
             <Link href="/" className="hover:text-[#1F5138]">Home</Link>
             <span>/</span>
@@ -955,7 +977,7 @@ function ServicesCategoryView({ categorySlug }: { categorySlug: string }) {
             <span className="text-[#172B3A] font-semibold">{info.title}</span>
           </div>
           <SectionBadge>Specialized Category Hub</SectionBadge>
-          <h1 className="h1 mb-3 font-heading">{info.title}</h1>
+          <h1 className="h1 mb-3 font-heading text-[#172B3A]">{info.title}</h1>
           <p className="text-sm text-[#4F615A] leading-relaxed max-w-2xl mb-6">
             {info.desc}
           </p>
@@ -1063,10 +1085,11 @@ function ProductsLandingView() {
 
   return (
     <PageShell>
-      <section className="section-institutional bg-[#FFFFFF] border-b border-[#E2EBE5]">
-        <div className="container max-w-4xl text-center mx-auto">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+        <HeroBackground />
+        <div className="relative z-10 container max-w-4xl text-center mx-auto">
           <SectionBadge>Branded Offerings & Solutions</SectionBadge>
-          <h1 className="h1 mb-3 font-heading">Products & Structured Programmes</h1>
+          <h1 className="h1 mb-3 font-heading text-[#172B3A]">Products & Structured Programmes</h1>
           <p className="text-xs font-mono font-bold text-[#1F5138] uppercase tracking-wider mb-4">
             Transforming Complexity into Actionable Simplicity
           </p>
@@ -1269,10 +1292,11 @@ function BlogLandingView() {
   return (
     <PageShell>
       {/* 1. Hero */}
-      <section className="section-institutional bg-[#FFFFFF] border-b border-[#E2EBE5]">
-        <div className="container max-w-4xl text-center mx-auto">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+        <HeroBackground />
+        <div className="relative z-10 container max-w-4xl text-center mx-auto">
           <SectionBadge>Educational Insights & Editorial</SectionBadge>
-          <h1 className="h1 mb-3 font-heading">Kreative Hertz Blog & Knowledge Hub</h1>
+          <h1 className="h1 mb-3 font-heading text-[#172B3A]">Kreative Hertz Blog & Knowledge Hub</h1>
           <p className="text-xs font-mono font-bold text-[#1F5138] uppercase tracking-wider mb-4">
             Don&apos;t Sell First. Educate First.
           </p>
@@ -1281,7 +1305,7 @@ function BlogLandingView() {
           </p>
         </div>
       </section>
-
+ 
       {/* 2. Interactive Searchable & Filterable Knowledge Hub Explorer */}
       <section className="section-institutional bg-[#F8F8F2]">
         <div className="container max-w-5xl">
@@ -1294,10 +1318,11 @@ function BlogLandingView() {
 function WealthArchitectMainView() {
   return (
     <PageShell>
-      <section className="section-institutional bg-[#FFFFFF] border-b border-[#E2EBE5]">
-        <div className="container max-w-4xl">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+        <HeroBackground />
+        <div className="relative z-10 container max-w-4xl">
           <SectionBadge>Technical Advisory</SectionBadge>
-          <h1 className="h1 mb-3">WEALTH ARCHITECT</h1>
+          <h1 className="h1 mb-3 text-[#172B3A] font-heading">WEALTH ARCHITECT</h1>
           <p className="text-xs font-mono font-bold text-[#1F5138] uppercase tracking-wider mb-3">
             Understand · Analyse · Strategise
           </p>
@@ -1347,10 +1372,11 @@ function LifeStrategistMainView() {
   return (
     <PageShell>
       {/* 1. Hero & Dedicated Topic Directory */}
-      <section className="section-institutional bg-[#FFFFFF] border-b border-[#E2EBE5]">
-        <div className="container max-w-5xl">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+        <HeroBackground />
+        <div className="relative z-10 container max-w-5xl">
           <SectionBadge>Financial Education & Habits</SectionBadge>
-          <h1 className="h1 mb-3">LIFE STRATEGIST</h1>
+          <h1 className="h1 mb-3 text-[#172B3A] font-heading">LIFE STRATEGIST</h1>
           <p className="text-xs font-mono font-bold text-[#1F5138] uppercase tracking-wider mb-3">
             Learn · Plan · Grow
           </p>
@@ -1680,10 +1706,11 @@ function KnowledgeHubMainView() {
   return (
     <PageShell>
       {/* 1. Header & Dedicated Editorial Pillar Guides */}
-      <section className="section-institutional bg-[#FFFFFF] border-b border-[#E2EBE5]">
-        <div className="container max-w-5xl">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+        <HeroBackground />
+        <div className="relative z-10 container max-w-5xl">
           <SectionBadge>Educational Articles & Case Studies</SectionBadge>
-          <h1 className="h1 mb-3">Knowledge Hub</h1>
+          <h1 className="h1 mb-3 text-[#172B3A] font-heading">Knowledge Hub</h1>
           <p className="text-sm text-[#4F615A] leading-relaxed max-w-3xl mb-6">
             Practical financial guides explaining insurance fine print, disease sub-limits, compounding discipline, and loan interest savings. Clear, uncoerced education to empower your decisions.
           </p>
