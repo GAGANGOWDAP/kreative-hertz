@@ -532,8 +532,8 @@ export function HowWeWorkSection() {
                 onMouseEnter={() => setActiveStep(0)}
                 onMouseLeave={() => setActiveStep(null)}
                 className={`bg-white rounded-xl xl:rounded-2xl border p-3.5 xl:p-4.5 transition-all duration-300 relative group cursor-pointer ${activeStep === 0
-                    ? 'border-[#159568] shadow-[0_12px_28px_rgba(21,149,104,0.14)] -translate-y-1'
-                    : 'border-[#E2EBE5] shadow-[0_4px_16px_rgba(23,43,58,0.05)] hover:border-[#159568]/50 hover:shadow-[0_10px_24px_rgba(23,43,58,0.08)] hover:-translate-y-0.5'
+                  ? 'border-[#159568] shadow-[0_12px_28px_rgba(21,149,104,0.14)] -translate-y-1'
+                  : 'border-[#E2EBE5] shadow-[0_4px_16px_rgba(23,43,58,0.05)] hover:border-[#159568]/50 hover:shadow-[0_10px_24px_rgba(23,43,58,0.08)] hover:-translate-y-0.5'
                   }`}
               >
                 <div className="flex items-center gap-3 xl:gap-3.5">
@@ -571,8 +571,8 @@ export function HowWeWorkSection() {
                 onMouseEnter={() => setActiveStep(2)}
                 onMouseLeave={() => setActiveStep(null)}
                 className={`bg-white rounded-xl xl:rounded-2xl border p-3.5 xl:p-4.5 transition-all duration-300 relative group cursor-pointer ${activeStep === 2
-                    ? 'border-[#159568] shadow-[0_12px_28px_rgba(21,149,104,0.14)] -translate-y-1'
-                    : 'border-[#E2EBE5] shadow-[0_4px_16px_rgba(23,43,58,0.05)] hover:border-[#159568]/50 hover:shadow-[0_10px_24px_rgba(23,43,58,0.08)] hover:-translate-y-0.5'
+                  ? 'border-[#159568] shadow-[0_12px_28px_rgba(21,149,104,0.14)] -translate-y-1'
+                  : 'border-[#E2EBE5] shadow-[0_4px_16px_rgba(23,43,58,0.05)] hover:border-[#159568]/50 hover:shadow-[0_10px_24px_rgba(23,43,58,0.08)] hover:-translate-y-0.5'
                   }`}
               >
                 <div className="flex items-center gap-3 xl:gap-3.5">
@@ -867,8 +867,8 @@ export function HowWeWorkSection() {
                 onMouseEnter={() => setActiveStep(1)}
                 onMouseLeave={() => setActiveStep(null)}
                 className={`bg-white rounded-xl xl:rounded-2xl border p-3.5 xl:p-4.5 transition-all duration-300 relative group cursor-pointer ${activeStep === 1
-                    ? 'border-[#159568] shadow-[0_12px_28px_rgba(21,149,104,0.14)] -translate-y-1'
-                    : 'border-[#E2EBE5] shadow-[0_4px_16px_rgba(23,43,58,0.05)] hover:border-[#159568]/50 hover:shadow-[0_10px_24px_rgba(23,43,58,0.08)] hover:-translate-y-0.5'
+                  ? 'border-[#159568] shadow-[0_12px_28px_rgba(21,149,104,0.14)] -translate-y-1'
+                  : 'border-[#E2EBE5] shadow-[0_4px_16px_rgba(23,43,58,0.05)] hover:border-[#159568]/50 hover:shadow-[0_10px_24px_rgba(23,43,58,0.08)] hover:-translate-y-0.5'
                   }`}
               >
                 <div className="flex items-center gap-3 xl:gap-3.5">
@@ -906,8 +906,8 @@ export function HowWeWorkSection() {
                 onMouseEnter={() => setActiveStep(3)}
                 onMouseLeave={() => setActiveStep(null)}
                 className={`bg-white rounded-xl xl:rounded-2xl border p-3.5 xl:p-4.5 transition-all duration-300 relative group cursor-pointer ${activeStep === 3
-                    ? 'border-[#159568] shadow-[0_12px_28px_rgba(21,149,104,0.14)] -translate-y-1'
-                    : 'border-[#E2EBE5] shadow-[0_4px_16px_rgba(23,43,58,0.05)] hover:border-[#159568]/50 hover:shadow-[0_10px_24px_rgba(23,43,58,0.08)] hover:-translate-y-0.5'
+                  ? 'border-[#159568] shadow-[0_12px_28px_rgba(21,149,104,0.14)] -translate-y-1'
+                  : 'border-[#E2EBE5] shadow-[0_4px_16px_rgba(23,43,58,0.05)] hover:border-[#159568]/50 hover:shadow-[0_10px_24px_rgba(23,43,58,0.08)] hover:-translate-y-0.5'
                   }`}
               >
                 <div className="flex items-center gap-3 xl:gap-3.5">
@@ -963,8 +963,8 @@ export function HowWeWorkSection() {
                   <div className="flex items-center flex-shrink-0 pt-3 z-10">
                     <div
                       className={`w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center font-mono font-bold text-xs sm:text-sm border-2 border-white shadow-md transition-all duration-300 cursor-pointer ${isActive
-                          ? 'bg-[#159568] text-white ring-4 ring-[#159568]/30 scale-105'
-                          : 'bg-[#1F5138] text-white ring-4 ring-[#EAF3EC] group-hover:bg-[#159568]'
+                        ? 'bg-[#159568] text-white ring-4 ring-[#159568]/30 scale-105'
+                        : 'bg-[#1F5138] text-white ring-4 ring-[#EAF3EC] group-hover:bg-[#159568]'
                         }`}
                       onClick={() => setActiveStep(activeStep === idx ? null : idx)}
                     >
@@ -981,8 +981,8 @@ export function HowWeWorkSection() {
                   {/* Information Card to the right of the timeline */}
                   <div
                     className={`flex-1 min-w-0 bg-white rounded-xl sm:rounded-2xl border p-3.5 sm:p-4 shadow-sm transition-all duration-300 relative ${isActive
-                        ? 'border-[#159568] shadow-md -translate-y-0.5'
-                        : 'border-[#E2EBE5] group-hover:border-[#159568]/40'
+                      ? 'border-[#159568] shadow-md -translate-y-0.5'
+                      : 'border-[#E2EBE5] group-hover:border-[#159568]/40'
                       }`}
                   >
                     <div className="flex items-center gap-3">
@@ -1094,8 +1094,8 @@ export function ServicesExplorer({ initialCategory = 'All Services' }: { initial
                 role="tab"
                 aria-selected={activeCategory === cat.label}
                 className={`px-3.5 py-1.5 text-xs font-semibold rounded-md border transition-colors flex items-center gap-1.5 ${activeCategory === cat.label
-                    ? 'bg-[#1F5138] text-white border-[#1F5138]'
-                    : 'bg-white text-[#4F615A] border-[#CAD9D0] hover:border-[#1F5138] hover:text-[#1F5138]'
+                  ? 'bg-[#1F5138] text-white border-[#1F5138]'
+                  : 'bg-white text-[#4F615A] border-[#CAD9D0] hover:border-[#1F5138] hover:text-[#1F5138]'
                   }`}
                 onClick={() => setActiveCategory(cat.label)}
               >
@@ -1239,8 +1239,8 @@ export function KnowledgeHubExplorer({ initialArticles }: { initialArticles: Kno
                 role="tab"
                 aria-selected={activeCategory === cat}
                 className={`px-3.5 py-1.5 text-xs font-semibold rounded-md border transition-colors ${activeCategory === cat
-                    ? 'bg-[#1F5138] text-white border-[#1F5138]'
-                    : 'bg-white text-[#4F615A] border-[#CAD9D0] hover:border-[#1F5138] hover:text-[#1F5138]'
+                  ? 'bg-[#1F5138] text-white border-[#1F5138]'
+                  : 'bg-white text-[#4F615A] border-[#CAD9D0] hover:border-[#1F5138] hover:text-[#1F5138]'
                   }`}
                 onClick={() => setActiveCategory(cat)}
               >
@@ -1333,8 +1333,8 @@ export function FinancialGapAnalysisSection() {
                   key={area.id}
                   onClick={() => setActiveArea(area)}
                   className={`w-full text-left p-4 rounded border transition-all flex items-center justify-between ${isSelected
-                      ? 'bg-white border-[#1F5138] shadow-sm'
-                      : 'bg-white/70 border-[#CAD9D0] hover:bg-white hover:border-[#1F5138]'
+                    ? 'bg-white border-[#1F5138] shadow-sm'
+                    : 'bg-white/70 border-[#CAD9D0] hover:bg-white hover:border-[#1F5138]'
                     }`}
                 >
                   <div className="flex items-center gap-3">
