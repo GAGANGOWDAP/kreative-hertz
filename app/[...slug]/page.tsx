@@ -544,8 +544,9 @@ function AboutUsView() {
 function OurStoryDetailView() {
   return (
     <PageShell>
-      <section className="section-institutional bg-[#FFFFFF] border-b border-[#E2EBE5]">
-        <div className="container max-w-4xl">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+        <HeroBackground />
+        <div className="relative z-10 container max-w-4xl">
           <div className="flex items-center gap-2 text-xs text-[#4F615A] mb-3">
             <Link href="/" className="hover:text-[#1F5138]">Home</Link>
             <span>/</span>
@@ -591,8 +592,9 @@ function OurStoryDetailView() {
 function FounderLeadershipDetailView() {
   return (
     <PageShell>
-      <section className="section-institutional bg-[#FFFFFF] border-b border-[#E2EBE5]">
-        <div className="container max-w-4xl">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+        <HeroBackground />
+        <div className="relative z-10 container max-w-4xl">
           <div className="flex items-center gap-2 text-xs text-[#4F615A] mb-3">
             <Link href="/" className="hover:text-[#1F5138]">Home</Link>
             <span>/</span>
@@ -655,8 +657,9 @@ function FounderLeadershipDetailView() {
 function OurPhilosophyDetailView() {
   return (
     <PageShell>
-      <section className="section-institutional bg-[#FFFFFF] border-b border-[#E2EBE5]">
-        <div className="container max-w-4xl">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+        <HeroBackground />
+        <div className="relative z-10 container max-w-4xl">
           <div className="flex items-center gap-2 text-xs text-[#4F615A] mb-3">
             <Link href="/" className="hover:text-[#1F5138]">Home</Link>
             <span>/</span>
@@ -714,8 +717,9 @@ function OurPhilosophyDetailView() {
 function OurApproachDetailView() {
   return (
     <PageShell>
-      <section className="section-institutional bg-[#FFFFFF] border-b border-[#E2EBE5]">
-        <div className="container max-w-4xl">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+        <HeroBackground />
+        <div className="relative z-10 container max-w-4xl">
           <div className="flex items-center gap-2 text-xs text-[#4F615A] mb-3">
             <Link href="/" className="hover:text-[#1F5138]">Home</Link>
             <span>/</span>
@@ -1146,8 +1150,9 @@ function ProductsLandingView() {
 function FinancialAwarenessDetailView() {
   return (
     <PageShell>
-      <section className="section-institutional bg-[#FFFFFF] border-b border-[#E2EBE5]">
-        <div className="container max-w-4xl">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+        <HeroBackground />
+        <div className="relative z-10 container max-w-4xl">
           <div className="flex items-center gap-2 text-xs text-[#4F615A] mb-3">
             <Link href="/products" className="hover:text-[#1F5138]">Products</Link>
             <span>/</span>
@@ -1201,8 +1206,9 @@ function FinancialAwarenessDetailView() {
 function CollegeProgrammesDetailView() {
   return (
     <PageShell>
-      <section className="section-institutional bg-[#FFFFFF] border-b border-[#E2EBE5]">
-        <div className="container max-w-4xl">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+        <HeroBackground />
+        <div className="relative z-10 container max-w-4xl">
           <div className="flex items-center gap-2 text-xs text-[#4F615A] mb-3">
             <Link href="/products" className="hover:text-[#1F5138]">Products</Link>
             <span>/</span>
@@ -1229,8 +1235,9 @@ function CollegeProgrammesDetailView() {
 function CorporateProgrammesDetailView() {
   return (
     <PageShell>
-      <section className="section-institutional bg-[#FFFFFF] border-b border-[#E2EBE5]">
-        <div className="container max-w-4xl">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+        <HeroBackground />
+        <div className="relative z-10 container max-w-4xl">
           <div className="flex items-center gap-2 text-xs text-[#4F615A] mb-3">
             <Link href="/products" className="hover:text-[#1F5138]">Products</Link>
             <span>/</span>
@@ -1305,7 +1312,7 @@ function BlogLandingView() {
           </p>
         </div>
       </section>
- 
+
       {/* 2. Interactive Searchable & Filterable Knowledge Hub Explorer */}
       <section className="section-institutional bg-[#F8F8F2]">
         <div className="container max-w-5xl">

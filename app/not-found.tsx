@@ -1,13 +1,35 @@
 import React from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowLeft, Home, Compass } from 'lucide-react'
 import { PageShell } from '@/components/site'
+import { getAssetPath } from '@/lib/assets'
+
+function HeroBackground() {
+  return (
+    <div className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0">
+      <Image
+        src={getAssetPath('/hero-architecture.jpg')}
+        alt="Modern glass architecture with subtle greenery"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover object-center"
+      />
+      <div
+        className="absolute inset-0"
+        style={{ backgroundColor: 'rgba(248, 248, 242, 0.87)' }}
+      />
+    </div>
+  )
+}
 
 export default function NotFound() {
   return (
     <PageShell>
-      <section className="section py-24 text-center">
-        <div className="container max-w-xl mx-auto">
+      <section className="relative w-full section py-24 text-center overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+        <HeroBackground />
+        <div className="relative z-10 container max-w-xl mx-auto">
           <div className="w-16 h-16 rounded-full bg-[#E8F3ED] border border-[#C8D8CE] flex items-center justify-center mx-auto mb-6 text-[#0A5A42]">
             <Compass size={32} />
           </div>
@@ -36,4 +58,3 @@ export default function NotFound() {
     </PageShell>
   )
 }
-

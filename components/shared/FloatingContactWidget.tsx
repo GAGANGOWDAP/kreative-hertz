@@ -109,15 +109,25 @@ export function FloatingContactWidget() {
       {/* Floating Trigger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        aria-label="Open direct advisory desk"
+        aria-label={isOpen ? 'Close advisory desk' : 'Open direct advisory desk'}
         aria-expanded={isOpen}
-        className="flex items-center justify-center gap-2 w-10 h-10 sm:w-auto sm:h-auto sm:px-4 sm:py-3 rounded-full bg-[#1F5138] hover:bg-[#159568] text-white shadow-xl transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#1F5138] focus:ring-offset-2 border border-[#C6A66B]/30"
+        className="relative flex items-center justify-center w-12 h-12 sm:w-auto sm:h-11 sm:px-4 rounded-full bg-[#1F5138] hover:bg-[#159568] text-white shadow-[0_6px_20px_rgba(31,81,56,0.35)] transition-all hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#1F5138] focus:ring-offset-2 border border-[#C6A66B]/40"
       >
-        <MessageCircle className="w-4 h-4 sm:w-4.5 sm:h-4.5 text-[#C6A66B]" />
-        <span className="text-xs font-bold tracking-wide font-heading hidden sm:inline">
-          Advisory Desk
-        </span>
-        <span className="w-2 h-2 rounded-full bg-[#159568] animate-pulse" />
+        {isOpen ? (
+          <X className="w-5 h-5 text-white" strokeWidth={2.2} />
+        ) : (
+          <>
+            <MessageCircle className="w-5 h-5 sm:w-4.5 sm:h-4.5 text-white" strokeWidth={2.2} />
+            <span className="text-xs font-bold tracking-wide font-heading text-white hidden sm:inline ml-2">
+              Advisory Desk
+            </span>
+            {/* Online Live Status Indicator: top-right corner badge on mobile, inline indicator on desktop */}
+            <span className="absolute -top-0.5 -right-0.5 sm:relative sm:top-auto sm:right-auto sm:ml-2 flex h-2.5 w-2.5 sm:h-2 sm:w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#159568] opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-2 sm:w-2 bg-[#159568] ring-2 ring-white sm:ring-0" />
+            </span>
+          </>
+        )}
       </button>
     </div>
   )
