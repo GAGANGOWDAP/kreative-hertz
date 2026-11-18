@@ -149,6 +149,7 @@ export function Navbar() {
       <MobileDrawer
         isOpen={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
+        isScrolled={isScrolled}
       />
     </>
   )

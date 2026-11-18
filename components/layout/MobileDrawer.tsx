@@ -10,9 +10,10 @@ import { primaryNavItems, headerBookingCta } from '@/content/navigation/main-nav
 export interface MobileDrawerProps {
   isOpen: boolean
   onClose: () => void
+  isScrolled?: boolean
 }
 
-export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
+export function MobileDrawer({ isOpen, onClose, isScrolled = false }: MobileDrawerProps) {
   const pathname = usePathname()
 
   // Prevent background scrolling while mobile drawer is open
@@ -37,20 +38,27 @@ export function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
     return pathname.startsWith(href)
   }
 
+  // Exact header offsets: Top state = 64px (mobile) / 76px (desktop/tablet); Scrolled = 58px (mobile) / 68px (desktop/tablet)
+  const topOffsetClass = isScrolled ? 'top-[58px] sm:top-[68px]' : 'top-[64px] sm:top-[76px]'
+  const heightClass = isScrolled
+    ? 'h-[calc(100dvh-58px)] max-h-[calc(100dvh-58px)] sm:h-[calc(100dvh-68px)] sm:max-h-[calc(100dvh-68px)]'
+    : 'h-[calc(100dvh-64px)] max-h-[calc(100dvh-64px)] sm:h-[calc(100dvh-76px)] sm:max-h-[calc(100dvh-76px)]'
+
   return (
     <>
       {/* Backdrop Scrim (Closes menu on tap outside) */}
       <div
-        className="xl:hidden fixed inset-0 top-[76px] bg-black/35 backdrop-blur-[2px] z-40 transition-opacity"
+        className={`xl:hidden fixed inset-0 ${topOffsetClass} bg-black/40 backdrop-blur-[2px] z-40 transition-opacity`}
         onClick={onClose}
         aria-hidden="true"
       />
 
+      {/* Mobile Drawer (100% solid, fully opaque warm-white background for crisp text contrast & readability) */}
       <div
         role="dialog"
         aria-modal="true"
         aria-label="Navigation Menu"
-        className="xl:hidden fixed inset-x-0 top-[76px] h-[calc(100dvh-76px)] max-h-[calc(100dvh-76px)] bg-[#F8F8F2] border-t border-[#E2EBE5] overflow-y-auto overscroll-contain z-50 p-6 flex flex-col justify-between shadow-2xl"
+        className={`xl:hidden fixed inset-x-0 ${topOffsetClass} ${heightClass} bg-[#F7FAF8] border-t border-[#0A5A42]/15 overflow-y-auto overscroll-contain z-50 p-6 flex flex-col justify-between shadow-2xl transition-all duration-300`}
         style={{ WebkitOverflowScrolling: 'touch' }}
       >
       {/* Primary 5 Dedicated Landing Page Links (Zero accordions, zero dropdowns) */}

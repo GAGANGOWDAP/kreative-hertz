@@ -332,13 +332,13 @@
   right: 0;
   z-index: 50;
   background-color: #F7FAF8;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--color-border-subtle);
   box-shadow: 0 1px 4px rgba(23, 43, 58, 0.04);
   transition: background-color 300ms ease,
+              backdrop-filter 300ms ease,
+              -webkit-backdrop-filter 300ms ease,
               border-color 300ms ease,
-              box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1);
+              box-shadow 300ms ease;
 }
 
 .nav-bar-inner {
@@ -423,13 +423,17 @@
    - Desktop height: 76px -> 68px (~10% reduction)
    - Crest size: 44px -> 40px (~9% reduction)
    - Button size: 42px -> 38px (~9.5% reduction)
-   - Retains warm-white background (#F7FAF8)
-   - Subtle shadow and thin bottom border
+   - Translucent background: rgba(247, 250, 248, 0.88)
+   - backdrop-filter: blur(12px)
+   - Subtle forest-green-tinted bottom border
+   - Very soft shadow
    ========================================================= */
 .site-header.is-scrolled {
-  background-color: #F7FAF8;
-  border-bottom: 1px solid rgba(202, 217, 208, 0.85);
-  box-shadow: 0 4px 18px -2px rgba(20, 44, 62, 0.08), 0 2px 6px -1px rgba(20, 44, 62, 0.03);
+  background-color: rgba(247, 250, 248, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(10, 90, 66, 0.16);
+  box-shadow: 0 4px 20px -2px rgba(10, 90, 66, 0.06), 0 2px 6px -1px rgba(20, 44, 62, 0.04);
 }
 
 .site-header.is-scrolled .nav-bar-inner {

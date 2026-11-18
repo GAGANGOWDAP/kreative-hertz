@@ -129,20 +129,45 @@ export async function generateStaticParams() {
   return params
 }
 
-function HeroBackground() {
+interface HeroBackgroundProps {
+  imageSrc?: string
+  alt?: string
+  objectPosition?: string
+  gradientClassName?: string
+  variant?: 'dark' | 'light'
+}
+
+function HeroBackground({
+  imageSrc = '/images/hero-about.jpg',
+  alt = 'Indian family and financial growth architecture',
+  objectPosition = 'object-[80%_center] sm:object-[82%_center] md:object-[85%_center] lg:object-[85%_center] xl:object-right',
+  gradientClassName,
+  variant = 'light'
+}: HeroBackgroundProps = {}) {
+  const isDark = variant === 'dark'
+  const effectiveGradient =
+    gradientClassName ||
+    (isDark
+      ? 'bg-gradient-to-b from-[#07241A]/95 via-[#07241A]/85 via-50% to-[#07241A]/30 lg:bg-gradient-to-r lg:from-[#07241A]/95 lg:via-[#07241A]/70 lg:to-transparent'
+      : 'bg-gradient-to-b from-[#F8F8F2]/95 via-[#F8F8F2]/88 to-[#F8F8F2]/50 lg:bg-gradient-to-r lg:from-[#F8F8F2]/95 lg:via-[#F8F8F2]/80 lg:to-transparent')
+
   return (
     <div className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0">
       <Image
-        src={getAssetPath('/hero-architecture.jpg')}
-        alt="Modern glass architecture with subtle greenery"
+        src={getAssetPath(imageSrc)}
+        alt={alt}
         fill
         priority
         sizes="100vw"
-        className="object-cover object-center"
+        className={`object-cover ${objectPosition}`}
       />
+      <div className={`absolute inset-0 ${effectiveGradient}`} />
       <div
-        className="absolute inset-0"
-        style={{ backgroundColor: 'rgba(248, 248, 242, 0.87)' }}
+        className={`absolute inset-x-0 bottom-0 h-16 sm:h-24 ${
+          isDark
+            ? 'bg-gradient-to-t from-[#07241A]/80 via-[#07241A]/30 to-transparent'
+            : 'bg-gradient-to-t from-[#F8F8F2]/90 via-[#F8F8F2]/40 to-transparent'
+        }`}
       />
     </div>
   )
@@ -255,69 +280,78 @@ function AboutUsView() {
   return (
     <PageShell>
       {/* 1. Header & Dedicated Directory Navigation */}
-      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
-        <HeroBackground />
-        <div className="relative z-10 container max-w-5xl">
-          <SectionBadge>Corporate Background & Practice</SectionBadge>
-          <h1 className="h1 mb-3 font-heading text-[#172B3A]">About Kreative Hertz</h1>
-          <p className="text-base text-[#4F615A] leading-relaxed mb-6 max-w-3xl">
-            Founded in June 2022 in Bengaluru, Karnataka with a single uncompromising conviction: financial contracts and market instruments are inherently complex, but understanding and acting on them should be straightforward.
-          </p>
+      <section className="relative w-full section-institutional overflow-hidden bg-[#0A382A] border-b border-[#0A5A42]/30">
+        <HeroBackground
+          imageSrc="/images/hero-about.jpg"
+          alt="About Kreative Hertz - Generational Wealth Architecture & Indian Family"
+          variant="dark"
+        />
+        <div className="relative z-10 container max-w-6xl mx-auto flex flex-col justify-center py-8 px-4 sm:px-6">
+          <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl text-left mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0A5A42]/80 border border-[#11A778]/50 text-[#F7FAF8] text-xs font-semibold backdrop-blur-xs mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#11A778]" />
+              <span>Corporate Background & Practice</span>
+            </div>
+            <h1 className="h1 mb-3 font-heading text-[#F7FAF8]">About Kreative Hertz</h1>
+            <p className="text-base text-[#E8F3ED] leading-relaxed max-w-xl">
+              Founded in June 2022 in Bengaluru, Karnataka with a single uncompromising conviction: financial contracts and market instruments are inherently complex, but understanding and acting on them should be straightforward.
+            </p>
+          </div>
 
           {/* Dedicated Sub-Navigation & Directory Cards */}
-          <div className="pt-6 border-t border-[#E2EBE5]">
-            <div className="text-[11px] font-bold text-[#1F5138] uppercase tracking-wider mb-3">
+          <div className="pt-6 border-t border-[#11A778]/30 max-w-4xl">
+            <div className="text-[11px] font-bold text-[#11A778] uppercase tracking-wider mb-3">
               Sections in this Overview
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
               <a
                 href="#overview"
-                className="institutional-card p-4 hover:border-[#1F5138] hover:bg-[#EAF3EC]/30 transition-all group"
+                className="p-4 rounded-lg bg-[#07241A]/75 border border-[#11A778]/30 hover:border-[#11A778] hover:bg-[#07241A]/90 transition-all group backdrop-blur-xs"
               >
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-xs font-bold text-[#172B3A] group-hover:text-[#1F5138]">About Kreative Hertz</span>
-                  <ArrowRight size={13} className="text-[#1F5138] group-hover:translate-x-0.5 transition-transform" />
+                  <span className="text-xs font-bold text-[#F7FAF8] group-hover:text-[#11A778]">About Kreative Hertz</span>
+                  <ArrowRight size={13} className="text-[#11A778] group-hover:translate-x-0.5 transition-transform" />
                 </div>
-                <p className="text-[11px] text-[#4F615A] leading-snug">
+                <p className="text-[11px] text-[#E8F3ED]/80 leading-snug">
                   Founding background, evolutionary progression, and our dual-discipline practice.
                 </p>
               </a>
 
               <a
                 href="#mission"
-                className="institutional-card p-4 hover:border-[#1F5138] hover:bg-[#EAF3EC]/30 transition-all group"
+                className="p-4 rounded-lg bg-[#07241A]/75 border border-[#11A778]/30 hover:border-[#11A778] hover:bg-[#07241A]/90 transition-all group backdrop-blur-xs"
               >
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-xs font-bold text-[#172B3A] group-hover:text-[#1F5138]">Our Mission & Vision</span>
-                  <ArrowRight size={13} className="text-[#1F5138] group-hover:translate-x-0.5 transition-transform" />
+                  <span className="text-xs font-bold text-[#F7FAF8] group-hover:text-[#11A778]">Our Mission & Vision</span>
+                  <ArrowRight size={13} className="text-[#11A778] group-hover:translate-x-0.5 transition-transform" />
                 </div>
-                <p className="text-[11px] text-[#4F615A] leading-snug">
+                <p className="text-[11px] text-[#E8F3ED]/80 leading-snug">
                   Fiduciary accountability, client suitability, and multi-decade wealth resilience.
                 </p>
               </a>
 
               <a
                 href="#approach"
-                className="institutional-card p-4 hover:border-[#1F5138] hover:bg-[#EAF3EC]/30 transition-all group"
+                className="p-4 rounded-lg bg-[#07241A]/75 border border-[#11A778]/30 hover:border-[#11A778] hover:bg-[#07241A]/90 transition-all group backdrop-blur-xs"
               >
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-xs font-bold text-[#172B3A] group-hover:text-[#1F5138]">Our Approach</span>
-                  <ArrowRight size={13} className="text-[#1F5138] group-hover:translate-x-0.5 transition-transform" />
+                  <span className="text-xs font-bold text-[#F7FAF8] group-hover:text-[#11A778]">Our Approach</span>
+                  <ArrowRight size={13} className="text-[#11A778] group-hover:translate-x-0.5 transition-transform" />
                 </div>
-                <p className="text-[11px] text-[#4F615A] leading-snug">
+                <p className="text-[11px] text-[#E8F3ED]/80 leading-snug">
                   &ldquo;Don&apos;t Sell First. Educate First&rdquo; — zero pressure, diagnostic auditing.
                 </p>
               </a>
 
               <a
                 href="#founder"
-                className="institutional-card p-4 hover:border-[#1F5138] hover:bg-[#EAF3EC]/30 transition-all group"
+                className="p-4 rounded-lg bg-[#07241A]/75 border border-[#11A778]/30 hover:border-[#11A778] hover:bg-[#07241A]/90 transition-all group backdrop-blur-xs"
               >
                 <div className="flex items-center justify-between mb-1.5">
-                  <span className="text-xs font-bold text-[#172B3A] group-hover:text-[#1F5138]">Founder Biography</span>
-                  <ArrowRight size={13} className="text-[#1F5138] group-hover:translate-x-0.5 transition-transform" />
+                  <span className="text-xs font-bold text-[#F7FAF8] group-hover:text-[#11A778]">Founder Biography</span>
+                  <ArrowRight size={13} className="text-[#11A778] group-hover:translate-x-0.5 transition-transform" />
                 </div>
-                <p className="text-[11px] text-[#4F615A] leading-snug">
+                <p className="text-[11px] text-[#E8F3ED]/80 leading-snug">
                   Karthik R&apos;s credentials, institutional advisory experience, and direct desk.
                 </p>
               </a>
@@ -811,25 +845,40 @@ function ServicesOverviewLandingView() {
   return (
     <PageShell>
       {/* 1. Hero */}
-      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
-        <HeroBackground />
-        <div className="relative z-10 container max-w-4xl text-center mx-auto">
-          <SectionBadge>Financial Advisory Services</SectionBadge>
-          <h1 className="h1 mb-3 font-heading text-[#172B3A]">Comprehensive Financial Services</h1>
-          <p className="text-xs font-mono font-bold text-[#1F5138] uppercase tracking-wider mb-4">
-            Understand · Analyse · Strategise
-          </p>
-          <p className="text-base text-[#4F615A] leading-relaxed max-w-2xl mx-auto mb-6">
-            Explore 15 institutional financial solutions organized into four transparent practice areas. Every service is provided under a fiduciary standard of objective clarity.
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <Link href="/book-session" className="btn-primary text-xs py-2.5 px-5">
-              <span>Book Discovery Session</span>
-              <ArrowRight size={14} />
-            </Link>
-            <Link href="/about" className="btn-secondary text-xs py-2.5 px-5">
-              <span>About Our Fiduciary Model</span>
-            </Link>
+      <section className="relative w-full section-institutional overflow-hidden bg-[#0A382A] border-b border-[#0A5A42]/30">
+        <HeroBackground
+          imageSrc="/images/hero-services.jpg"
+          alt="Comprehensive Financial Advisory Services & Wealth Architecture"
+          variant="dark"
+        />
+        <div className="relative z-10 container max-w-6xl mx-auto flex flex-col justify-center py-8 px-4 sm:px-6">
+          <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl text-left">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0A5A42]/80 border border-[#11A778]/50 text-[#F7FAF8] text-xs font-semibold backdrop-blur-xs mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#11A778]" />
+              <span>Financial Advisory Services</span>
+            </div>
+            <h1 className="h1 mb-3 font-heading text-[#F7FAF8]">Comprehensive Financial Services</h1>
+            <p className="text-xs font-mono font-bold text-[#11A778] uppercase tracking-wider mb-4">
+              Understand · Analyse · Strategise
+            </p>
+            <p className="text-base text-[#E8F3ED] leading-relaxed max-w-xl mb-6">
+              Explore 15 institutional financial solutions organized into four transparent practice areas. Every service is provided under a fiduciary standard of objective clarity.
+            </p>
+            <div className="flex flex-wrap gap-3 items-center">
+              <Link
+                href="/book-session"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-[#11A778] hover:bg-[#0A5A42] text-white font-semibold text-xs shadow-[0_4px_16px_rgba(17,167,120,0.35)] border border-[#11A778] transition-all group"
+              >
+                <span>Book Discovery Session</span>
+                <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+              <Link
+                href="/about"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-[#F7FAF8]/10 hover:bg-[#F7FAF8]/20 text-[#F7FAF8] font-semibold text-xs border border-[#F7FAF8]/40 backdrop-blur-xs transition-all"
+              >
+                <span>About Our Fiduciary Model</span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -1089,22 +1138,34 @@ function ProductsLandingView() {
 
   return (
     <PageShell>
-      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
-        <HeroBackground />
-        <div className="relative z-10 container max-w-4xl text-center mx-auto">
-          <SectionBadge>Branded Offerings & Solutions</SectionBadge>
-          <h1 className="h1 mb-3 font-heading text-[#172B3A]">Products & Structured Programmes</h1>
-          <p className="text-xs font-mono font-bold text-[#1F5138] uppercase tracking-wider mb-4">
-            Transforming Complexity into Actionable Simplicity
-          </p>
-          <p className="text-base text-[#4F615A] leading-relaxed max-w-2xl mx-auto mb-6">
-            Discover Kreative Hertz&apos;s proprietary frameworks, educational syllabi, and specialized advisory programmes designed for individuals, institutions, and corporate teams.
-          </p>
-          <div className="flex flex-wrap gap-3 justify-center">
-            <Link href="/book-session" className="btn-primary text-xs py-2.5 px-5">
-              <span>Schedule Program Discussion</span>
-              <ArrowRight size={14} />
-            </Link>
+      <section className="relative w-full section-institutional overflow-hidden bg-[#0A382A] border-b border-[#0A5A42]/30">
+        <HeroBackground
+          imageSrc="/images/hero-products.jpg"
+          alt="Products & Structured Programmes"
+          variant="dark"
+        />
+        <div className="relative z-10 container max-w-6xl mx-auto flex flex-col justify-center py-8 px-4 sm:px-6">
+          <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl text-left">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0A5A42]/80 border border-[#11A778]/50 text-[#F7FAF8] text-xs font-semibold backdrop-blur-xs mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#11A778]" />
+              <span>Branded Offerings & Solutions</span>
+            </div>
+            <h1 className="h1 mb-3 font-heading text-[#F7FAF8]">Products & Structured Programmes</h1>
+            <p className="text-xs font-mono font-bold text-[#11A778] uppercase tracking-wider mb-4">
+              Transforming Complexity into Actionable Simplicity
+            </p>
+            <p className="text-base text-[#E8F3ED] leading-relaxed max-w-xl mb-6">
+              Discover Kreative Hertz&apos;s proprietary frameworks, educational syllabi, and specialized advisory programmes designed for individuals, institutions, and corporate teams.
+            </p>
+            <div className="flex flex-wrap gap-3 items-center">
+              <Link
+                href="/book-session"
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-md bg-[#11A778] hover:bg-[#0A5A42] text-white font-semibold text-xs shadow-[0_4px_16px_rgba(17,167,120,0.35)] border border-[#11A778] transition-all group"
+              >
+                <span>Schedule Program Discussion</span>
+                <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -1299,17 +1360,26 @@ function BlogLandingView() {
   return (
     <PageShell>
       {/* 1. Hero */}
-      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
-        <HeroBackground />
-        <div className="relative z-10 container max-w-4xl text-center mx-auto">
-          <SectionBadge>Educational Insights & Editorial</SectionBadge>
-          <h1 className="h1 mb-3 font-heading text-[#172B3A]">Kreative Hertz Blog & Knowledge Hub</h1>
-          <p className="text-xs font-mono font-bold text-[#1F5138] uppercase tracking-wider mb-4">
-            Don&apos;t Sell First. Educate First.
-          </p>
-          <p className="text-base text-[#4F615A] leading-relaxed max-w-2xl mx-auto">
-            Practical, conflict-free guides on insurance policy clauses, compounding mathematics, mortgage optimization, and financial psychology.
-          </p>
+      <section className="relative w-full section-institutional overflow-hidden bg-[#0A382A] border-b border-[#0A5A42]/30">
+        <HeroBackground
+          imageSrc="/images/hero-blog.jpg"
+          alt="Kreative Hertz Blog & Knowledge Hub"
+          variant="dark"
+        />
+        <div className="relative z-10 container max-w-6xl mx-auto flex flex-col justify-center py-8 px-4 sm:px-6">
+          <div className="max-w-2xl lg:max-w-xl xl:max-w-2xl text-left">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0A5A42]/80 border border-[#11A778]/50 text-[#F7FAF8] text-xs font-semibold backdrop-blur-xs mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#11A778]" />
+              <span>Educational Insights & Editorial</span>
+            </div>
+            <h1 className="h1 mb-3 font-heading text-[#F7FAF8]">Kreative Hertz Blog & Knowledge Hub</h1>
+            <p className="text-xs font-mono font-bold text-[#11A778] uppercase tracking-wider mb-4">
+              Don&apos;t Sell First. Educate First.
+            </p>
+            <p className="text-base text-[#E8F3ED] leading-relaxed max-w-xl">
+              Practical, conflict-free guides on insurance policy clauses, compounding mathematics, mortgage optimization, and financial psychology.
+            </p>
+          </div>
         </div>
       </section>
 
