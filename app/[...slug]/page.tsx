@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { getAssetPath } from '@/lib/assets'
 import {
   ArrowRight,
+  ArrowLeft,
   ShieldCheck,
   CheckCircle2,
   Phone,
@@ -15,6 +16,7 @@ import {
   Compass,
   Briefcase,
   ChevronRight,
+  ChevronLeft,
   Clock,
   MapPin,
   AlertCircle,
@@ -149,7 +151,7 @@ function HeroBackground({
     gradientClassName ||
     (isDark
       ? 'bg-gradient-to-b from-[#07241A]/95 via-[#07241A]/85 via-50% to-[#07241A]/30 lg:bg-gradient-to-r lg:from-[#07241A]/95 lg:via-[#07241A]/70 lg:to-transparent'
-      : 'bg-gradient-to-b from-[#F8F8F2]/95 via-[#F8F8F2]/88 to-[#F8F8F2]/50 lg:bg-gradient-to-r lg:from-[#F8F8F2]/95 lg:via-[#F8F8F2]/80 lg:to-transparent')
+      : 'bg-gradient-to-b from-[#F7FAF8]/95 via-[#F7FAF8]/88 to-[#F7FAF8]/50 lg:bg-gradient-to-r lg:from-[#F7FAF8]/95 lg:via-[#F7FAF8]/80 lg:to-transparent')
 
   return (
     <div className="absolute inset-0 pointer-events-none select-none overflow-hidden z-0">
@@ -163,11 +165,10 @@ function HeroBackground({
       />
       <div className={`absolute inset-0 ${effectiveGradient}`} />
       <div
-        className={`absolute inset-x-0 bottom-0 h-16 sm:h-24 ${
-          isDark
-            ? 'bg-gradient-to-t from-[#07241A]/80 via-[#07241A]/30 to-transparent'
-            : 'bg-gradient-to-t from-[#F8F8F2]/90 via-[#F8F8F2]/40 to-transparent'
-        }`}
+        className={`absolute inset-x-0 bottom-0 h-16 sm:h-24 ${isDark
+          ? 'bg-gradient-to-t from-[#07241A]/80 via-[#07241A]/30 to-transparent'
+          : 'bg-gradient-to-t from-[#F7FAF8]/90 via-[#F7FAF8]/40 to-transparent'
+          }`}
       />
     </div>
   )
@@ -360,7 +361,7 @@ function AboutUsView() {
         </div>
       </section>
 
-      <section className="section-institutional bg-[#F8F8F2]">
+      <section className="section-institutional bg-[#F7FAF8]">
         <div className="container max-w-4xl space-y-12">
           {/* Section 1: Overview & Evolution */}
           <div id="overview" className="scroll-mt-28">
@@ -578,7 +579,7 @@ function AboutUsView() {
 function OurStoryDetailView() {
   return (
     <PageShell>
-      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F7FAF8] border-b border-[#E2EBE5]">
         <HeroBackground />
         <div className="relative z-10 container max-w-4xl">
           <div className="flex items-center gap-2 text-xs text-[#4F615A] mb-3">
@@ -596,7 +597,7 @@ function OurStoryDetailView() {
         </div>
       </section>
 
-      <section className="section-institutional bg-[#F8F8F2]">
+      <section className="section-institutional bg-[#F7FAF8]">
         <div className="container max-w-4xl space-y-8">
           <div className="institutional-card p-8">
             <h2 className="text-xl font-bold text-[#172B3A] mb-3 font-heading">Evolutionary Progression</h2>
@@ -626,7 +627,7 @@ function OurStoryDetailView() {
 function FounderLeadershipDetailView() {
   return (
     <PageShell>
-      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F7FAF8] border-b border-[#E2EBE5]">
         <HeroBackground />
         <div className="relative z-10 container max-w-4xl">
           <div className="flex items-center gap-2 text-xs text-[#4F615A] mb-3">
@@ -647,7 +648,7 @@ function FounderLeadershipDetailView() {
         </div>
       </section>
 
-      <section className="section-institutional bg-[#F8F8F2]">
+      <section className="section-institutional bg-[#F7FAF8]">
         <div className="container max-w-4xl space-y-8">
           <div className="institutional-card p-8">
             <h3 className="text-lg font-bold text-[#172B3A] mb-3 font-heading">Professional Biography</h3>
@@ -691,7 +692,7 @@ function FounderLeadershipDetailView() {
 function OurPhilosophyDetailView() {
   return (
     <PageShell>
-      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F7FAF8] border-b border-[#E2EBE5]">
         <HeroBackground />
         <div className="relative z-10 container max-w-4xl">
           <div className="flex items-center gap-2 text-xs text-[#4F615A] mb-3">
@@ -712,7 +713,7 @@ function OurPhilosophyDetailView() {
         </div>
       </section>
 
-      <section className="section-institutional bg-[#F8F8F2]">
+      <section className="section-institutional bg-[#F7FAF8]">
         <div className="container max-w-4xl space-y-6">
           {personalFinanceAwareness.map((p, idx) => (
             <div key={idx} className="institutional-card p-6">
@@ -751,7 +752,7 @@ function OurPhilosophyDetailView() {
 function OurApproachDetailView() {
   return (
     <PageShell>
-      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F7FAF8] border-b border-[#E2EBE5]">
         <HeroBackground />
         <div className="relative z-10 container max-w-4xl">
           <div className="flex items-center gap-2 text-xs text-[#4F615A] mb-3">
@@ -772,7 +773,7 @@ function OurApproachDetailView() {
         </div>
       </section>
 
-      <section className="section-institutional bg-[#F8F8F2]">
+      <section className="section-institutional bg-[#F7FAF8]">
         <div className="container max-w-4xl space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {strategyPillars.map((p) => (
@@ -884,7 +885,7 @@ function ServicesOverviewLandingView() {
       </section>
 
       {/* 2. Four Main Categories Grid */}
-      <section className="section-institutional bg-[#F8F8F2]">
+      <section className="section-institutional bg-[#F7FAF8]">
         <div className="container">
           <div className="section-title-wrap max-w-3xl mb-8">
             <SectionBadge>Practice Divisions</SectionBadge>
@@ -921,7 +922,7 @@ function ServicesOverviewLandingView() {
                       <Link
                         key={svc.slug}
                         href={`/services/${svc.slug}`}
-                        className="flex items-center justify-between text-xs text-[#26332D] hover:text-[#1F5138] py-1 border-b border-[#F8F8F2]"
+                        className="flex items-center justify-between text-xs text-[#26332D] hover:text-[#1F5138] py-1 border-b border-[#F7FAF8]"
                       >
                         <span className="flex items-center gap-2">
                           <CheckCircle2 size={13} className="text-[#159568]" />
@@ -1019,7 +1020,7 @@ function ServicesCategoryView({ categorySlug }: { categorySlug: string }) {
 
   return (
     <PageShell>
-      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F7FAF8] border-b border-[#E2EBE5]">
         <HeroBackground />
         <div className="relative z-10 container max-w-4xl">
           <div className="flex items-center gap-2 text-xs text-[#4F615A] mb-3">
@@ -1046,7 +1047,7 @@ function ServicesCategoryView({ categorySlug }: { categorySlug: string }) {
         </div>
       </section>
 
-      <section className="section-institutional bg-[#F8F8F2]">
+      <section className="section-institutional bg-[#F7FAF8]">
         <div className="container">
           <div className="section-title-wrap max-w-3xl mb-8">
             <h2 className="h2 mb-2 font-heading">Solutions in this Category ({categoryServices.length})</h2>
@@ -1170,7 +1171,7 @@ function ProductsLandingView() {
         </div>
       </section>
 
-      <section className="section-institutional bg-[#F8F8F2]">
+      <section className="section-institutional bg-[#F7FAF8]">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {products.map((prod, idx) => (
@@ -1211,7 +1212,7 @@ function ProductsLandingView() {
 function FinancialAwarenessDetailView() {
   return (
     <PageShell>
-      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F7FAF8] border-b border-[#E2EBE5]">
         <HeroBackground />
         <div className="relative z-10 container max-w-4xl">
           <div className="flex items-center gap-2 text-xs text-[#4F615A] mb-3">
@@ -1227,7 +1228,7 @@ function FinancialAwarenessDetailView() {
         </div>
       </section>
 
-      <section className="section-institutional bg-[#F8F8F2]">
+      <section className="section-institutional bg-[#F7FAF8]">
         <div className="container max-w-4xl">
           <div className="space-y-6 mb-12">
             {personalFinanceAwareness.map((p, idx) => (
@@ -1267,7 +1268,7 @@ function FinancialAwarenessDetailView() {
 function CollegeProgrammesDetailView() {
   return (
     <PageShell>
-      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F7FAF8] border-b border-[#E2EBE5]">
         <HeroBackground />
         <div className="relative z-10 container max-w-4xl">
           <div className="flex items-center gap-2 text-xs text-[#4F615A] mb-3">
@@ -1283,7 +1284,7 @@ function CollegeProgrammesDetailView() {
         </div>
       </section>
 
-      <section className="section-institutional bg-[#F8F8F2]">
+      <section className="section-institutional bg-[#F7FAF8]">
         <div className="container max-w-4xl">
           <CollegeProgramsSection />
         </div>
@@ -1296,7 +1297,7 @@ function CollegeProgrammesDetailView() {
 function CorporateProgrammesDetailView() {
   return (
     <PageShell>
-      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F7FAF8] border-b border-[#E2EBE5]">
         <HeroBackground />
         <div className="relative z-10 container max-w-4xl">
           <div className="flex items-center gap-2 text-xs text-[#4F615A] mb-3">
@@ -1312,7 +1313,7 @@ function CorporateProgrammesDetailView() {
         </div>
       </section>
 
-      <section className="section-institutional bg-[#F8F8F2]">
+      <section className="section-institutional bg-[#F7FAF8]">
         <div className="container max-w-4xl">
           <div className="institutional-card p-8 mb-8">
             <h3 className="text-lg font-bold text-[#172B3A] mb-3 font-heading">Why Workplace Financial Education?</h3>
@@ -1384,8 +1385,8 @@ function BlogLandingView() {
       </section>
 
       {/* 2. Interactive Searchable & Filterable Knowledge Hub Explorer */}
-      <section className="section-institutional bg-[#F8F8F2]">
-        <div className="container max-w-5xl">
+      <section className="section-institutional bg-[#F7FAF8]">
+        <div className="container max-w-6xl">
           <KnowledgeHubExplorer initialArticles={articles} />
         </div>
       </section>
@@ -1395,7 +1396,7 @@ function BlogLandingView() {
 function WealthArchitectMainView() {
   return (
     <PageShell>
-      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F7FAF8] border-b border-[#E2EBE5]">
         <HeroBackground />
         <div className="relative z-10 container max-w-4xl">
           <SectionBadge>Technical Advisory</SectionBadge>
@@ -1409,7 +1410,7 @@ function WealthArchitectMainView() {
         </div>
       </section>
 
-      <section className="section-institutional bg-[#F8F8F2]">
+      <section className="section-institutional bg-[#F7FAF8]">
         <div className="container">
           <div className="section-title-wrap max-w-3xl">
             <SectionBadge>Complete Directory</SectionBadge>
@@ -1449,7 +1450,7 @@ function LifeStrategistMainView() {
   return (
     <PageShell>
       {/* 1. Hero & Dedicated Topic Directory */}
-      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
+      <section className="relative w-full section-institutional overflow-hidden bg-[#F7FAF8] border-b border-[#E2EBE5]">
         <HeroBackground />
         <div className="relative z-10 container max-w-5xl">
           <SectionBadge>Financial Education & Habits</SectionBadge>
@@ -1524,7 +1525,7 @@ function LifeStrategistMainView() {
       </section>
 
       {/* 2. Educational Pillars Section */}
-      <section className="section-institutional bg-[#F8F8F2]" id="pillars-framework">
+      <section className="section-institutional bg-[#F7FAF8]" id="pillars-framework">
         <div className="container">
           <div className="section-title-wrap max-w-3xl">
             <SectionBadge>Educational Pillars</SectionBadge>
@@ -1559,7 +1560,7 @@ function LifeStrategistMainView() {
       <CollegeProgramsSection />
 
       {/* 4. 7 Pillars Section */}
-      <section className="section-institutional bg-[#F8F8F2] border-b border-[#E2EBE5] scroll-mt-28" id="pillars">
+      <section className="section-institutional bg-[#F7FAF8] border-b border-[#E2EBE5] scroll-mt-28" id="pillars">
         <div className="container">
           <div className="section-title-wrap max-w-3xl">
             <SectionBadge>7 Pillars</SectionBadge>
@@ -1671,7 +1672,7 @@ function CommunityMainView() {
       </section>
 
       {/* Community Overview Section */}
-      <section className="section-institutional bg-[#F8F8F2] scroll-mt-28" id="overview">
+      <section className="section-institutional bg-[#F7FAF8] scroll-mt-28" id="overview">
         <div className="container max-w-4xl">
           <div className="institutional-card p-6 md:p-8 mb-8">
             <span className="text-[10px] font-bold text-[#1F5138] uppercase tracking-wider block mb-1">
@@ -1777,186 +1778,10 @@ function CommunityMainView() {
 }
 
 // -------------------------------------------------------------
-// 5. KNOWLEDGE HUB MAIN VIEW
+// 5. KNOWLEDGE HUB MAIN VIEW (Delegates directly to BlogLandingView)
 // -------------------------------------------------------------
 function KnowledgeHubMainView() {
-  return (
-    <PageShell>
-      {/* 1. Header & Dedicated Editorial Pillar Guides */}
-      <section className="relative w-full section-institutional overflow-hidden bg-[#F8F8F2] border-b border-[#E2EBE5]">
-        <HeroBackground />
-        <div className="relative z-10 container max-w-5xl">
-          <SectionBadge>Educational Articles & Case Studies</SectionBadge>
-          <h1 className="h1 mb-3 text-[#172B3A] font-heading">Knowledge Hub</h1>
-          <p className="text-sm text-[#4F615A] leading-relaxed max-w-3xl mb-6">
-            Practical financial guides explaining insurance fine print, disease sub-limits, compounding discipline, and loan interest savings. Clear, uncoerced education to empower your decisions.
-          </p>
-
-          {/* Dedicated Sub-Navigation & Curated Guides Cards */}
-          <div className="pt-6 border-t border-[#E2EBE5]">
-            <div className="flex items-center justify-between mb-3">
-              <div className="text-[11px] font-bold text-[#1F5138] uppercase tracking-wider">
-                Essential Pillar Guides
-              </div>
-              <span className="text-[11px] text-[#4F615A]">5 Dedicated Research Articles</span>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {/* Guide 1: Gap Analysis */}
-              <div className="institutional-card p-4 flex flex-col justify-between hover:border-[#1F5138] transition-colors">
-                <div>
-                  <div className="flex items-center justify-between text-[10px] mb-2">
-                    <span className="font-bold text-[#1F5138] uppercase">Financial Awareness</span>
-                    <span className="text-[#4F615A]">7 min read</span>
-                  </div>
-                  <h3 className="text-xs font-bold text-[#172B3A] mb-1.5 leading-snug">
-                    <Link href="/knowledge-hub/financial-gap-analysis-guide" className="hover:text-[#1F5138] hover:underline">
-                      Financial Gap Analysis Guide
-                    </Link>
-                  </h3>
-                  <p className="text-[11px] text-[#4F615A] leading-snug mb-3">
-                    How to identify coverage deficits across term life, medical covers, and loan liabilities.
-                  </p>
-                </div>
-                <div className="pt-2 border-t border-[#E2EBE5] flex items-center justify-between text-[11px]">
-                  <Link href="/knowledge-hub/financial-gap-analysis-guide" className="font-bold text-[#1F5138] hover:underline flex items-center gap-1">
-                    <span>Read Article</span>
-                    <ArrowRight size={11} />
-                  </Link>
-                  <Link href="/wealth-architect#gap-analysis" className="text-[#1F5138] hover:underline">
-                    Run Audit →
-                  </Link>
-                </div>
-              </div>
-
-              {/* Guide 2: Health Insurance */}
-              <div className="institutional-card p-4 flex flex-col justify-between hover:border-[#1F5138] transition-colors">
-                <div>
-                  <div className="flex items-center justify-between text-[10px] mb-2">
-                    <span className="font-bold text-[#1F5138] uppercase">Insurance</span>
-                    <span className="text-[#4F615A]">6 min read</span>
-                  </div>
-                  <h3 className="text-xs font-bold text-[#172B3A] mb-1.5 leading-snug">
-                    <Link href="/knowledge-hub/health-insurance-sublimits-explained" className="hover:text-[#1F5138] hover:underline">
-                      Room Rent Capping & Sub-limits Explained
-                    </Link>
-                  </h3>
-                  <p className="text-[11px] text-[#4F615A] leading-snug mb-3">
-                    Why choosing the wrong hospital room category triggers huge proportionate deductions.
-                  </p>
-                </div>
-                <div className="pt-2 border-t border-[#E2EBE5] flex items-center justify-between text-[11px]">
-                  <Link href="/knowledge-hub/health-insurance-sublimits-explained" className="font-bold text-[#1F5138] hover:underline flex items-center gap-1">
-                    <span>Read Article</span>
-                    <ArrowRight size={11} />
-                  </Link>
-                  <Link href="/services/health-insurance" className="text-[#1F5138] hover:underline">
-                    Health Service →
-                  </Link>
-                </div>
-              </div>
-
-              {/* Guide 3: SIP Compounding */}
-              <div className="institutional-card p-4 flex flex-col justify-between hover:border-[#1F5138] transition-colors">
-                <div>
-                  <div className="flex items-center justify-between text-[10px] mb-2">
-                    <span className="font-bold text-[#1F5138] uppercase">Investments</span>
-                    <span className="text-[#4F615A]">8 min read</span>
-                  </div>
-                  <h3 className="text-xs font-bold text-[#172B3A] mb-1.5 leading-snug">
-                    <Link href="/knowledge-hub/sip-compounding-power-guide" className="hover:text-[#1F5138] hover:underline">
-                      The Mathematical Power of SIP Compounding
-                    </Link>
-                  </h3>
-                  <p className="text-[11px] text-[#4F615A] leading-snug mb-3">
-                    Visualizing how incremental annual step-up SIPs double your final corpus over 15+ years.
-                  </p>
-                </div>
-                <div className="pt-2 border-t border-[#E2EBE5] flex items-center justify-between text-[11px]">
-                  <Link href="/knowledge-hub/sip-compounding-power-guide" className="font-bold text-[#1F5138] hover:underline flex items-center gap-1">
-                    <span>Read Article</span>
-                    <ArrowRight size={11} />
-                  </Link>
-                  <Link href="/services/mutual-funds" className="text-[#1F5138] hover:underline">
-                    SIP Service →
-                  </Link>
-                </div>
-              </div>
-
-              {/* Guide 4: Home Loan Balance Transfer */}
-              <div className="institutional-card p-4 flex flex-col justify-between hover:border-[#1F5138] transition-colors">
-                <div>
-                  <div className="flex items-center justify-between text-[10px] mb-2">
-                    <span className="font-bold text-[#1F5138] uppercase">Loans</span>
-                    <span className="text-[#4F615A]">5 min read</span>
-                  </div>
-                  <h3 className="text-xs font-bold text-[#172B3A] mb-1.5 leading-snug">
-                    <Link href="/knowledge-hub/home-loan-balance-transfer-hacks" className="hover:text-[#1F5138] hover:underline">
-                      Home Loan Balance Transfer Hacks
-                    </Link>
-                  </h3>
-                  <p className="text-[11px] text-[#4F615A] leading-snug mb-3">
-                    Strategies to reduce long-term loan tenures by 5–7 years through interest refinancing.
-                  </p>
-                </div>
-                <div className="pt-2 border-t border-[#E2EBE5] flex items-center justify-between text-[11px]">
-                  <Link href="/knowledge-hub/home-loan-balance-transfer-hacks" className="font-bold text-[#1F5138] hover:underline flex items-center gap-1">
-                    <span>Read Article</span>
-                    <ArrowRight size={11} />
-                  </Link>
-                  <Link href="/services/home-loans" className="text-[#1F5138] hover:underline">
-                    Transfer Service →
-                  </Link>
-                </div>
-              </div>
-
-              {/* Guide 5: Real Estate Checklist */}
-              <div className="institutional-card p-4 flex flex-col justify-between hover:border-[#1F5138] transition-colors sm:col-span-2 lg:col-span-2">
-                <div>
-                  <div className="flex items-center justify-between text-[10px] mb-2">
-                    <span className="font-bold text-[#1F5138] uppercase">Real Estate</span>
-                    <span className="text-[#4F615A]">9 min read</span>
-                  </div>
-                  <h3 className="text-xs font-bold text-[#172B3A] mb-1.5 leading-snug">
-                    <Link href="/knowledge-hub/real-estate-investment-checklist" className="hover:text-[#1F5138] hover:underline">
-                      Due Diligence Checklist for Property Buyers
-                    </Link>
-                  </h3>
-                  <p className="text-[11px] text-[#4F615A] leading-snug mb-3">
-                    Comprehensive legal verification before making advance payments: RERA numbers, title deeds, encumbrance certificates, and layout approvals.
-                  </p>
-                </div>
-                <div className="pt-2 border-t border-[#E2EBE5] flex items-center justify-between text-[11px]">
-                  <Link href="/knowledge-hub/real-estate-investment-checklist" className="font-bold text-[#1F5138] hover:underline flex items-center gap-1">
-                    <span>Read Article</span>
-                    <ArrowRight size={11} />
-                  </Link>
-                  <Link href="/services/residential-property" className="text-[#1F5138] hover:underline">
-                    Property Service →
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 2. Interactive Search & Category Filter Explorer */}
-      <section className="section-institutional bg-[#F8F8F2]">
-        <div className="container">
-          <div className="section-title-wrap mb-6">
-            <SectionBadge>Searchable Archive</SectionBadge>
-            <h2 className="h2 mb-2 font-heading">Explore All Educational Resources</h2>
-            <p className="text-xs text-[#4F615A]">
-              Filter by topic category or search by keywords to find actionable explanations.
-            </p>
-          </div>
-
-          <KnowledgeHubExplorer initialArticles={articles} />
-        </div>
-      </section>
-    </PageShell>
-  )
+  return <BlogLandingView />
 }
 
 // -------------------------------------------------------------
@@ -1985,7 +1810,7 @@ function ServiceDetailView({ service }: { service: ServiceItem }) {
         </div>
       </section>
 
-      <section className="section-institutional bg-[#F8F8F2]">
+      <section className="section-institutional bg-[#F7FAF8]">
         <div className="container max-w-4xl">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-12">
             {/* Left 8 Columns: Scope, Considerations, Pitfalls, Process */}
@@ -2171,73 +1996,210 @@ function KnowledgeArticleDetailView({ article }: { article: KnowledgeArticle }) 
 
   return (
     <PageShell>
-      <section className="section-institutional bg-[#FFFFFF] border-b border-[#E2EBE5]">
-        <div className="container max-w-3xl">
-          <div className="text-xs text-[#1F5138] font-bold uppercase tracking-wider mb-2">
-            <Link href="/knowledge-hub" className="hover:underline">Knowledge Hub</Link>
-            <span className="mx-2">/</span>
-            <span>{article.category}</span>
+      {/* Article Header & Navigation */}
+      <section className="section-institutional bg-[#F7FAF8] border-b border-[#E2EBE5]">
+        <div className="container max-w-4xl">
+          {/* Back Navigation Link */}
+          <Link
+            href="/knowledge-hub"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0A5A42] hover:text-[#11A778] mb-4 transition-colors group"
+          >
+            <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
+            <span>Back to Knowledge Hub</span>
+          </Link>
+
+          {/* Category & Metadata Row */}
+          <div className="flex flex-wrap items-center gap-2.5 mb-3">
+            <span className="text-[10.5px] font-mono font-bold text-[#0A5A42] bg-[#E8F3ED] px-2.5 py-0.5 rounded-full border border-[#0A5A42]/10 uppercase">
+              {article.category}
+            </span>
+            <span className="text-xs text-[#2B2A29]/70 flex items-center gap-1">
+              <Clock size={12} className="text-[#11A778]" />
+              {article.readTime || article.read}
+            </span>
+            <span className="text-xs text-[#2B2A29]/50">•</span>
+            <span className="text-xs text-[#2B2A29]/70">
+              {article.publishedDate || article.date}
+            </span>
           </div>
-          <h1 className="h1 mb-3">{article.title}</h1>
-          <div className="text-xs text-[#4F615A] flex items-center gap-3">
-            <span>By {article.author}</span>
-            <span>•</span>
-            <span>{article.date}</span>
-            <span>•</span>
-            <span>{article.read}</span>
+
+          {/* Article Title */}
+          <h1 className="h1 text-2xl sm:text-3xl lg:text-4xl mb-4 font-heading text-[#142C3E] leading-tight">
+            {article.title}
+          </h1>
+
+          {/* Introductory Lead Excerpt */}
+          <p className="text-base sm:text-lg text-[#2B2A29]/80 font-normal leading-relaxed border-l-2 border-[#11A778] pl-4 mb-5">
+            {article.excerpt}
+          </p>
+
+          {/* Author Byline */}
+          <div className="pt-4 border-t border-[#E2EBE5] flex items-center gap-3 text-xs text-[#2B2A29]/75">
+            <div className="w-8 h-8 rounded-full bg-[#0A5A42] text-white font-bold flex items-center justify-center text-xs shrink-0 shadow-xs">
+              KR
+            </div>
+            <div>
+              <span className="font-semibold text-[#142C3E]">By {article.author}</span>
+              <span className="text-[#2B2A29]/60 block text-[11px]">
+                Wealth Architect & Life Strategist · Kreative Hertz
+              </span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section-institutional bg-[#F8F8F2]">
+      {/* Main Article Content */}
+      <section className="section-institutional bg-white">
         <div className="container max-w-3xl">
-          <div className="p-4 rounded border border-[#CAD9D0] bg-[#FFFFFF] mb-8">
-            <div className="text-xs font-bold text-[#1F5138] uppercase tracking-wider mb-1">
-              Core Takeaway
+          {/* Featured Article Image */}
+          <div className="relative aspect-16/9 sm:aspect-21/9 rounded-2xl overflow-hidden border border-[#E2EBE5] mb-8 shadow-xs bg-[#E8F3ED]">
+            <Image
+              src={getAssetPath(article.image || '/services/financial-planning.jpg')}
+              alt={article.title}
+              fill
+              priority
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="object-cover"
+            />
+          </div>
+
+          {/* Core Institutional Takeaway Callout */}
+          {article.keyTakeaway && (
+            <div className="bg-[#E8F3ED] border-l-4 border-[#0A5A42] p-5 rounded-r-2xl mb-8 shadow-xs">
+              <span className="text-[10.5px] font-mono font-bold uppercase tracking-wider text-[#0A5A42] block mb-1">
+                Core Institutional Takeaway
+              </span>
+              <p className="text-sm sm:text-base font-semibold text-[#142C3E] leading-relaxed">
+                {article.keyTakeaway}
+              </p>
             </div>
-            <p className="text-sm font-semibold text-[#172B3A]">
-              {article.keyTakeaway}
-            </p>
+          )}
+
+          {/* Rich Content Paragraphs */}
+          <div className="space-y-5 text-sm sm:text-base text-[#2B2A29]/90 leading-relaxed font-sans mb-10">
+            {article.contentParagraphs && article.contentParagraphs.length > 0 ? (
+              article.contentParagraphs.map((para, idx) => (
+                <p key={idx} className="leading-relaxed">
+                  {para}
+                </p>
+              ))
+            ) : (
+              <>
+                <p className="text-sm font-medium text-[#142C3E] leading-relaxed">
+                  {article.excerpt}
+                </p>
+                <p>
+                  In our advisory engagements at Kreative Hertz, we constantly see how minor clauses inside policy contracts result in substantial financial friction during emergencies. Whether it is choosing health policies with restrictive room-rent limits, terminating systematic investments during normal market volatility, or paying elevated interest rates on unmonitored home loans, lack of structured awareness remains the root cause.
+                </p>
+                <p>
+                  Sustainable financial stability is not achieved by attempting to time markets or chasing complex products; it is engineered through sound foundational risk covers, disciplined asset allocation, and regular reviews.
+                </p>
+              </>
+            )}
           </div>
 
-          <div className="prose text-xs text-[#26332D] leading-relaxed space-y-4 mb-10">
-            <p className="text-sm font-medium text-[#172B3A] leading-relaxed">
-              {article.excerpt}
-            </p>
-            <p>
-              In our advisory engagements at Kreative Hertz, we constantly see how minor clauses inside policy contracts result in substantial financial friction during emergencies. Whether it is choosing health policies with restrictive room-rent limits, terminating systematic investments during normal market volatility, or paying elevated interest rates on unmonitored home loans, lack of structured awareness remains the root cause.
-            </p>
-            <p>
-              Sustainable financial stability is not achieved by attempting to time markets or chasing complex products; it is engineered through sound foundational risk covers, disciplined asset allocation, and regular reviews.
-            </p>
-          </div>
+          {/* Strategic Key Insights Box */}
+          {article.keyTakeaways && article.keyTakeaways.length > 0 && (
+            <div className="bg-[#F7FAF8] rounded-2xl border border-[#E2EBE5] p-6 mb-8 shadow-xs">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="w-2 h-2 rounded-full bg-[#11A778]" />
+                <h3 className="text-xs font-bold text-[#142C3E] font-heading uppercase tracking-wider">
+                  Strategic Key Insights
+                </h3>
+              </div>
+              <div className="space-y-2.5">
+                {article.keyTakeaways.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#2B2A29]/85">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#11A778] shrink-0 mt-1.5" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
-          <div className="institutional-card p-6 text-center mb-10">
-            <h3 className="text-base font-bold text-[#172B3A] mb-2">Have Questions Regarding This Topic?</h3>
-            <p className="text-xs text-[#4F615A] mb-4">
-              Schedule a confidential strategy discussion with Karthik R.
+          {/* Diagnostic Action Checklist Box */}
+          {article.checklist && article.checklist.length > 0 && (
+            <div className="bg-white rounded-2xl border border-[#E2EBE5] p-6 mb-10 shadow-xs">
+              <div className="flex items-center gap-2 mb-3">
+                <CheckCircle2 size={16} className="text-[#11A778]" />
+                <h3 className="text-xs font-bold text-[#142C3E] font-heading uppercase tracking-wider">
+                  Diagnostic & Action Checklist
+                </h3>
+              </div>
+              <div className="space-y-2.5">
+                {article.checklist.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#2B2A29]/85 bg-[#F7FAF8] p-3 rounded-xl border border-[#E2EBE5]/60">
+                    <Check size={14} className="text-[#0A5A42] shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Consultation Strategy Session CTA */}
+          <div className="bg-[#F7FAF8] border border-[#E2EBE5] rounded-2xl p-6 sm:p-8 text-center mb-12 shadow-xs">
+            <h3 className="text-base sm:text-lg font-bold text-[#142C3E] font-heading mb-2">
+              Have Specific Questions Regarding This Topic?
+            </h3>
+            <p className="text-xs sm:text-sm text-[#2B2A29]/75 max-w-lg mx-auto mb-5 leading-relaxed">
+              Schedule a confidential, conflict-free strategy audit with Karthik R to review your current contracts, loan spreads, or compounding allocations.
             </p>
-            <Link href="/book-session" className="btn-primary text-xs py-2.5 px-6">
+            <Link
+              href="/book-session"
+              className="btn-primary text-xs py-2.5 px-6 inline-flex items-center gap-2 shadow-xs"
+            >
               <span>Book Strategy Session</span>
               <ArrowRight size={14} />
             </Link>
           </div>
 
-          {/* Related Articles */}
+          {/* Related Articles Navigation */}
           <div className="border-t border-[#E2EBE5] pt-8">
-            <h3 className="text-base font-bold text-[#172B3A] mb-4">Other Articles</h3>
+            <div className="flex items-center justify-between mb-4">
+              <h3 className="text-base font-bold text-[#142C3E] font-heading">
+                Explore More Publications
+              </h3>
+              <Link
+                href="/knowledge-hub"
+                className="text-xs font-semibold text-[#0A5A42] hover:text-[#11A778] inline-flex items-center gap-1 transition-colors"
+              >
+                <span>All Articles</span>
+                <ChevronRight size={13} />
+              </Link>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {others.map((oa) => (
                 <Link
                   key={oa.slug}
                   href={`/knowledge-hub/${oa.slug}`}
-                  className="institutional-card p-4 hover:border-[#1F5138] transition-colors"
+                  className="bg-white rounded-xl border border-[#E2EBE5] overflow-hidden hover:border-[#0A5A42]/40 hover:shadow-sm transition-all flex flex-col justify-between group"
                 >
-                  <span className="text-[10px] font-bold text-[#1F5138] uppercase tracking-wider block mb-1">
-                    {oa.category}
-                  </span>
-                  <h4 className="text-xs font-bold text-[#172B3A] mb-1 line-clamp-2">{oa.title}</h4>
-                  <span className="text-[11px] text-[#4F615A]">{oa.read}</span>
+                  <div>
+                    <div className="relative aspect-16/10 overflow-hidden bg-[#E8F3ED]">
+                      <Image
+                        src={getAssetPath(oa.image || '/services/financial-planning.jpg')}
+                        alt={oa.title}
+                        fill
+                        sizes="240px"
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                    <div className="p-3.5">
+                      <span className="text-[10px] font-mono font-bold text-[#0A5A42] uppercase tracking-wider block mb-1">
+                        {oa.category}
+                      </span>
+                      <h4 className="text-xs font-bold text-[#142C3E] group-hover:text-[#0A5A42] transition-colors mb-1 line-clamp-2 font-heading leading-snug">
+                        {oa.title}
+                      </h4>
+                    </div>
+                  </div>
+                  <div className="p-3.5 pt-0 text-[10.5px] text-[#2B2A29]/60 flex items-center justify-between border-t border-[#E2EBE5]/60 mt-1">
+                    <span>{oa.readTime || oa.read}</span>
+                    <span className="font-semibold text-[#0A5A42] group-hover:text-[#11A778]">Read →</span>
+                  </div>
                 </Link>
               ))}
             </div>
@@ -2264,7 +2226,7 @@ function BookSessionPageView() {
         </div>
       </section>
 
-      <section className="section-institutional bg-[#F8F8F2]">
+      <section className="section-institutional bg-[#F7FAF8]">
         <div className="container max-w-3xl">
           <BookSessionSection />
         </div>
@@ -2289,7 +2251,7 @@ function ContactPageView() {
         </div>
       </section>
 
-      <section className="section-institutional bg-[#F8F8F2]">
+      <section className="section-institutional bg-[#F7FAF8]">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-5 space-y-4">
@@ -2406,7 +2368,7 @@ function FaqPageView() {
         </div>
       </section>
 
-      <section className="section-institutional bg-[#F8F8F2]">
+      <section className="section-institutional bg-[#F7FAF8]">
         <div className="container max-w-4xl space-y-8">
           {allFaqs.map((sec, idx) => (
             <div key={idx}>
@@ -2450,7 +2412,7 @@ function PrivacyPageView() {
         </div>
       </section>
 
-      <section className="section-institutional bg-[#F8F8F2]">
+      <section className="section-institutional bg-[#F7FAF8]">
         <div className="container max-w-3xl prose text-xs text-[#26332D] leading-relaxed space-y-4">
           <div className="p-3 rounded border border-[#CAD9D0] bg-[#FFFFFF] text-xs font-semibold text-[#1F5138]">
             Effective Date: June 2022 | Last Updated: November 2026.
@@ -2502,7 +2464,7 @@ function TermsPageView() {
         </div>
       </section>
 
-      <section className="section-institutional bg-[#F8F8F2]">
+      <section className="section-institutional bg-[#F7FAF8]">
         <div className="container max-w-3xl prose text-xs text-[#26332D] leading-relaxed space-y-4">
           <div className="p-3 rounded border border-[#CAD9D0] bg-[#FFFFFF] text-xs font-semibold text-[#1F5138]">
             Governing all advisory interactions, consultations, and educational content.
@@ -2549,7 +2511,7 @@ function DisclaimerPageView() {
         </div>
       </section>
 
-      <section className="section-institutional bg-[#F8F8F2]">
+      <section className="section-institutional bg-[#F7FAF8]">
         <div className="container max-w-3xl prose text-xs text-[#26332D] leading-relaxed space-y-4">
           <div className="p-3 rounded border border-[#CAD9D0] bg-[#FFFFFF] text-xs font-semibold text-[#1F5138]">
             Compliance Notice: Kreative Hertz operates strictly on an educational and client-first basis.

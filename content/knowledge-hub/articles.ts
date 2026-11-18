@@ -14,6 +14,7 @@ export interface KnowledgeArticle {
   keyTakeaways: string[]
   contentParagraphs: string[]
   checklist: string[]
+  image?: string
 }
 
 export const articles: KnowledgeArticle[] = [
@@ -27,6 +28,7 @@ export const articles: KnowledgeArticle[] = [
     date: 'January 2026',
     publishedDate: 'January 2026',
     author: 'Karthik R',
+    image: '/services/financial-planning.jpg',
     excerpt: 'A structured methodology for diagnosing unseen liabilities, under-insurance traps, high-interest debt leaks, and inflation vulnerabilities in Indian household balance sheets.',
     summary: 'A structured methodology for diagnosing unseen liabilities, under-insurance traps, high-interest debt leaks, and inflation vulnerabilities in Indian household balance sheets.',
     keyTakeaway: 'Financial mistakes rarely result from low income; they result from unexamined structural leaks and misallocated capital.',
@@ -59,6 +61,7 @@ export const articles: KnowledgeArticle[] = [
     date: 'December 2025',
     publishedDate: 'December 2025',
     author: 'Karthik R',
+    image: '/services/health-insurance.jpg',
     excerpt: 'Uncovering dangerous sub-limits, proportional claim deductions, and low-yield traps hidden in typical Indian life and health insurance portfolios.',
     summary: 'Uncovering the dangerous sub-limits, proportional claim deductions, and low-yield traps hidden in typical Indian life and health insurance portfolios.',
     keyTakeaway: 'Never allow insurance and investment to mix in the same financial contract; pure protection costs less and shields more.',
@@ -91,6 +94,7 @@ export const articles: KnowledgeArticle[] = [
     date: 'November 2025',
     publishedDate: 'November 2025',
     author: 'Karthik R',
+    image: '/services/mutual-funds.jpg',
     excerpt: 'A deep-dive analysis demonstrating how small, systematic increments in your monthly SIP generate substantially higher terminal wealth than futile market timing.',
     summary: 'A deep-dive analysis demonstrating how small, systematic increments in your monthly SIP generate substantially higher terminal wealth than futile attempts to predict market corrections.',
     keyTakeaway: 'Stepping up your monthly SIP by just 10% annually creates over 75% higher terminal wealth than a fixed-amount SIP.',
@@ -123,6 +127,7 @@ export const articles: KnowledgeArticle[] = [
     date: 'October 2025',
     publishedDate: 'October 2025',
     author: 'Karthik R',
+    image: '/services/home-loans.jpg',
     excerpt: 'A step-by-step financial evaluation framework to help homeowners transition out of expensive legacy loan regimes and drastically accelerate debt freedom.',
     summary: 'A step-by-step financial evaluation framework to help homeowners transition out of expensive legacy loan regimes and drastically accelerate debt freedom.',
     keyTakeaway: 'Banks frequently leave existing borrowers on higher legacy spreads while offering competitive repo rates to new applicants.',
@@ -155,6 +160,7 @@ export const articles: KnowledgeArticle[] = [
     date: 'September 2025',
     publishedDate: 'September 2025',
     author: 'Karthik R',
+    image: '/pathways/pathway-develop-myself.jpg',
     excerpt: 'Essential financial psychology, debt discipline, and early wealth principles every graduating student needs before their first paycheck.',
     summary: 'Essential financial psychology, debt discipline, and early wealth principles every graduating college student and young professional needs before earning their first paycheck.',
     keyTakeaway: 'Wealth is determined not by gross income, but by retention discipline and the absence of high-cost consumer debt.',
