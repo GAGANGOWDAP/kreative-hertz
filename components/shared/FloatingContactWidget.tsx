@@ -111,7 +111,7 @@ export function FloatingContactWidget() {
         onClick={() => setIsOpen(!isOpen)}
         aria-label={isOpen ? 'Close advisory desk' : 'Open direct advisory desk'}
         aria-expanded={isOpen}
-        className="relative flex items-center justify-center w-12 h-12 sm:w-auto sm:h-11 sm:px-4 rounded-full bg-[#1F5138] hover:bg-[#159568] text-white shadow-[0_6px_20px_rgba(31,81,56,0.35)] transition-all hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#1F5138] focus:ring-offset-2 border border-[#C6A66B]/40"
+        className="relative flex items-center justify-center w-12 h-12 sm:w-auto sm:h-11 sm:px-4 rounded-full bg-[#1F5138] hover:bg-[#159568] text-white shadow-[0_6px_20px_rgba(31,81,56,0.35)] transition-all hover:scale-105 active:scale-95 focus:outline-none focus:ring-2 focus:ring-[#1F5138] focus:ring-offset-2 border border-white/20"
       >
         {isOpen ? (
           <X className="w-5 h-5 text-white" strokeWidth={2.2} />

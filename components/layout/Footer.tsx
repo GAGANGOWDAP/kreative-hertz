@@ -39,7 +39,7 @@ export function Footer() {
               className="inline-flex items-center gap-3 group mb-4"
               aria-label="Kreative Hertz Home"
             >
-              <div className="w-11 h-11 rounded-lg bg-[#0D261C] border border-[#C6A66B] flex items-center justify-center overflow-hidden shadow-md group-hover:border-[#C6A66B] transition-colors flex-shrink-0">
+              <div className="w-11 h-11 rounded-lg bg-[#0D261C] border border-[#159568] flex items-center justify-center overflow-hidden shadow-md group-hover:border-[#11A778] transition-colors flex-shrink-0">
                 <Image
                   src={getAssetPath('/logo-icon.png')}
                   alt="Kreative Hertz Crest"
@@ -52,7 +52,7 @@ export function Footer() {
                 <span className="font-extrabold tracking-wider text-white text-[16px] leading-tight font-heading">
                   {companyDetails.name.toUpperCase()}
                 </span>
-                <span className="text-[9px] font-bold tracking-widest text-[#C6A66B] uppercase font-heading mt-0.5">
+                <span className="text-[9px] font-bold tracking-widest text-[#159568] uppercase font-heading mt-0.5">
                   {companyDetails.tagline.toUpperCase()}
                 </span>
               </div>
@@ -76,7 +76,7 @@ export function Footer() {
 
           {/* Column 2: Core Navigation (2 cols) */}
           <div className="lg:col-span-2">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#C6A66B] font-heading mb-4">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#159568] font-heading mb-4">
               Navigation
             </h4>
             <ul className="space-y-2.5 text-xs">
@@ -104,7 +104,7 @@ export function Footer() {
 
           {/* Column 3: Services & Programmes (3 cols) */}
           <div className="lg:col-span-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-[#C6A66B] font-heading mb-4">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#159568] font-heading mb-4">
               Services & Programmes
             </h4>
             <div className="space-y-4">
@@ -149,7 +149,7 @@ export function Footer() {
           {/* Column 4: Contact & Direct Desk (3 cols) */}
           <div className="lg:col-span-3 flex flex-col justify-between">
             <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-[#C6A66B] font-heading mb-4">
+              <h4 className="text-xs font-bold uppercase tracking-wider text-[#159568] font-heading mb-4">
                 Official Advisory Desk
               </h4>
               <div className="space-y-3 text-xs">
@@ -210,9 +210,9 @@ export function Footer() {
         </div>
 
         {/* REGULATORY & FIDUCIARY DISCLOSURE */}
-        <div className="my-8 p-5 rounded-xl bg-[#1B374C]/50 border border-[#C6A66B]/25 shadow-sm">
-          <div className="flex items-center gap-2 mb-2 text-[#C6A66B] font-semibold text-xs tracking-wider uppercase">
-            <ShieldCheck className="w-4 h-4 text-[#C6A66B] shrink-0" />
+        <div className="my-8 p-5 rounded-xl bg-[#1B374C]/50 border border-[#159568]/30 shadow-sm">
+          <div className="flex items-center gap-2 mb-2 text-[#159568] font-semibold text-xs tracking-wider uppercase">
+            <ShieldCheck className="w-4 h-4 text-[#159568] shrink-0" />
             <span>Regulatory & Fiduciary Disclosure</span>
           </div>
           <p className="text-xs leading-relaxed text-[#D1DEE5]">

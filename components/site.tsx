@@ -559,11 +559,11 @@ export function HowWeWorkSection() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-2.5 sm:mb-4 lg:mb-3 xl:mb-4">
           <div className="flex items-center justify-center gap-2.5 sm:gap-3 mb-1">
-            <span className="w-8 sm:w-12 h-[1.5px] bg-[#C6A66B]" />
+            <span className="w-8 sm:w-12 h-[1.5px] bg-[#159568]" />
             <span className="text-[10px] sm:text-xs font-bold tracking-[0.2em] text-[#1F5138] uppercase font-mono">
               ADVISORY METHODOLOGY
             </span>
-            <span className="w-8 sm:w-12 h-[1.5px] bg-[#C6A66B]" />
+            <span className="w-8 sm:w-12 h-[1.5px] bg-[#159568]" />
           </div>
           <h2 className="text-xl sm:text-3xl lg:text-[26px] xl:text-[30px] font-extrabold text-[#172B3A] font-heading tracking-tight leading-tight">
             How We Work – The 4-Step Client Journey
@@ -571,7 +571,7 @@ export function HowWeWorkSection() {
           <p className="text-xs sm:text-sm text-[#4F615A] max-w-xl mx-auto mt-0.5 leading-normal">
             A structured approach to understand, plan and support your financial journey.
           </p>
-          <div className="w-10 h-[2px] bg-[#C6A66B] mx-auto mt-1 rounded-full" />
+          <div className="w-10 h-[2px] bg-[#159568] mx-auto mt-1 rounded-full" />
         </div>
 
         {/* =========================================================================
@@ -598,9 +598,9 @@ export function HowWeWorkSection() {
                   >
                     {renderIcon(steps[0].iconType, 'w-4.5 h-4.5 xl:w-5 xl:h-5')}
                   </div>
-                  <div className="w-[1.5px] self-stretch bg-[#C6A66B]/50 rounded-full flex-shrink-0 my-0.5" />
+                  <div className="w-[1.5px] self-stretch bg-[#159568]/40 rounded-full flex-shrink-0 my-0.5" />
                   <div className="flex-1 min-w-0">
-                    <span className="text-[10px] xl:text-[11px] font-bold tracking-widest text-[#C6A66B] uppercase font-mono block leading-none">
+                    <span className="text-[10px] xl:text-[11px] font-bold tracking-widest text-[#159568] uppercase font-mono block leading-none">
                       {steps[0].phase}
                     </span>
                     <h3 className="text-base xl:text-lg font-bold text-[#172B3A] font-heading tracking-tight leading-snug mt-1 group-hover:text-[#1F5138] transition-colors">
@@ -637,9 +637,9 @@ export function HowWeWorkSection() {
                   >
                     {renderIcon(steps[2].iconType, 'w-4.5 h-4.5 xl:w-5 xl:h-5')}
                   </div>
-                  <div className="w-[1.5px] self-stretch bg-[#C6A66B]/50 rounded-full flex-shrink-0 my-0.5" />
+                  <div className="w-[1.5px] self-stretch bg-[#159568]/40 rounded-full flex-shrink-0 my-0.5" />
                   <div className="flex-1 min-w-0">
-                    <span className="text-[10px] xl:text-[11px] font-bold tracking-widest text-[#C6A66B] uppercase font-mono block leading-none">
+                    <span className="text-[10px] xl:text-[11px] font-bold tracking-widest text-[#159568] uppercase font-mono block leading-none">
                       {steps[2].phase}
                     </span>
                     <h3 className="text-base xl:text-lg font-bold text-[#172B3A] font-heading tracking-tight leading-snug mt-1 group-hover:text-[#1F5138] transition-colors">
@@ -933,9 +933,9 @@ export function HowWeWorkSection() {
                   >
                     {renderIcon(steps[1].iconType, 'w-4.5 h-4.5 xl:w-5 xl:h-5')}
                   </div>
-                  <div className="w-[1.5px] self-stretch bg-[#C6A66B]/50 rounded-full flex-shrink-0 my-0.5" />
+                  <div className="w-[1.5px] self-stretch bg-[#159568]/40 rounded-full flex-shrink-0 my-0.5" />
                   <div className="flex-1 min-w-0">
-                    <span className="text-[10px] xl:text-[11px] font-bold tracking-widest text-[#C6A66B] uppercase font-mono block leading-none">
+                    <span className="text-[10px] xl:text-[11px] font-bold tracking-widest text-[#159568] uppercase font-mono block leading-none">
                       {steps[1].phase}
                     </span>
                     <h3 className="text-base xl:text-lg font-bold text-[#172B3A] font-heading tracking-tight leading-snug mt-1 group-hover:text-[#1F5138] transition-colors">
@@ -972,9 +972,9 @@ export function HowWeWorkSection() {
                   >
                     {renderIcon(steps[3].iconType, 'w-4.5 h-4.5 xl:w-5 xl:h-5')}
                   </div>
-                  <div className="w-[1.5px] self-stretch bg-[#C6A66B]/50 rounded-full flex-shrink-0 my-0.5" />
+                  <div className="w-[1.5px] self-stretch bg-[#159568]/40 rounded-full flex-shrink-0 my-0.5" />
                   <div className="flex-1 min-w-0">
-                    <span className="text-[10px] xl:text-[11px] font-bold tracking-widest text-[#C6A66B] uppercase font-mono block leading-none">
+                    <span className="text-[10px] xl:text-[11px] font-bold tracking-widest text-[#159568] uppercase font-mono block leading-none">
                       {steps[3].phase}
                     </span>
                     <h3 className="text-base xl:text-lg font-bold text-[#172B3A] font-heading tracking-tight leading-snug mt-1 group-hover:text-[#1F5138] transition-colors">
@@ -1053,10 +1053,10 @@ export function HowWeWorkSection() {
                       >
                         {renderIcon(step.iconType, 'w-3.5 h-3.5 sm:w-4.5 sm:h-4.5')}
                       </div>
-                      <div className="w-[1.5px] self-stretch bg-[#C6A66B]/50 rounded-full flex-shrink-0 my-0.5" />
+                      <div className="w-[1.5px] self-stretch bg-[#159568]/40 rounded-full flex-shrink-0 my-0.5" />
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2">
-                          <span className="text-[9px] sm:text-[11px] font-bold tracking-widest text-[#C6A66B] uppercase font-mono block leading-none">
+                          <span className="text-[9px] sm:text-[11px] font-bold tracking-widest text-[#159568] uppercase font-mono block leading-none">
                             {step.phase}
                           </span>
                           <span className="text-[10px] sm:text-[12px] font-semibold text-[#159568] leading-none">

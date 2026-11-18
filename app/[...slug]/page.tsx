@@ -1964,13 +1964,13 @@ function ServiceDetailView({ service }: { service: ServiceItem }) {
               {service.commonMistakes && (
                 <div className="institutional-card p-6 bg-[#FFFFFF]">
                   <h3 className="text-sm font-bold text-[#172B3A] mb-3 font-heading flex items-center gap-2">
-                    <AlertCircle size={16} className="text-[#C6A66B]" />
+                    <AlertCircle size={16} className="text-[#1F5138]" />
                     <span>Common Pitfalls to Avoid</span>
                   </h3>
                   <ul className="space-y-2 text-xs text-[#4F615A]">
                     {service.commonMistakes.map((m, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <span className="text-[#C6A66B] font-bold">⚠</span>
+                        <span className="text-[#1F5138] font-bold">⚠</span>
                         <span>{m}</span>
                       </li>
                     ))}

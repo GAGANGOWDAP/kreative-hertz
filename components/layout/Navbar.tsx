@@ -11,6 +11,7 @@ import { primaryNavItems, headerBookingCta } from '@/content/navigation/main-nav
 export function Navbar() {
   const pathname = usePathname()
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
+  const [isScrolled, setIsScrolled] = React.useState(false)
   const navRef = useRef<HTMLElement>(null)
 
   // Close mobile drawer on Escape key
@@ -29,6 +30,54 @@ export function Navbar() {
     setMobileMenuOpen(false)
   }, [pathname])
 
+  // Scroll-responsive transition: IntersectionObserver & scroll threshold
+  useEffect(() => {
+    const hero = document.querySelector('main > section:first-of-type')
+
+    const updateScrolled = () => {
+      if (hero) {
+        const rect = hero.getBoundingClientRect()
+        // Scrolled beyond hero when hero bottom clears navbar, or passed scroll threshold
+        const scrolled = rect.bottom <= 80 || window.scrollY > 80
+        setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev))
+      } else {
+        const scrolled = window.scrollY > 80
+        setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev))
+      }
+    }
+
+    // Check initial position on mount / route transition
+    updateScrolled()
+    window.addEventListener('scroll', updateScrolled, { passive: true })
+
+    let observer: IntersectionObserver | null = null
+    if (hero && typeof IntersectionObserver !== 'undefined') {
+      observer = new IntersectionObserver(
+        (entries) => {
+          const entry = entries[0]
+          if (!entry.isIntersecting && entry.boundingClientRect.top < 0) {
+            setIsScrolled(true)
+          } else if (entry.isIntersecting && entry.boundingClientRect.top >= 0) {
+            setIsScrolled(false)
+          }
+        },
+        {
+          root: null,
+          rootMargin: '-76px 0px 0px 0px',
+          threshold: 0
+        }
+      )
+      observer.observe(hero)
+    }
+
+    return () => {
+      window.removeEventListener('scroll', updateScrolled)
+      if (observer) {
+        observer.disconnect()
+      }
+    }
+  }, [pathname])
+
   const isLinkActive = (href: string) => {
     if (href === '/') return pathname === '/'
     if (href === '/services') return pathname.startsWith('/services') || pathname.startsWith('/wealth-architect')
@@ -39,7 +88,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className="site-header sticky top-0 left-0 right-0 z-50 shadow-sm" ref={navRef}>
+      <header className={`site-header sticky top-0 left-0 right-0 z-50 ${isScrolled ? 'is-scrolled' : ''}`} ref={navRef}>
         <div className="container nav-bar-inner">
           <BrandLogo onClick={() => setMobileMenuOpen(false)} />
 
