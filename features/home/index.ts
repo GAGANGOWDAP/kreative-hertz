@@ -1,0 +1,5 @@
+export { HeroSection } from './sections/HeroSection'
+export { VisitorRequirementSelector } from './sections/VisitorRequirementSelector'
+export { TwoDisciplinesOverview } from './sections/TwoDisciplinesOverview'
+export { HowWeWorkSection } from './sections/HowWeWorkSection'
+export { HomeBookingCtaSection } from './sections/HomeBookingCtaSection'

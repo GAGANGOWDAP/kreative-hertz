@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowLeft, Home, Compass } from 'lucide-react'
-import { PageShell } from '@/components/site'
+import { PageShell } from '@/components/layout/PageShell'
 import { getAssetPath } from '@/lib/assets'
 
 function HeroBackground() {
